@@ -46,7 +46,7 @@
 	둘다 CLI를 지원한다. 
 	다만 aptitude는 GUI또한 제공하고 
 	대화형으로 패키지를 검색해 설치, 제거할 수 있다. 
-	apt는 Low-level 패키지 매니저고 
+	apt는 Low-level 패키지 매니저고 
 	기존 apt-get이나 apt-cache등의 명령어들이 가지고있던 불필요한 옵션들은 제거하고 꼭 필요한 옵션들만 모았다.
 
 > APPArmer이란 무엇인가
