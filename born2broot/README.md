@@ -326,7 +326,7 @@
 	VCPU=$(grep 'processor' /proc/cpuinfo | uniq | wc -l) // 가상 프로세서의 정보가 출력된다. processor를 그랩해서 줄갯수를 센다
 	RAM=$(free -m | grep Mem: | awk '{printf" %d/%dMB (%.2f%%)\n", $3 , $2, $3 / $2 * 100'}) // 메모리 amount를 보여준다 (m : megabytes)
 	USEDDISK=$(df -BM | grep /dev/map | awk '{used += $3} END {printf "%d", used}')	// 사용중인 공간 (df는 디스크 공간 정보르 보여준다.)
-	FULLDISK=$(df -BM | grep /dev/map | awk '{full += $2} END {printf "%d", full}') // 전체공간 (BM = megabytes) (df는 마운트되지 않은 공간은 보여주지 않아서 8기가 보다 작게 보인다.)
+	FULLDISK=$(df -BG | grep /dev/map | awk '{full += $2} END {printf "%d", full}') // 전체공간 (BM = megabytes) (df는 마운트되지 않은 공간은 보여주지 않아서 8기가 보다 작게 보인다.)
 	DISKRATE=$(df -BM | grep /dev/map | awk '{used += $3} {full += $2} END {printf("%d%%\n"), used / full * 100}')
 	CPULOAD=$(mpstat | grep all | awk '{printf "%.2f%%\n", 100-$13}') // cpu사용량을 보여줌
 	LASTBOOT=$(who -b | awk '{print $3" "$4}') // who : 로그인한 유저들을 보여줌
@@ -341,7 +341,7 @@
 	echo "#CPU physical : ${PCPU}"
 	echo "#vCPU : ${VCPU}"
 	echo "#Memory Usage:${RAM}"
-	echo "#Dis Usage: ${USEDDISK}/${FULLDISK}MB (${DISKRATE})"
+	echo "#Dis Usage: ${USEDDISK}/${FULLDISK}GB (${DISKRATE})"
 	echo "#CPU load: ${CPULOAD}"
 	echo "#Last boot: ${LASTBOOT}"
 	echo "#LVM use: ${LVM}"
