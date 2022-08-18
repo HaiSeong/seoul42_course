@@ -129,7 +129,16 @@
 	dcredit=-1 // 숫자 한개 이상 포함
 	reject_username // username이 그대로 혹은 reversed 된 문자는 패스워드로 사용 불가
 	enforce_for_root // root 계정도 위의 정책들 적용 
+	
+>*사용작계정이 룰에 등록되었는지 확인하는 방법*
 
+	$ chage -l hajeong
+	
+>*root 계정은 왜 7글자 중복이 가능한지*
+
+	$ su - 
+	$ passwd // 비밀번호 바꾸기 : root는 기존 비밀번호를 물어보지 않아 difok룰이 적용되지 않는다.
+	
 >만일 어떤 문제라도 생긴다면, 여기서 평가를 중단하십시오.
 
 <br>
@@ -312,17 +321,17 @@
 >스크립트가 어떻게 동작하는 지 당신에게 코드를 보여주기
 
 	#!bin/bash
-	ARCH=$(uname -a)
-	PCPU=$(nproc --all)
-	VCPU=$(grep 'processor' /proc/cpuinfo | uniq | wc -l)
-	RAM=$(free -m | grep Mem: | awk '{printf" %d/%dMB (%.2f%%)\n", $3 , $2, $3 / $2 * 100'})
-	USEDDISK=$(df -BM | grep /dev/map | awk '{used += $3} END {printf "%d", used}')
-	FULLDISK=$(df -BM | grep /dev/map | awk '{full += $2} END {printf "%d", full}')
+	ARCH=$(uname -a) // 시스템 정보를 보여주느 명령어 (-a : 모든 정보를 나타냄)
+	PCPU=$(nproc --all) // 사용 가능한 물리 프로세서 갯수를 보여준다 (--all : 설치된 모든 물리 프로세서 갯수를 보여준다.)
+	VCPU=$(grep 'processor' /proc/cpuinfo | uniq | wc -l) // 가상 프로세서의 정보가 출력된다. processor를 그랩해서 줄갯수를 센다
+	RAM=$(free -m | grep Mem: | awk '{printf" %d/%dMB (%.2f%%)\n", $3 , $2, $3 / $2 * 100'}) // 메모리 amount를 보여준다 (m : megabytes)
+	USEDDISK=$(df -BM | grep /dev/map | awk '{used += $3} END {printf "%d", used}')	// 사용중인 공간 (df는 디스크 공간 정보르 보여준다.)
+	FULLDISK=$(df -BG | grep /dev/map | awk '{full += $2} END {printf "%d", full}') // 전체공간 (BM = megabytes) (df는 마운트되지 않은 공간은 보여주지 않아서 8기가 보다 작게 보인다.)
 	DISKRATE=$(df -BM | grep /dev/map | awk '{used += $3} {full += $2} END {printf("%d%%\n"), used / full * 100}')
-	CPULOAD=$(mpstat | grep all | awk '{printf "%.2f%%\n", 100-$13}')
-	LASTBOOT=$(who -b | awk '{print $3" "$4}')
-	LVM=$(if [ $(lsblk | grep lvm | wc -l) -eq 0 ]; then echo no; else echo yes; fi)
-	CONNECTION=$(cat /proc/net/sockstat | awk '$1 == "TCP:" {print $3 - 1 " ESTABLISHED"}')
+	CPULOAD=$(mpstat | grep all | awk '{printf "%.2f%%\n", 100-$13}') // cpu사용량을 보여줌
+	LASTBOOT=$(who -b | awk '{print $3" "$4}') // who : 로그인한 유저들을 보여줌
+	LVM=$(if [ $(lsblk | grep lvm | wc -l) -eq 0 ]; then echo no; else echo yes; fi) // lvm이 한줄이랃 있으면 yes 없으면 no
+	CONNECTION=$(cat /proc/net/sockstat | awk '$1 == "TCP:" {print $3 " ESTABLISHED"}') // sockstat : 소켓 정보르 알려줌 TCP가 있는 줄에 
 	USERS=$(who | wc -l)
 	IP=$(hostname -I)
 	MAC=$(ip addr | grep "ether " | awk '{print $2}' | sed -n '1p')
@@ -332,7 +341,7 @@
 	echo "#CPU physical : ${PCPU}"
 	echo "#vCPU : ${VCPU}"
 	echo "#Memory Usage:${RAM}"
-	echo "#Dis Usage: ${USEDDISK}/${FULLDISK}MB (${DISKRATE})"
+	echo "#Dis Usage: ${USEDDISK}/${FULLDISK}GB (${DISKRATE})"
 	echo "#CPU load: ${CPULOAD}"
 	echo "#Last boot: ${LASTBOOT}"
 	echo "#LVM use: ${LVM}"
