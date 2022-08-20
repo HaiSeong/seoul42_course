@@ -49,7 +49,7 @@ size_t	ft_dc_lstdel_front(t_dc_list **lst)
 		data = (*lst)->data;
 		free(*lst);
 		*lst = NULL;
-		return data;
+		return (data);
 	}
 	del = *lst;
 	*lst = (*lst)->right;
@@ -57,67 +57,67 @@ size_t	ft_dc_lstdel_front(t_dc_list **lst)
 	(*lst)->left = (*lst)->left->left;
 	data = del->data;
 	free(del);
-	return data;
+	return (data);
 }
 
-#include <stdio.h>
-int main()
-{
-	t_dc_list *a;
-	a = NULL;
+// #include <stdio.h>
+// int main()
+// {
+// 	t_dc_list *a;
+// 	a = NULL;
 
-	t_dc_list *new = ft_dc_lstnew(3);
-	ft_dc_lstadd_front(&a, new);
-	printf("%d\n", a->data);
-	printf("%p\n", a);
-	printf("left %p\n", a->left);
-	printf("right %p\n", a->right);
+// 	t_dc_list *new = ft_dc_lstnew(3);
+// 	ft_dc_lstadd_front(&a, new);
+// 	printf("%d\n", a->data);
+// 	printf("%p\n", a);
+// 	printf("left %p\n", a->left);
+// 	printf("right %p\n", a->right);
 
-	t_dc_list *new1 = ft_dc_lstnew(4);
-	ft_dc_lstadd_front(&a, new1);
-	printf("%d\n", a->data);
-	printf("%p\n", a);
-	printf("left %p\n", a->left);
-	printf("right %p\n", a->right);
+// 	t_dc_list *new1 = ft_dc_lstnew(4);
+// 	ft_dc_lstadd_front(&a, new1);
+// 	printf("%d\n", a->data);
+// 	printf("%p\n", a);
+// 	printf("left %p\n", a->left);
+// 	printf("right %p\n", a->right);
 
-	t_dc_list *new2 = ft_dc_lstnew(5);
-	ft_dc_lstadd_front(&a, new2);
-	printf("%d\n", a->data);
-	printf("%p\n", a);
-	printf("left %p\n", a->left);
-	printf("right %p\n", a->right);
+// 	t_dc_list *new2 = ft_dc_lstnew(5);
+// 	ft_dc_lstadd_front(&a, new2);
+// 	printf("%d\n", a->data);
+// 	printf("%p\n", a);
+// 	printf("left %p\n", a->left);
+// 	printf("right %p\n", a->right);
 
-	t_dc_list *new3 = ft_dc_lstnew(6);
-	ft_dc_lstadd_front(&a, new3);
-	printf("%d\n", a->data);
-	printf("%p\n", a);
-	printf("left %p\n", a->left);
-	printf("right %p\n", a->right);
+// 	t_dc_list *new3 = ft_dc_lstnew(6);
+// 	ft_dc_lstadd_front(&a, new3);
+// 	printf("%d\n", a->data);
+// 	printf("%p\n", a);
+// 	printf("left %p\n", a->left);
+// 	printf("right %p\n", a->right);
 
-	ft_dc_lstdel_front(&a);
-	printf("%d\n", a->data);
-	printf("%p\n", a);
-	printf("left %p\n", a->left);
-	printf("right %p\n", a->right);
+// 	ft_dc_lstdel_front(&a);
+// 	printf("%d\n", a->data);
+// 	printf("%p\n", a);
+// 	printf("left %p\n", a->left);
+// 	printf("right %p\n", a->right);
 
-	ft_dc_lstdel_front(&a);
-	printf("%d\n", a->data);
-	printf("%p\n", a);
-	printf("left %p\n", a->left);
-	printf("right %p\n", a->right);
+// 	ft_dc_lstdel_front(&a);
+// 	printf("%d\n", a->data);
+// 	printf("%p\n", a);
+// 	printf("left %p\n", a->left);
+// 	printf("right %p\n", a->right);
 
-	ft_dc_lstdel_front(&a);
-	printf("%d\n", a->data);
-	printf("%p\n", a);
-	printf("left %p\n", a->left);
-	printf("right %p\n", a->right);
+// 	ft_dc_lstdel_front(&a);
+// 	printf("%d\n", a->data);
+// 	printf("%p\n", a);
+// 	printf("left %p\n", a->left);
+// 	printf("right %p\n", a->right);
 
-	size_t data = ft_dc_lstdel_front(&a);
-	// printf("%d\n", a->data);
-	printf("%p\n", a);
-	printf("%d\n", data);
-	// printf("left %p\n", a->left);
-	// printf("right %p\n", a->right);
+// 	size_t data = ft_dc_lstdel_front(&a);
+// 	// printf("%d\n", a->data);
+// 	printf("%p\n", a);
+// 	printf("%d\n", data);
+// 	// printf("left %p\n", a->left);
+// 	// printf("right %p\n", a->right);
 
-	system("leaks ./a.out");
-}
+// 	system("leaks ./a.out");
+// }
