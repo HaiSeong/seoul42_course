@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 17:11:24 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/21 17:16:23 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/21 17:24:44 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	pa(t_dc_list **lst_a, t_dc_list **lst_b)
 {
 	t_dc_list	*new;
-	s_dc_data	data;
+	t_dc_data	data;
 
 	if (*lst_b == NULL)
 		return (0);
@@ -30,7 +30,7 @@ int	pa(t_dc_list **lst_a, t_dc_list **lst_b)
 int	pb(t_dc_list **lst_a, t_dc_list **lst_b)
 {
 	t_dc_list	*new;
-	s_dc_data	data;
+	t_dc_data	data;
 
 	if (*lst_a == NULL)
 		return (0);

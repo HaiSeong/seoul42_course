@@ -185,7 +185,7 @@ int main()
 	ft_dc_lst_print(a);
 
 
- 	s_dc_data data = ft_dc_lstdel_front(&a);
+ 	t_dc_data data = ft_dc_lstdel_front(&a);
  	printf("%p\n", a);
  	printf("%lld\n", data);
  	printf("length = %zu\n", ft_dc_lstsize(a));

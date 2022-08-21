@@ -6,13 +6,13 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 17:10:43 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/21 17:19:45 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/21 17:24:44 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_dc_list	*ft_dc_lstnew(s_dc_data data)
+t_dc_list	*ft_dc_lstnew(t_dc_data data)
 {
 	t_dc_list	*new;
 
@@ -39,10 +39,10 @@ void	ft_dc_lstadd_front(t_dc_list **lst, t_dc_list *new)
 	*lst = new;
 }
 
-s_dc_data	ft_dc_lstdel_front(t_dc_list **lst)
+t_dc_data	ft_dc_lstdel_front(t_dc_list **lst)
 {
 	t_dc_list	*del;
-	s_dc_data	data;
+	t_dc_data	data;
 
 	if ((*lst)->right == (*lst))
 	{
@@ -63,7 +63,7 @@ s_dc_data	ft_dc_lstdel_front(t_dc_list **lst)
 size_t	ft_dc_lstsize(t_dc_list *lst)
 {
 	t_dc_list	*now;
-	s_dc_data	length;
+	t_dc_data	length;
 
 	now = lst;
 	if (lst == NULL)
