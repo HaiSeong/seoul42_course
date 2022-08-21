@@ -51,7 +51,9 @@ SRCS		= ft_memset.c \
 			  ft_putstr_pf.c \
 			  ft_itoa_pf.c \
 			  ft_puthex_pf.c \
-			  get_next_line.c
+			  get_next_line.c \
+			  ft_atolli.c \
+			  ft_split_isspace.c \
 
 BNS_SRCS	= ft_lstnew.c \
 			  ft_lstadd_front.c \

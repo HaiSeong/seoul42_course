@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/06 13:56:39 by jwon              #+#    #+#             */
-/*   Updated: 2022/08/21 20:18:57 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/21 21:38:51 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,7 @@ int		ft_uitoa_pf(int n);
 int		ft_puthex_pf(int i, char x);
 int		ft_putpointer_pf(unsigned long long l);
 char	*get_next_line(int fd);
+long long int	ft_atolli(const char *str);
+char	**ft_split_isspace(char const *s);
 
 #endif
