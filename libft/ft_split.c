@@ -6,13 +6,13 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 15:08:08 by hajeong           #+#    #+#             */
-/*   Updated: 2022/03/15 13:44:17 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/21 19:55:00 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	word_count(char const *s, char c)
+static size_t	word_count(char const *s, char c)
 {
 	size_t	i;
 	size_t	slen;
@@ -32,7 +32,7 @@ size_t	word_count(char const *s, char c)
 	return (count);
 }
 
-size_t	make_strs(char **strs, char const *s, char c)
+static size_t	make_strs(char **strs, char const *s, char c)
 {
 	size_t	i;
 	size_t	length;

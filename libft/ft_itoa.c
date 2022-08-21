@@ -6,13 +6,13 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 12:13:00 by hajeong           #+#    #+#             */
-/*   Updated: 2022/03/12 19:56:22 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/21 19:54:24 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count_length(int n)
+static int	count_length(int n)
 {
 	int		length;
 	long	n_long;

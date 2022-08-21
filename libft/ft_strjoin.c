@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 12:15:36 by hajeong           #+#    #+#             */
-/*   Updated: 2022/03/12 18:33:48 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/21 19:56:49 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (str == NULL)
 		return (0);
 	i = 0;
-	while (i < ft_strlen(s1))
+	while (s1[i] != '\0')
 	{
 		str[i] = s1[i];
 		i++;
 	}
 	j = 0;
-	while (j < ft_strlen(s2))
+	while (s2[j] != '\0')
 	{
 		str[i] = s2[j];
 		i++;
