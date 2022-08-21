@@ -6,11 +6,12 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 16:24:25 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/07 12:43:44 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/21 20:20:10 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#define BUFFER_SIZE 42
 
 static char	*ft_join_and_free(char *buffer, char *buf)
 {
