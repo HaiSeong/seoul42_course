@@ -11,7 +11,7 @@ void rb(t_dc_list **lst)
 	*lst = (*lst)->right;
 }
 
-void rr(t_dc_list **lst_a, t_dc_list **list_b)
+void rr(t_dc_list **lst_a, t_dc_list **lst_b)
 {
 	ra(lst_a);
 	rb(lst_b);
