@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 17:10:20 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/21 17:24:53 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/21 19:40:24 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,6 @@ int	pb(t_dc_list **lst_a, t_dc_list **lst_b);
 void sa(t_dc_list *lst_a);
 void sb(t_dc_list *lst_b);
 void ss(t_dc_list *lst_a, t_dc_list *lst_b);
+
+char	*ft_strchr(const char *s, int c);
 #endif
