@@ -12,11 +12,11 @@ void	ft_dc_lst_print(t_dc_list *lst)
 		return ; 
 	while (now->right != lst)
 	{
-		printf("%zu ", now->data);
+		printf("%lld ", now->data);
 		now = now->right;
 	}
 	
-	printf("%zu\n", now->data);
+	printf("%lld\n", now->data);
 }
 
 int main()
@@ -28,7 +28,7 @@ int main()
 
  	t_dc_list *new = ft_dc_lstnew(3);
  	ft_dc_lstadd_front(&a, new);
- 	printf("%zu\n", a->data);
+ 	printf("%lld\n", a->data);
 	printf("%p\n", a);
  	printf("left %p\n", a->left);
  	printf("right %p\n", a->right);
@@ -36,7 +36,7 @@ int main()
 
  	t_dc_list *new1 = ft_dc_lstnew(4);
  	ft_dc_lstadd_front(&a, new1);
- 	printf("%zu\n", a->data);
+ 	printf("%lld\n", a->data);
  	printf("%p\n", a);
  	printf("left %p\n", a->left);
  	printf("right %p\n", a->right);
@@ -44,29 +44,29 @@ int main()
 
 	t_dc_list *new2 = ft_dc_lstnew(5);
  	ft_dc_lstadd_front(&a, new2);
- 	printf("%zu\n", a->data);
+ 	printf("%lld\n", a->data);
  	printf("%p\n", a);
  	printf("left %p\n", a->left);
  	printf("right %p\n", a->right);
- 	printf("length = %d\n", ft_dc_lstsize(a));
+ 	printf("length = %zu\n", ft_dc_lstsize(a));
 	ft_dc_lst_print(a);
 
  	t_dc_list *new3 = ft_dc_lstnew(6);
  	ft_dc_lstadd_front(&a, new3);
- 	printf("%zu\n", a->data);
+ 	printf("%lld\n", a->data);
  	printf("%p\n", a);
  	printf("left %p\n", a->left);
  	printf("right %p\n", a->right);
- 	printf("length = %d\n", ft_dc_lstsize(a));
+ 	printf("length = %zu\n", ft_dc_lstsize(a));
 	ft_dc_lst_print(a);
 
 	// rotate
 	ra(&a);
- 	printf("%zu\n", a->data);
+ 	printf("%lld\n", a->data);
  	printf("%p\n", a);
  	printf("left %p\n", a->left);
  	printf("right %p\n", a->right);
- 	printf("length = %d\n", ft_dc_lstsize(a));
+ 	printf("length = %zu\n", ft_dc_lstsize(a));
 	ft_dc_lst_print(a);
 
 	// swap
@@ -82,19 +82,19 @@ int main()
 	printf("\n");
 
 	ra(&a);
- 	printf("%zu\n", a->data);
+ 	printf("%lld\n", a->data);
  	printf("%p\n", a);
  	printf("left %p\n", a->left);
  	printf("right %p\n", a->right);
- 	printf("length = %d\n", ft_dc_lstsize(a));
+ 	printf("length = %zu\n", ft_dc_lstsize(a));
 	ft_dc_lst_print(a);
 
 	ra(&a);
- 	printf("%zu\n", a->data);
+ 	printf("%lld\n", a->data);
  	printf("%p\n", a);
  	printf("left %p\n", a->left);
  	printf("right %p\n", a->right);
- 	printf("length = %d\n", ft_dc_lstsize(a));
+ 	printf("length = %zu\n", ft_dc_lstsize(a));
 	ft_dc_lst_print(a);
 
 	// push
@@ -106,11 +106,11 @@ int main()
 	printf(": b \n\n");
 
  	ft_dc_lstdel_front(&a);
- 	printf("%zu\n", a->data);
+ 	printf("%lld\n", a->data);
  	printf("%p\n", a);
  	printf("left %p\n", a->left);
  	printf("right %p\n", a->right);
- 	printf("length = %d\n", ft_dc_lstsize(a));
+ 	printf("length = %zu\n", ft_dc_lstsize(a));
 	ft_dc_lst_print(a);
 
 	// swap
@@ -121,11 +121,11 @@ int main()
 
 	// reverse rotate
  	rra(&a);
-	printf("%zu\n", a->data);
+	printf("%lld\n", a->data);
  	printf("%p\n", a);
  	printf("left %p\n", a->left);
  	printf("right %p\n", a->right);
- 	printf("length = %d\n", ft_dc_lstsize(a));
+ 	printf("length = %zu\n", ft_dc_lstsize(a));
 	ft_dc_lst_print(a);
 
 	// push
@@ -154,41 +154,41 @@ int main()
 
 
  	rra(&a);
-	printf("%zu\n", a->data);
+	printf("%lld\n", a->data);
  	printf("%p\n", a);
  	printf("left %p\n", a->left);
  	printf("right %p\n", a->right);
- 	printf("length = %d\n", ft_dc_lstsize(a));
+ 	printf("length = %zu\n", ft_dc_lstsize(a));
 	ft_dc_lst_print(a);
 
  	ft_dc_lstdel_front(&a);
- 	printf("%zu\n", a->data);
+ 	printf("%lld\n", a->data);
  	printf("%p\n", a);
  	printf("left %p\n", a->left);
  	printf("right %p\n", a->right);
 	ft_dc_lst_print(a);
 
  	ft_dc_lstdel_front(&a);
- 	printf("%zu\n", a->data);
+ 	printf("%lld\n", a->data);
  	printf("%p\n", a);
 	printf("left %p\n", a->left);
 	printf("right %p\n", a->right);
- 	printf("length = %d\n", ft_dc_lstsize(a));
+ 	printf("length = %zu\n", ft_dc_lstsize(a));
 	ft_dc_lst_print(a);
 
  	rra(&a);
-	printf("%zu\n", a->data);
+	printf("%lld\n", a->data);
  	printf("%p\n", a);
  	printf("left %p\n", a->left);
  	printf("right %p\n", a->right);
- 	printf("length = %d\n", ft_dc_lstsize(a));
+ 	printf("length = %zu\n", ft_dc_lstsize(a));
 	ft_dc_lst_print(a);
 
 
- 	size_t data = ft_dc_lstdel_front(&a);
+ 	s_dc_data data = ft_dc_lstdel_front(&a);
  	printf("%p\n", a);
- 	printf("%zu\n", data);
- 	printf("length = %d\n", ft_dc_lstsize(a));
+ 	printf("%lld\n", data);
+ 	printf("length = %zu\n", ft_dc_lstsize(a));
 	ft_dc_lst_print(a);
 
 	// push

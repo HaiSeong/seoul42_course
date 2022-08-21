@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 17:10:38 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/21 17:10:49 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/21 17:16:59 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void sa(t_dc_list *lst_a)
 {
 	t_dc_list	*top;
 	t_dc_list	*under;
-	size_t		temp;
+	s_dc_data	temp;
 
 	if (lst_a == NULL || lst_a->right == lst_a)
 		return ;
@@ -32,7 +32,7 @@ void sb(t_dc_list *lst_b)
 {
 	t_dc_list	*top;
 	t_dc_list	*under;
-	size_t		temp;
+	s_dc_data	temp;
 
 	if (lst_b == NULL || lst_b->right == lst_b)
 		return ;

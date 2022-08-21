@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 17:10:20 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/21 17:10:27 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/21 17:21:33 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,19 @@
 # include <unistd.h>
 # include <stdlib.h>
 
+typedef long long int s_dc_data;
+
 typedef struct s_dc_list
 {
 	struct s_dc_list	*left;
-	size_t				data;
+	s_dc_data		data;
 	struct s_dc_list	*right;
 }	t_dc_list;
 
-t_dc_list	*ft_dc_lstnew(size_t data);
+t_dc_list	*ft_dc_lstnew(s_dc_data data);
 void	ft_dc_lstadd_front(t_dc_list **lst, t_dc_list *new);
-size_t	ft_dc_lstdel_front(t_dc_list **lst);
-int	ft_dc_lstsize(t_dc_list *lst);
+s_dc_data	ft_dc_lstdel_front(t_dc_list **lst);
+size_t	ft_dc_lstsize(t_dc_list *lst);
 
 void ra(t_dc_list **lst);
 void rb(t_dc_list **lst);
