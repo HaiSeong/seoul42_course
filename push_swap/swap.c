@@ -3,8 +3,8 @@
 
 void sa(t_dc_list *lst_a)
 {
-	t_dc_lst	*top;
-	t_dc_lst	*under;
+	t_dc_list	*top;
+	t_dc_list	*under;
 	size_t		temp;
 
 	if (lst_a == NULL || lst_a->right == lst_a)
@@ -18,8 +18,8 @@ void sa(t_dc_list *lst_a)
 
 void sb(t_dc_list *lst_b)
 {
-	t_dc_lst	*top;
-	t_dc_lst	*under;
+	t_dc_list	*top;
+	t_dc_list	*under;
 	size_t		temp;
 
 	if (lst_b == NULL || lst_b->right == lst_b)
@@ -34,6 +34,6 @@ void sb(t_dc_list *lst_b)
 void ss(t_dc_list *lst_a, t_dc_list *lst_b)
 {
 	sa(lst_a);
-	sv(lst_b);
+	sb(lst_b);
 }
 
