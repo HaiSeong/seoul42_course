@@ -35,4 +35,6 @@ void rr(t_dc_list **lst_a, t_dc_list **list_b);
 void rra(t_dc_list **lst);
 void rrb(t_dc_list **lst);
 void rrr(t_dc_list **lst_a, t_dc_list **list_b);
+int	pa(t_dc_list **lst_a, t_dc_list **lst_b);
+int	pb(t_dc_list **lst_a, t_dc_list **lst_b);
 #endif
