@@ -97,7 +97,7 @@ int main()
  	printf("length = %zu\n", ft_dc_lstsize(a));
 	ft_dc_lst_print(a);
 
-	// push
+	// push 
 	 
 	pb(&a, &b);
 	printf("\npush test\n a :\n");
