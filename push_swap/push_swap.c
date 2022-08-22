@@ -6,22 +6,12 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 17:30:07 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/22 12:56:57 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/22 13:14:19 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft/libft.h"
-
-void	ft_free_strs(char **strs)
-{
-	int	i;
-
-	i = 0;
-	while (strs[i] != NULL)
-		free(strs[i++]);
-	free(strs);
-}
 
 void	ft_dc_lst_print(t_dc_list *lst) // test
 {
@@ -44,6 +34,16 @@ static int ft_error()
 {
 	ft_printf("Error\n");
 	return (-1);
+}
+
+void	ft_free_strs(char **strs)
+{
+	int	i;
+
+	i = 0;
+	while (strs[i] != NULL)
+		free(strs[i++]);
+	free(strs);
 }
 
 int	make_a(t_dc_list **a, char **strs, int end)
