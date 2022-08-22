@@ -1,4 +1,6 @@
 ### 참고 자료
+[한글 서브젝트](./ko_sub.md)<br>
+[영어 서브젝트](https://cdn.intra.42.fr/pdf/pdf/49387/en.subject.pdf)<br>
 [그리디 알고리즘 설명](https://techdebt.tistory.com/27) (케이크)
 [소스코드](https://github.com/JeonYoungHo-youjeon/push_swap/blob/master/push_swap.h)
 
