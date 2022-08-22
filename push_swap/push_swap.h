@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 17:10:20 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/21 19:40:24 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/22 12:52:51 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ t_dc_list	*ft_dc_lstnew(t_dc_data data);
 void	ft_dc_lstadd_front(t_dc_list **lst, t_dc_list *new);
 t_dc_data	ft_dc_lstdel_front(t_dc_list **lst);
 size_t	ft_dc_lstsize(t_dc_list *lst);
+void	ft_dc_lstclear(t_dc_list **lst);
 
 void ra(t_dc_list **lst);
 void rb(t_dc_list **lst);

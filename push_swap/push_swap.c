@@ -6,12 +6,39 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 17:30:07 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/21 22:04:32 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/22 12:56:57 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft/libft.h"
+
+void	ft_free_strs(char **strs)
+{
+	int	i;
+
+	i = 0;
+	while (strs[i] != NULL)
+		free(strs[i++]);
+	free(strs);
+}
+
+void	ft_dc_lst_print(t_dc_list *lst) // test
+{
+	t_dc_list	*now;
+
+	now = lst;
+	ft_printf("stack : ");
+	if (lst == NULL)
+		return ; 
+	while (now->right != lst)
+	{
+		ft_printf("%d ", now->data);
+		now = now->right;
+	}
+	
+	ft_printf("%d\n", now->data);
+}
 
 static int ft_error()
 {
@@ -19,74 +46,57 @@ static int ft_error()
 	return (-1);
 }
 
+int	make_a(t_dc_list **a, char **strs, int end)
+{
+	int i;
+	int j;
+	t_dc_list	*temp;
+
+	i = 0;
+	while (strs[i] != NULL)
+		i++;
+	while (i-- > end)	//	반복문을 돌면서 하나씩 숫자로 만들어 스택에 추가 한다. (뒤부터 넣어야 방향이 맞음)
+	{
+		j = 0;
+		while (strs[i][j] != '\0')
+		{
+			if (!(ft_isdigit(strs[i][j]) || strs[i][j] == '-'))	//	한글자씩 읽으며 숫자나 - 가 아닌경우 에러
+				return ft_error();
+			j++;
+		}
+		temp = ft_dc_lstnew(ft_atolli(strs[i]));	//	문자열을 숫자로 바꿔 새로운 노드 생성
+		if (temp == NULL)	//	할당 실패시
+		{
+			ft_dc_lstclear(a);	//	노드를 모두 지우고
+			return ft_error();	// 에러 출력
+		}
+		ft_dc_lstadd_front(a, temp);	// 스택에 저장
+	}
+	return (0);
+}
+
 int main(int argc, char *argv[])
 {
-	int			i;
-	int			j;
 	t_dc_list	*a;
 	t_dc_list	*b;
 	char		**strs;
 
 	if (argc < 2)
 		return ft_error();
+	a = NULL;
 	if (ft_strchr(argv[1], ' ') || ft_strchr(argv[1], '\t') || ft_strchr(argv[1], '\n')
 		|| ft_strchr(argv[1], '\v') || ft_strchr(argv[1], '\f') || ft_strchr(argv[1], '\r')) // "1 2 3 4 5" 인 경우
 	{
 		// 첫번째 인자를 isspace기준으로 나눈다.
 		strs = ft_split_isspace(argv[1]);
-		for (i = 0; i<3; i++)
-		{
-			ft_printf("%d ", ft_atolli(strs[i]));
-		}
-		i = 0;
-		while (strs[i] != NULL)
-			i++;
-		ft_printf("\n%d!!!\n ", i);
-		while (i-- > 0)	//	반복문을 돌면서 하나씩 숫자로 만들어 배열에 추가 한다.
-		{
-			j = 0;
-			while (strs[i][j] != '\0')
-			{
-				if (!(ft_isdigit(strs[i][j]) || strs[i][j] == '-'))
-					return ft_error();
-					j++;
-			}
-			b = ft_dc_lstnew(ft_atolli(strs[i]));	//	b를 잠시 temp노드로 사용
-			if (b == NULL)
-			{
-				while (a != NULL)
-					ft_dc_lstdel_front(&a);
-				ft_error();
-			}
-			ft_dc_lstadd_front(&a, b);
-		}
-		// 나눠진 캐릭터 포인터 배열을 반복문으로 읽는다.
-		// 읽은 문자열을 숫자로 바꿔 배열에 추가한다.
+		make_a(&a, strs, 0);
+		ft_free_strs(strs);
 	}
 	else // "" 가 없는 경우
-	{
-		a = NULL;
-		i = argc;
-		while (i-- > 1)	//	반복문을 돌면서 하나씩 숫자로 만들어 배열에 추가 한다.
-		{
-			j = 0;
-			while (argv[i][j] != '\0')
-			{
-				if (!(ft_isdigit(argv[i][j]) || argv[i][j] == '-'))
-					return ft_error();
-				j++;
-			}
-			b = ft_dc_lstnew(ft_atolli(argv[i]));	//	b를 잠시 temp노드로 사용
-			if (b == NULL)
-			{
-				while (a != NULL)
-					ft_dc_lstdel_front(&a);
-				ft_error();
-			}
-			ft_dc_lstadd_front(&a, b);
-		}
-	}
+		make_a(&a, argv, 1);
+	if (a == NULL)
+		return (-1);
 	ft_printf("good\n");
-	// 스택에 하나씩 넣는다.
-	// 정렬 시작	
+	ft_dc_lst_print(a);
+	// 정렬 시작
 }

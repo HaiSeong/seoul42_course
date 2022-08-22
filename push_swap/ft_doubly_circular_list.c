@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 17:10:43 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/21 17:24:44 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/22 12:52:05 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,12 @@ size_t	ft_dc_lstsize(t_dc_list *lst)
 		now = now->right;
 	}
 	return (length);
+}
+
+void	ft_dc_lstclear(t_dc_list **lst)
+{
+	while (*lst != NULL)
+		ft_dc_lstdel_front(lst);
 }
 
 // #include <stdio.h>
