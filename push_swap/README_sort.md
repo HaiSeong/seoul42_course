@@ -49,3 +49,23 @@ void	sort2(t_dc_list *a)
 ```
 
 <br>
+
+>sort3 : 3개의 원소일때 정렬하는 함수
+1) | 1 | 2 | 3| : 그대로
+2) | 1 | 3 | 2| : rra -> sa
+3) | 2 | 1 | 3| : sa
+4) | 2 | 3 | 1| : rra
+5) | 3 | 1 | 2| : ra
+6) | 3 | 2 | 1| : ra -> sa
+
+``` c
+void	sort2(t_dc_list *a)
+{
+	if (a->data > a->right->data)
+	{
+		sa(a);
+	}
+}
+```
+
+<br>
