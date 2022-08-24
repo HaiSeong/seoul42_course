@@ -75,8 +75,48 @@ void	sort2(t_dc_list *a)
 - small_pivot <= top_a < big_pivot : b의 위쪽에 저장 -> pb
 - big_pivot <= top_a : a에 남기기 -> ra
 
-- n : big_pivot보다 작은 숫자의 갯수 (b로 넘겨얄 숫자들의 갯수)
+- n : big_pivot보다 작은 숫자의 갯수 (b로 넘겨얄 숫자들의 갯수 = big_pivot의 인덱스)
+
+``` c
+void	move_all_b(t_dc_list **a, t_dc_list **b, t_dc_list **copy, size_t n)
+{
+	t_dc_data	small_pivot;
+	t_dc_data	big_pivot;
+
+	small_pivot = get_small_pivot(*copy);
+	big_pivot = get_big_pivot(*copy);
+	while (ft_dc_lstsize(*a) > 3)
+	{
+		if ((*a)->data < small_pivot)
+		{
+			pb(a, b);
+			rb(b);
+			n--;
+		}
+		else if (big_pivot <= (*a)->data)
+			ra(a);
+		else
+		{
+			pb(a, b);
+			n--;
+		}
+		if (n == 0)
+			while (ft_dc_lstsize(*a) > 3)
+				pb(a, b);
+	}
+}
+```
+
+<br>
+ 
+>push_a : a스택으로 하나씩 옮기는 함수
+- temp : (temp->left->data) < (삽입 할 위치) < (temp->data)
+1) b의 가장 위의 원소가 들어갈 곳을 right방향으로 탐색
+2) b의 가장 위의 원소가 들어갈 곳을 left방향으로 탐색
+3) b의 두번째 원소가 들어갈 곳을 right방향으로 탐색
+4) b의 두번째 원소가 들어갈 곳을 left방향으로 탐색
 
 ``` c
 ```
+
 <br>

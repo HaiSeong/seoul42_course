@@ -166,7 +166,6 @@ int main()
 	ft_dc_lst_print(a);
 
 
-
 	//	copy test
 	printf("\n\n\ncopy test !!!!\n");
 	t_dc_list *copy = copy_a(a);
@@ -190,6 +189,17 @@ int main()
 	move_all_b(&a, &b, &copy, ft_dc_lstsize(copy) / 3 * 2);
 	ft_dc_lst_print(a);
 	ft_dc_lst_print(b);
+
+	// sort test
+	sort3(&a);
+	printf("\n\n\nsorted \n");
+	ft_dc_lst_print(a);
+
+	// case test
+	size_t c1 = case1(&a, &b);
+	size_t c2 = ft_dc_lstsize(a) - c1;
+	printf("\n\n\n\ncase1 = %zd\n", c1);
+	printf("case2 = %zd\n", c2);
 
 
 	// // rotate
@@ -335,6 +345,6 @@ int main()
 
 
 
- 	system("leaks a.out");
+ 	// system("leaks a.out");
 }
 
