@@ -96,7 +96,7 @@ size_t	case3(t_dc_list **a, t_dc_list **b)
 
 <br>
 
->case2 : b의 두번째 원소가 들어갈 곳을 left방향으로 탐색
+>case4 : b의 두번째 원소가 들어갈 곳을 left방향으로 탐색
 ``` c
 size_t	case4(t_dc_list **a, t_dc_list **b)
 {
@@ -122,6 +122,36 @@ size_t	case4(t_dc_list **a, t_dc_list **b)
 		sum++;
 	}
 	return (sum);
+}
+```
+
+<br>
+
+>get_min_case : 4가지중 가장 비용이 작은 케이스 번호를 리턴
+``` c
+int		get_min_case(t_dc_list **a, t_dc_list **b)
+{
+	size_t	sums[4];
+	size_t	min_sum;
+	int		min_idx;
+	int		i;
+
+	sums[0] = case1(a, b);
+	sums[1] = case2(a, b);
+	sums[2] = case3(a, b);
+	sums[3] = case4(a, b);
+	min_sum = sums[0];
+	min_idx = 0;
+	i = 1;
+	while (i < 4)
+	{
+		if (min_sum > sums[i])
+		{
+			min_sum = sums[i];
+			min_idx = i;			
+		}
+	}
+	return (min_idx);
 }
 ```
 

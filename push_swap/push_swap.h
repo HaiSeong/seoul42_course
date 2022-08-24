@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 17:10:20 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/24 18:52:35 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/24 19:39:55 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,5 @@ size_t	case1(t_dc_list **a, t_dc_list **b);
 size_t	case2(t_dc_list **a, t_dc_list **b);
 size_t	case3(t_dc_list **a, t_dc_list **b);
 size_t	case4(t_dc_list **a, t_dc_list **b);
+int		get_min_case(t_dc_list **a, t_dc_list **b);
 #endif

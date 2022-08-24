@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 16:35:39 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/24 19:22:00 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/24 19:40:29 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,4 +114,29 @@ size_t	case4(t_dc_list **a, t_dc_list **b)
 		sum++;
 	}
 	return (sum);
+}
+
+int		get_min_case(t_dc_list **a, t_dc_list **b)
+{
+	size_t	sums[4];
+	size_t	min_sum;
+	int		min_idx;
+	int		i;
+
+	sums[0] = case1(a, b);
+	sums[1] = case2(a, b);
+	sums[2] = case3(a, b);
+	sums[3] = case4(a, b);
+	min_sum = sums[0];
+	min_idx = 0;
+	i = 1;
+	while (i < 4)
+	{
+		if (min_sum > sums[i])
+		{
+			min_sum = sums[i];
+			min_idx = i;			
+		}
+	}
+	return (min_idx);
 }
