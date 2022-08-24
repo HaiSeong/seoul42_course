@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 17:30:07 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/24 15:58:44 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/24 16:21:05 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,4 +111,15 @@ int main(int argc, char *argv[])
 	copy = copy_a(a);
 	bubble_sort(copy);
 	// 정렬 시작
+	if (ft_dc_lstsize(a) > 3)
+	{
+		move_all_b(&a, &b, &copy, ft_dc_lstsize(copy) / 3 * 2);
+		sort3(a);
+		// 하나씩 a로 옮기기
+	}
+	else if (ft_dc_lstsize(a) == 3)
+		sort3(a);
+	else if (ft_dc_lstsize(a) == 2)
+		sort2(a);
+	
 }
