@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 17:10:20 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/24 13:34:06 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/24 14:15:37 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void 		ss(t_dc_list *lst_a, t_dc_list *lst_b);
 int			ft_error();
 
 t_dc_list	*copy_a(t_dc_list *a);
-void		bubble_sort(t_dc_list *a);
+void		bubble_sort(t_dc_list *copy);
 t_dc_data	get_small_pivot(t_dc_list *copy);
 t_dc_data	get_big_pivot(t_dc_list *copy);
 

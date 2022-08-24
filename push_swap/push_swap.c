@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 17:30:07 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/24 13:53:35 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/24 14:15:45 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,11 @@ int main(int argc, char *argv[])
 {
 	t_dc_list	*a;
 	t_dc_list	*b;
+	t_dc_list	*copy;
 
 	argv_to_stack(&a, argc, argv);
+	// 정렬 전 정보 구하기
+	copy = copy_a(a);
+	bubble_sort(copy);
 	// 정렬 시작
 }
