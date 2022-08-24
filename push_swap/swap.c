@@ -6,12 +6,12 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 17:10:38 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/21 17:24:44 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/24 21:32:08 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
+#include "libft/libft.h"
 
 void sa(t_dc_list *lst_a)
 {
@@ -26,6 +26,7 @@ void sa(t_dc_list *lst_a)
 	temp = top->data;
 	top->data = under->data;
 	under->data = temp;
+	ft_printf("sa\n");
 }
 
 void sb(t_dc_list *lst_b)
@@ -41,11 +42,13 @@ void sb(t_dc_list *lst_b)
 	temp = top->data;
 	top->data = under->data;
 	under->data = temp;
+	ft_printf("sb\n");
 }
 
 void ss(t_dc_list *lst_a, t_dc_list *lst_b)
 {
 	sa(lst_a);
 	sb(lst_b);
+	ft_printf("ss\n");
 }
 
