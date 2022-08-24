@@ -10,9 +10,9 @@
 ``` c
 t_dc_list	*copy_a(t_dc_list *a)
 {
-	t_dc_list *copy;	// 복사본
-	t_dc_list *temp;
-	t_dc_list *new;
+	t_dc_list	*copy;	// 복사본
+	t_dc_list	*temp;
+	t_dc_list	*new;
 
 	copy = NULL;
 	temp = a->left;
@@ -42,10 +42,10 @@ t_dc_list	*copy_a(t_dc_list *a)
 ``` c
 void	bubble_sort(t_dc_list *copy)
 {
-	t_dc_list *node1;
-	t_dc_list *node2;
-	t_dc_list *end;
-	t_dc_data temp;
+	t_dc_list	*node1;
+	t_dc_list	*node2;
+	t_dc_list	*end;
+	t_dc_data	temp;
 
 	end = copy->left;
 	while (end != copy)
@@ -68,3 +68,13 @@ void	bubble_sort(t_dc_list *copy)
 ```
 
 <br>
+
+>get_small_pivot : 스택을 3등분 했을때 작은 피봇의 값을 구한다.
+``` c
+```
+
+<br>
+
+>get_big_pivot : 스택을 3등분 했을때 큰 피봇의 값을 구한다.
+``` c
+```

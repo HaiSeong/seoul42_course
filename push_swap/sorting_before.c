@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 16:35:39 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/24 13:05:27 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/24 13:16:39 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 t_dc_list	*copy_a(t_dc_list *a)
 {
-	t_dc_list *copy;	// 복사본
-	t_dc_list *temp;
-	t_dc_list *new;
+	t_dc_list	*copy;	// 복사본
+	t_dc_list	*temp;
+	t_dc_list	*new;
 
 	copy = NULL;
 	temp = a->left;
@@ -37,10 +37,10 @@ t_dc_list	*copy_a(t_dc_list *a)
 
 void	bubble_sort(t_dc_list *copy)
 {
-	t_dc_list *node1;
-	t_dc_list *node2;
-	t_dc_list *end;
-	t_dc_data temp;
+	t_dc_list	*node1;
+	t_dc_list	*node2;
+	t_dc_list	*end;
+	t_dc_data	temp;
 
 	end = copy->left;
 	while (end != copy)
@@ -59,4 +59,32 @@ void	bubble_sort(t_dc_list *copy)
 		}
 		end = end->left;
 	}
+}
+
+t_dc_data	get_small_pivot(t_dc_list *copy)
+{
+	t_dc_list	*temp;
+	size_t		index;
+	size_t		i;
+
+	index = ft_dc_lstsize(copy) / 3;
+	temp = copy;
+	i = 0;
+	while (i++ < index)
+		temp = temp->right;
+	return (temp->data);
+}
+
+t_dc_data	get_big_pivot(t_dc_list *copy)
+{
+	t_dc_list	*temp;
+	size_t		index;
+	size_t		i;
+
+	index = ft_dc_lstsize(copy) / 3 * 2;
+	temp = copy;
+	i = 0;
+	while (i++ < index)
+		temp = temp->right;
+	return (temp->data);
 }
