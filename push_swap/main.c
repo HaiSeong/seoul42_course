@@ -142,7 +142,12 @@ int main()
 	printf("\n\n\nbubble test !!!!\n");
 	bubble_sort(copy);
 	ft_dc_lst_print(copy);
-	ft_dc_lstclear(&copy);
+	printf("\n");
+
+	// pivot test length = 13
+	printf("\n\npibot test !!!!\n");
+	printf("small pibot : %lld\n", get_small_pivot(copy));
+	printf("big pibot : %lld\n", get_big_pivot(copy));
 	printf("\n");
 
 

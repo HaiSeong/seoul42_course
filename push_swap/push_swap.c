@@ -6,12 +6,29 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 17:30:07 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/24 12:28:19 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/24 13:53:35 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft/libft.h"
+
+void	ft_dc_lst_print(t_dc_list *lst) //test
+{
+	t_dc_list	*now;
+
+	now = lst;
+	ft_printf("stack : ");
+	if (lst == NULL)
+		return ; 
+	while (now->right != lst)
+	{
+		ft_printf("%d ", now->data);
+		now = now->right;
+	}
+	
+	ft_printf("%d\n", now->data);
+}
 
 int ft_error()
 {
@@ -58,28 +75,37 @@ static int	make_a(t_dc_list **a, char **strs, int end)
 	return (0);
 }
 
-int main(int argc, char *argv[])
+static void	argv_to_stack(t_dc_list **a, int argc, char *argv[])
 {
-	t_dc_list	*a;
-	t_dc_list	*b;
-	char		**strs;
+	char	**strs;
 
 	if (argc < 2)
-		return ft_error();
-	a = NULL;
+	{
+		ft_error();
+		exit(1);
+	}
+	*a = NULL;
 	if (ft_strchr(argv[1], ' ') || ft_strchr(argv[1], '\t') || ft_strchr(argv[1], '\n')
 		|| ft_strchr(argv[1], '\v') || ft_strchr(argv[1], '\f') || ft_strchr(argv[1], '\r')) // "1 2 3 4 5" 인 경우
 	{
 		// 첫번째 인자를 isspace기준으로 나눈다.
 		strs = ft_split_isspace(argv[1]);
-		make_a(&a, strs, 0);
+		make_a(a, strs, 0);
 		ft_free_strs(strs);
 	}
 	else // "" 가 없는 경우
-		make_a(&a, argv, 1);
-	if (a == NULL)
-		return (-1);
-	ft_printf("good\n");
-	ft_dc_lst_print(a);
+		make_a(a, argv, 1);
+	if (*a == NULL)
+		exit(-1);
+	ft_printf("good\n");	//	test
+	ft_dc_lst_print(*a);	//	test
+}
+
+int main(int argc, char *argv[])
+{
+	t_dc_list	*a;
+	t_dc_list	*b;
+
+	argv_to_stack(&a, argc, argv);
 	// 정렬 시작
 }

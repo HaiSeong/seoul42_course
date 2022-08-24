@@ -64,3 +64,37 @@ static int	make_a(t_dc_list **a, char **strs, int end)
 ```
 
 <br>
+
+>argv_to_stack : argv를 stack으로 만들어줌
+- "" 로 둘러쌓인 경우 : split으로 공백을 기준으로 strs를 만든후 strs를 make_a함수로 stack을 만듬, 후에 strs는 free해줌
+- 공백으로만 이뤄진 경우 : argv를 바로 stack으로 만듬
+- *a == NULL인 경우 : lstnew 할당에 실패해서 make_a에서 a를 모두 지워준 경우
+``` c
+static void	argv_to_stack(t_dc_list **a, int argc, char *argv[])
+{
+	char	**strs;
+
+	if (argc < 2)
+	{
+		ft_error();
+		exit(1);
+	}
+	*a = NULL;
+	if (ft_strchr(argv[1], ' ') || ft_strchr(argv[1], '\t') || ft_strchr(argv[1], '\n')
+		|| ft_strchr(argv[1], '\v') || ft_strchr(argv[1], '\f') || ft_strchr(argv[1], '\r')) // "1 2 3 4 5" 인 경우
+	{
+		// 첫번째 인자를 isspace기준으로 나눈다.
+		strs = ft_split_isspace(argv[1]);
+		make_a(a, strs, 0);
+		ft_free_strs(strs);
+	}
+	else // "" 가 없는 경우
+		make_a(a, argv, 1);
+	if (*a == NULL)
+		exit(-1);
+	ft_printf("good\n");	//	test
+	ft_dc_lst_print(*a);	//	test
+}
+```
+
+<br>
