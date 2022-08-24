@@ -12,5 +12,5 @@
 | [swap.c<br>push.c<br>rotate.c<br>reverse_rotate.c](./README_stack.md) | sa, sb, ss,<br>pa, pb,<br> ra, rb, rr,<br>rra, rrb, rrr<br>  | explanation |
 | [libft](./README_libft.md) | ft_printf,<br>ft_strchr,<br>ft_split_isspace,<br>... | 출력과 입력을 받기위한 기본 함수들 |
 | [push_swap.c](./README_push_swap.md) | ft_error,<br>ft_free_strs,<br>make_a,<br>main | main함수가 있는 파일 |
-| [sorting_before.c](./README_sort_before.md) |  | 정렬 전 필요한 함수들 |
+| [sorting_before.c](./README_sort_before.md) | copy_a,<br>bubble_sort,<br>get_small_pivot,<br>get_big_pivot | 정렬 전 필요한 함수들 |
 | [sorting.c](./README_sort.md) |  | 정렬 관련 함수들 |
