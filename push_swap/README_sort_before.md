@@ -40,17 +40,17 @@ t_dc_list	*copy_a(t_dc_list *a)
 - node1 : 비교할 오른쪽 노드
 - end : bubble_sort는 뒤쪽원소가 자리가 정해지므로 마지막 부분은 탐색할 필요가 없다.
 ``` c
-void	bubble_sort(t_dc_list *a)
+void	bubble_sort(t_dc_list *copy)
 {
 	t_dc_list *node1;
 	t_dc_list *node2;
 	t_dc_list *end;
 	t_dc_data temp;
 
-	end = a->left;
-	while (end != a)
+	end = copy->left;
+	while (end != copy)
 	{
-		node1 = a;
+		node1 = copy;
 		while (node1 != end)
 		{
 			node2 = node1->right;
