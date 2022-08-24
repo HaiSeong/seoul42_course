@@ -6,37 +6,20 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 17:30:07 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/22 15:41:00 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/24 12:28:19 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft/libft.h"
 
-void	ft_dc_lst_print(t_dc_list *lst) // for test
-{
-	t_dc_list	*now;
-
-	now = lst;
-	ft_printf("stack : ");
-	if (lst == NULL)
-		return ; 
-	while (now->right != lst)
-	{
-		ft_printf("%d ", now->data);
-		now = now->right;
-	}
-	
-	ft_printf("%d\n", now->data);
-}
-
-static int ft_error()
+int ft_error()
 {
 	ft_printf("Error\n");
 	return (-1);
 }
 
-void	ft_free_strs(char **strs)
+static void	ft_free_strs(char **strs)
 {
 	int	i;
 
@@ -46,7 +29,7 @@ void	ft_free_strs(char **strs)
 	free(strs);
 }
 
-int	make_a(t_dc_list **a, char **strs, int end)
+static int	make_a(t_dc_list **a, char **strs, int end)
 {
 	int i;
 	int j;

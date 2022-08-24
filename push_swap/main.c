@@ -2,6 +2,13 @@
 #include "push_swap.h"
 #include <stdio.h>
 
+int ft_error()
+{
+	printf("Error\n");
+	return (-1);
+}
+
+
 void	ft_dc_lst_print(t_dc_list *lst)
 {
 	t_dc_list	*now;
@@ -59,6 +66,16 @@ int main()
  	printf("right %p\n", a->right);
  	printf("length = %zu\n", ft_dc_lstsize(a));
 	ft_dc_lst_print(a);
+
+
+
+	//	copy test
+	printf("\n\n\ncopy test !!!!\n");
+	t_dc_list *copy = copy_a(a);
+	ft_dc_lst_print(copy);
+	ft_dc_lstclear(&copy);
+	 
+	printf("\n");
 
 	// rotate
 	ra(&a);
@@ -127,6 +144,8 @@ int main()
  	printf("right %p\n", a->right);
  	printf("length = %zu\n", ft_dc_lstsize(a));
 	ft_dc_lst_print(a);
+
+
 
 	// push
 	 
@@ -198,6 +217,9 @@ int main()
 	ft_dc_lst_print(a);
 	ft_dc_lst_print(b);
 	printf(": b \n\n");
+
+
+
  	system("leaks a.out");
 }
 
