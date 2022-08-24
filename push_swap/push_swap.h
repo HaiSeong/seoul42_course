@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 17:10:20 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/24 19:39:55 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/24 21:05:48 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,17 @@ t_dc_data	get_big_pivot(t_dc_list *copy);
 void		sort2(t_dc_list **a);
 void		sort3(t_dc_list **a);
 void		move_all_b(t_dc_list **a, t_dc_list **b, t_dc_list **copy, size_t n);
+void		push_a(t_dc_list **a, t_dc_list **b);
+void		organize_stack(t_dc_list **a);
 
-size_t	case1(t_dc_list **a, t_dc_list **b);
-size_t	case2(t_dc_list **a, t_dc_list **b);
-size_t	case3(t_dc_list **a, t_dc_list **b);
-size_t	case4(t_dc_list **a, t_dc_list **b);
-int		get_min_case(t_dc_list **a, t_dc_list **b);
+size_t		case1(t_dc_list **a, t_dc_list **b);
+size_t		case2(t_dc_list **a, t_dc_list **b);
+size_t		case3(t_dc_list **a, t_dc_list **b);
+size_t		case4(t_dc_list **a, t_dc_list **b);
+int			get_min_case(t_dc_list **a, t_dc_list **b);
+
+void		do_push1(t_dc_list **a, t_dc_list **b);
+void		do_push2(t_dc_list **a, t_dc_list **b);
+void		do_push3(t_dc_list **a, t_dc_list **b);
+void		do_push4(t_dc_list **a, t_dc_list **b);
 #endif

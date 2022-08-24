@@ -6,11 +6,12 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 17:30:07 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/24 16:21:05 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/24 21:03:57 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "libft/libft.h"
 
 void	ft_dc_lst_print(t_dc_list *lst) //test
 {
@@ -52,23 +53,21 @@ static int	make_a(t_dc_list **a, char **strs, int end)
 	t_dc_list	*temp;
 
 	i = 0;
-	while (strs[i] != NULL)
+	while (strs[i++] != NULL)
 		i++;
 	while (i-- > end)	//	반복문을 돌면서 하나씩 숫자로 만들어 스택에 추가 한다. (뒤부터 넣어야 방향이 맞음)
 	{
 		j = 0;
 		while (strs[i][j] != '\0')
 		{
-			if (!(ft_isdigit(strs[i][j]) || strs[i][j] == '-'))	//	한글자씩 읽으며 숫자나 - 가 아닌경우 에러
-				return ft_error();
+			if (!(ft_isdigit(strs[i][j])
+				|| (strs[i][j] == '-' && ft_strlen(strs[i]) != 1)))
+				return (-1);	//	한글자씩 읽으며 숫자나 - 가 아닌경우 에러
 			j++;
 		}
 		temp = ft_dc_lstnew(ft_atolli(strs[i]));	//	문자열을 숫자로 바꿔 새로운 노드 생성
 		if (temp == NULL)	//	할당 실패시
-		{
-			ft_dc_lstclear(a);	//	노드를 모두 지우고
-			return ft_error();	// 에러 출력
-		}
+			return (-1);
 		ft_dc_lstadd_front(a, temp);	// 스택에 저장
 	}
 	return (0);
@@ -89,15 +88,17 @@ static void	argv_to_stack(t_dc_list **a, int argc, char *argv[])
 	{
 		// 첫번째 인자를 isspace기준으로 나눈다.
 		strs = ft_split_isspace(argv[1]);
-		make_a(a, strs, 0);
+		if (make_a(a, strs, 0) == -1)
+		{
+			ft_dc_lstclear(a);	//	노드를 모두 지우고
+			return ft_error();	// 에러 출력
+		}
 		ft_free_strs(strs);
 	}
 	else // "" 가 없는 경우
 		make_a(a, argv, 1);
 	if (*a == NULL)
 		exit(-1);
-	ft_printf("good\n");	//	test
-	ft_dc_lst_print(*a);	//	test
 }
 
 int main(int argc, char *argv[])
@@ -114,12 +115,23 @@ int main(int argc, char *argv[])
 	if (ft_dc_lstsize(a) > 3)
 	{
 		move_all_b(&a, &b, &copy, ft_dc_lstsize(copy) / 3 * 2);
-		sort3(a);
+		sort3(&a);
 		// 하나씩 a로 옮기기
+		while (b != NULL)
+		{
+			push_a(&a, &b);
+			ft_dc_lst_print(a);
+		}
+		organize_stack(&a);
+		ft_printf("a ");
+		ft_dc_lst_print(a);
+		ft_printf("b ");
+		ft_dc_lst_print(b);
 	}
 	else if (ft_dc_lstsize(a) == 3)
-		sort3(a);
+		sort3(&a);
 	else if (ft_dc_lstsize(a) == 2)
-		sort2(a);
-	
+		sort2(&a);
+	ft_dc_lstclear(&copy);
+	ft_dc_lstclear(&a);
 }
