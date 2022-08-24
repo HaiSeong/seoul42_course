@@ -221,12 +221,44 @@ int main()
 	printf("case4 = %zd\n", c4);
 
 	printf("get_min_case = %d\n", get_min_case(&a, &b));
+
+	// do push test
+	printf("\n\ndo push test!!!\n");
+	printf("\nget_min_case = %d\n", get_min_case(&a, &b));
+	do_push1(&a, &b);
+	ft_dc_lst_print(a);
+	ft_dc_lst_print(b);
+	printf("\nget_min_case = %d\n", get_min_case(&a, &b));
+	do_push1(&a, &b);
+	ft_dc_lst_print(a);
+	ft_dc_lst_print(b);
+	printf("\nget_min_case = %d\n", get_min_case(&a, &b));
+	do_push2(&a, &b);
+	ft_dc_lst_print(a);
+	ft_dc_lst_print(b);
+	printf("\nget_min_case = %d\n", get_min_case(&a, &b));
+	do_push3(&a, &b);
+	ft_dc_lst_print(a);
+	ft_dc_lst_print(b);
+	printf("\nget_min_case = %d\n", get_min_case(&a, &b));
+	do_push4(&a, &b);
+	ft_dc_lst_print(a);
+	ft_dc_lst_print(b);
+	printf("\nget_min_case = %d\n", get_min_case(&a, &b));
+	do_push1(&a, &b);
+	ft_dc_lst_print(a);
+	ft_dc_lst_print(b);
+	printf("\nget_min_case = %d\n", get_min_case(&a, &b));
+	printf("1 : %d / 2 : %d / 3 : %d / 4 : %d / \n", case1(a,b), case2(a,b), case3(a,b), case4(a,b));
+	do_push2(&a, &b);
+	ft_dc_lst_print(a);
+	ft_dc_lst_print(b);
 	
-	for(i = 0; i<197; i++)
+	for(i = 0; i<190; i++)
 	{
 		ft_dc_lstdel_front(&b);
 	}
-	for(i = 0; i<3; i++)
+	for(i = 0; i<10; i++)
 	{
 		ft_dc_lstdel_front(&a);
 	}
