@@ -33,6 +33,41 @@ int main()
  	a = NULL;
  	b = NULL;
  	
+ 	ft_dc_lstadd_front(&a, ft_dc_lstnew(23));
+ 	printf("%lld\n", a->data);
+	printf("%p\n", a);
+ 	printf("left %p\n", a->left);
+ 	printf("right %p\n", a->right);
+	ft_dc_lst_print(a);
+ 	
+ 	ft_dc_lstadd_front(&a, ft_dc_lstnew(331123));
+ 	printf("%lld\n", a->data);
+	printf("%p\n", a);
+ 	printf("left %p\n", a->left);
+ 	printf("right %p\n", a->right);
+	ft_dc_lst_print(a);
+ 	
+ 	ft_dc_lstadd_front(&a, ft_dc_lstnew(1223));
+ 	printf("%lld\n", a->data);
+	printf("%p\n", a);
+ 	printf("left %p\n", a->left);
+ 	printf("right %p\n", a->right);
+	ft_dc_lst_print(a);
+ 	
+ 	ft_dc_lstadd_front(&a, ft_dc_lstnew(-11231123));
+ 	printf("%lld\n", a->data);
+	printf("%p\n", a);
+ 	printf("left %p\n", a->left);
+ 	printf("right %p\n", a->right);
+	ft_dc_lst_print(a);
+ 	
+ 	ft_dc_lstadd_front(&a, ft_dc_lstnew(-113));
+ 	printf("%lld\n", a->data);
+	printf("%p\n", a);
+ 	printf("left %p\n", a->left);
+ 	printf("right %p\n", a->right);
+	ft_dc_lst_print(a);
+ 	
  	ft_dc_lstadd_front(&a, ft_dc_lstnew(-1123));
  	printf("%lld\n", a->data);
 	printf("%p\n", a);
@@ -144,153 +179,159 @@ int main()
 	ft_dc_lst_print(copy);
 	printf("\n");
 
-	// pivot test length = 13
+	// pivot test 
 	printf("\n\npibot test !!!!\n");
 	printf("small pibot : %lld\n", get_small_pivot(copy));
 	printf("big pibot : %lld\n", get_big_pivot(copy));
 	printf("\n");
 
-
-	// rotate
-	ra(&a);
- 	printf("%lld\n", a->data);
- 	printf("%p\n", a);
- 	printf("left %p\n", a->left);
- 	printf("right %p\n", a->right);
- 	printf("length = %zu\n", ft_dc_lstsize(a));
-	ft_dc_lst_print(a);
-
-	// swap
-	printf("\nswap test : ");
-	sa(a);
-	ft_dc_lst_print(a);
-	printf("\n");
-
-	// swap
-	printf("\nswap test : ");
-	sa(a);
-	ft_dc_lst_print(a);
-	printf("\n");
-
-	ra(&a);
- 	printf("%lld\n", a->data);
- 	printf("%p\n", a);
- 	printf("left %p\n", a->left);
- 	printf("right %p\n", a->right);
- 	printf("length = %zu\n", ft_dc_lstsize(a));
-	ft_dc_lst_print(a);
-
-	ra(&a);
- 	printf("%lld\n", a->data);
- 	printf("%p\n", a);
- 	printf("left %p\n", a->left);
- 	printf("right %p\n", a->right);
- 	printf("length = %zu\n", ft_dc_lstsize(a));
-	ft_dc_lst_print(a);
-
-	// push  
-	 
-	pb(&a, &b);
-	printf("\npush test\n a :\n");
+	//	move test
+	printf("\n\n\nmove test !!!!\n");
+	move_all_b(&a, &b, &copy, ft_dc_lstsize(copy) / 3 * 2);
 	ft_dc_lst_print(a);
 	ft_dc_lst_print(b);
-	printf(": b \n\n");
-
- 	ft_dc_lstdel_front(&a);
- 	printf("%lld\n", a->data);
- 	printf("%p\n", a);
- 	printf("left %p\n", a->left);
- 	printf("right %p\n", a->right);
- 	printf("length = %zu\n", ft_dc_lstsize(a));
-	ft_dc_lst_print(a);
-
-	// swap
-	printf("\nswap test : ");
-	sa(a);
-	ft_dc_lst_print(a);
-	printf("\n");
-
-	// reverse rotate
- 	rra(&a);
-	printf("%lld\n", a->data);
- 	printf("%p\n", a);
- 	printf("left %p\n", a->left);
- 	printf("right %p\n", a->right);
- 	printf("length = %zu\n", ft_dc_lstsize(a));
-	ft_dc_lst_print(a);
 
 
+	// // rotate
+	// ra(&a);
+ 	// printf("%lld\n", a->data);
+ 	// printf("%p\n", a);
+ 	// printf("left %p\n", a->left);
+ 	// printf("right %p\n", a->right);
+ 	// printf("length = %zu\n", ft_dc_lstsize(a));
+	// ft_dc_lst_print(a);
 
-	// push
+	// // swap
+	// printf("\nswap test : ");
+	// sa(a);
+	// ft_dc_lst_print(a);
+	// printf("\n");
+
+	// // swap
+	// printf("\nswap test : ");
+	// sa(a);
+	// ft_dc_lst_print(a);
+	// printf("\n");
+
+	// ra(&a);
+ 	// printf("%lld\n", a->data);
+ 	// printf("%p\n", a);
+ 	// printf("left %p\n", a->left);
+ 	// printf("right %p\n", a->right);
+ 	// printf("length = %zu\n", ft_dc_lstsize(a));
+	// ft_dc_lst_print(a);
+
+	// ra(&a);
+ 	// printf("%lld\n", a->data);
+ 	// printf("%p\n", a);
+ 	// printf("left %p\n", a->left);
+ 	// printf("right %p\n", a->right);
+ 	// printf("length = %zu\n", ft_dc_lstsize(a));
+	// ft_dc_lst_print(a);
+
+	// // push  
 	 
-	pb(&a, &b);
-	printf("\npush test\n a :\n");
-	ft_dc_lst_print(a);
-	ft_dc_lst_print(b);
-	printf(": b \n\n");
+	// pb(&a, &b);
+	// printf("\npush test\n a :\n");
+	// ft_dc_lst_print(a);
+	// ft_dc_lst_print(b);
+	// printf(": b \n\n");
 
-	// push
+ 	// ft_dc_lstdel_front(&a);
+ 	// printf("%lld\n", a->data);
+ 	// printf("%p\n", a);
+ 	// printf("left %p\n", a->left);
+ 	// printf("right %p\n", a->right);
+ 	// printf("length = %zu\n", ft_dc_lstsize(a));
+	// ft_dc_lst_print(a);
+
+	// // swap
+	// printf("\nswap test : ");
+	// sa(a);
+	// ft_dc_lst_print(a);
+	// printf("\n");
+
+	// // reverse rotate
+ 	// rra(&a);
+	// printf("%lld\n", a->data);
+ 	// printf("%p\n", a);
+ 	// printf("left %p\n", a->left);
+ 	// printf("right %p\n", a->right);
+ 	// printf("length = %zu\n", ft_dc_lstsize(a));
+	// ft_dc_lst_print(a);
+
+
+
+	// // push
 	 
-	pa(&a, &b);
-	printf("\npush test\n a :\n");
-	ft_dc_lst_print(a);
-	ft_dc_lst_print(b);
-	printf(": b \n\n");
+	// pb(&a, &b);
+	// printf("\npush test\n a :\n");
+	// ft_dc_lst_print(a);
+	// ft_dc_lst_print(b);
+	// printf(": b \n\n");
 
-	// push
+	// // push
 	 
-	pa(&a, &b);
-	printf("\npush test\n a :\n");
-	ft_dc_lst_print(a);
-	ft_dc_lst_print(b);
-	printf(": b \n\n");
+	// pa(&a, &b);
+	// printf("\npush test\n a :\n");
+	// ft_dc_lst_print(a);
+	// ft_dc_lst_print(b);
+	// printf(": b \n\n");
 
-
- 	rra(&a);
-	printf("%lld\n", a->data);
- 	printf("%p\n", a);
- 	printf("left %p\n", a->left);
- 	printf("right %p\n", a->right);
- 	printf("length = %zu\n", ft_dc_lstsize(a));
-	ft_dc_lst_print(a);
-
- 	ft_dc_lstdel_front(&a);
- 	printf("%lld\n", a->data);
- 	printf("%p\n", a);
- 	printf("left %p\n", a->left);
- 	printf("right %p\n", a->right);
-	ft_dc_lst_print(a);
-
- 	ft_dc_lstdel_front(&a);
- 	printf("%lld\n", a->data);
- 	printf("%p\n", a);
-	printf("left %p\n", a->left);
-	printf("right %p\n", a->right);
- 	printf("length = %zu\n", ft_dc_lstsize(a));
-	ft_dc_lst_print(a);
-
- 	rra(&a);
-	printf("%lld\n", a->data);
- 	printf("%p\n", a);
- 	printf("left %p\n", a->left);
- 	printf("right %p\n", a->right);
- 	printf("length = %zu\n", ft_dc_lstsize(a));
-	ft_dc_lst_print(a);
-
-
- 	t_dc_data data = ft_dc_lstdel_front(&a);
- 	printf("%p\n", a);
- 	printf("%lld\n", data);
- 	printf("length = %zu\n", ft_dc_lstsize(a));
-	ft_dc_lst_print(a);
-
-	// push
+	// // push
 	 
-	pa(&a, &b);
-	printf("\npush test\n a :\n");
-	ft_dc_lst_print(a);
-	ft_dc_lst_print(b);
-	printf(": b \n\n");
+	// pa(&a, &b);
+	// printf("\npush test\n a :\n");
+	// ft_dc_lst_print(a);
+	// ft_dc_lst_print(b);
+	// printf(": b \n\n");
+
+
+ 	// rra(&a);
+	// printf("%lld\n", a->data);
+ 	// printf("%p\n", a);
+ 	// printf("left %p\n", a->left);
+ 	// printf("right %p\n", a->right);
+ 	// printf("length = %zu\n", ft_dc_lstsize(a));
+	// ft_dc_lst_print(a);
+
+ 	// ft_dc_lstdel_front(&a);
+ 	// printf("%lld\n", a->data);
+ 	// printf("%p\n", a);
+ 	// printf("left %p\n", a->left);
+ 	// printf("right %p\n", a->right);
+	// ft_dc_lst_print(a);
+
+ 	// ft_dc_lstdel_front(&a);
+ 	// printf("%lld\n", a->data);
+ 	// printf("%p\n", a);
+	// printf("left %p\n", a->left);
+	// printf("right %p\n", a->right);
+ 	// printf("length = %zu\n", ft_dc_lstsize(a));
+	// ft_dc_lst_print(a);
+
+ 	// rra(&a);
+	// printf("%lld\n", a->data);
+ 	// printf("%p\n", a);
+ 	// printf("left %p\n", a->left);
+ 	// printf("right %p\n", a->right);
+ 	// printf("length = %zu\n", ft_dc_lstsize(a));
+	// ft_dc_lst_print(a);
+
+
+ 	// t_dc_data data = ft_dc_lstdel_front(&a);
+ 	// printf("%p\n", a);
+ 	// printf("%lld\n", data);
+ 	// printf("length = %zu\n", ft_dc_lstsize(a));
+	// ft_dc_lst_print(a);
+
+	// // push
+	 
+	// pa(&a, &b);
+	// printf("\npush test\n a :\n");
+	// ft_dc_lst_print(a);
+	// ft_dc_lst_print(b);
+	// printf(": b \n\n");
 
 
 

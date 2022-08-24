@@ -69,3 +69,14 @@ void	sort2(t_dc_list *a)
 ```
 
 <br>
+
+>move_all_b : 3개만 빼고 모두 b로 넘긴다.
+- top_a < small_pivot : b의 아래쪽에 저장 -> pb, rb
+- small_pivot <= top_a < big_pivot : b의 위쪽에 저장 -> pb
+- big_pivot <= top_a : a에 남기기 -> ra
+
+- n : big_pivot보다 작은 숫자의 갯수 (b로 넘겨얄 숫자들의 갯수)
+
+``` c
+```
+<br>
