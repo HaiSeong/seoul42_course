@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 16:35:39 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/24 13:16:39 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/24 13:17:36 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,3 +88,4 @@ t_dc_data	get_big_pivot(t_dc_list *copy)
 		temp = temp->right;
 	return (temp->data);
 }
+ 

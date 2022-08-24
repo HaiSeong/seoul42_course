@@ -71,10 +71,37 @@ void	bubble_sort(t_dc_list *copy)
 
 >get_small_pivot : 스택을 3등분 했을때 작은 피봇의 값을 구한다.
 ``` c
+t_dc_data	get_small_pivot(t_dc_list *copy)
+{
+	t_dc_list	*temp;
+	size_t		index;
+	size_t		i;
+
+	index = ft_dc_lstsize(copy) / 3;
+	temp = copy;
+	i = 0;
+	while (i++ < index)
+		temp = temp->right;
+	return (temp->data);
+}
+
 ```
 
 <br>
 
 >get_big_pivot : 스택을 3등분 했을때 큰 피봇의 값을 구한다.
 ``` c
+t_dc_data	get_big_pivot(t_dc_list *copy)
+{
+	t_dc_list	*temp;
+	size_t		index;
+	size_t		i;
+
+	index = ft_dc_lstsize(copy) / 3 * 2;
+	temp = copy;
+	i = 0;
+	while (i++ < index)
+		temp = temp->right;
+	return (temp->data);
+}
 ```
