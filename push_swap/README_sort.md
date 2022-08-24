@@ -111,12 +111,7 @@ void	move_all_b(t_dc_list **a, t_dc_list **b, t_dc_list **copy, size_t n)
 <br>
 
 >push_a : a스택으로 하나씩 옮기는 함수
-- temp : (temp->left->data) < (삽입 할 위치) < (temp->data)
-[sorting_push_util.c](./README_sort_push_util.md)
-1) b의 가장 위의 원소가 들어갈 곳을 right방향으로 탐색
-2) b의 가장 위의 원소가 들어갈 곳을 left방향으로 탐색
-3) b의 두번째 원소가 들어갈 곳을 right방향으로 탐색
-4) b의 두번째 원소가 들어갈 곳을 left방향으로 탐색
+- get_min_case의 결과를 받아서 최적의 do_push함수를 실행
 
 ``` c
 ```
