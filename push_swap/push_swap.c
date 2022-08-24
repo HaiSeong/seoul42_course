@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 17:30:07 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/24 21:03:57 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/24 21:26:47 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static int	make_a(t_dc_list **a, char **strs, int end)
 	t_dc_list	*temp;
 
 	i = 0;
-	while (strs[i++] != NULL)
+	while (strs[i] != NULL)
 		i++;
 	while (i-- > end)	//	반복문을 돌면서 하나씩 숫자로 만들어 스택에 추가 한다. (뒤부터 넣어야 방향이 맞음)
 	{
@@ -91,14 +91,15 @@ static void	argv_to_stack(t_dc_list **a, int argc, char *argv[])
 		if (make_a(a, strs, 0) == -1)
 		{
 			ft_dc_lstclear(a);	//	노드를 모두 지우고
-			return ft_error();	// 에러 출력
+			ft_error();	// 에러 출력
+			exit(1);
 		}
 		ft_free_strs(strs);
 	}
 	else // "" 가 없는 경우
 		make_a(a, argv, 1);
 	if (*a == NULL)
-		exit(-1);
+		exit(1);
 }
 
 int main(int argc, char *argv[])
@@ -118,15 +119,12 @@ int main(int argc, char *argv[])
 		sort3(&a);
 		// 하나씩 a로 옮기기
 		while (b != NULL)
-		{
 			push_a(&a, &b);
-			ft_dc_lst_print(a);
-		}
 		organize_stack(&a);
-		ft_printf("a ");
-		ft_dc_lst_print(a);
-		ft_printf("b ");
-		ft_dc_lst_print(b);
+		// ft_printf("a "); // fot test
+		// ft_dc_lst_print(a);
+		// ft_printf("b ");
+		// ft_dc_lst_print(b);
 	}
 	else if (ft_dc_lstsize(a) == 3)
 		sort3(&a);

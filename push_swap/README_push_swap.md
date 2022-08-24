@@ -30,7 +30,7 @@ static void	ft_free_strs(char **strs)
 <br>
 
 >make_a : 문자열 배열을 숫자로 바꿔 a스택에 넣는 함수
-- ft_dc_lstnew가 할당 실패시 스택에 모든 노드를 지우고 -1을 리턴 (a == NULL인 상태)
+- 문자열에 이상이 있는 경우 또는 ft_dc_lstnew가 할당 실패시 -1을 리턴 ((strs[i][j] == '-' && ft_strlen(strs[i]) != 1) : "-" 인 경우)
 - 정상적으로 종료되면 0을 리턴
 ``` c
 static int	make_a(t_dc_list **a, char **strs, int end)
@@ -47,16 +47,14 @@ static int	make_a(t_dc_list **a, char **strs, int end)
 		j = 0;
 		while (strs[i][j] != '\0')
 		{
-			if (!(ft_isdigit(strs[i][j]) || strs[i][j] == '-'))	//	한글자씩 읽으며 숫자나 - 가 아닌경우 에러
-				return ft_error();
+			if (!(ft_isdigit(strs[i][j])
+				|| (strs[i][j] == '-' && ft_strlen(strs[i]) != 1)))
+				return (-1);	//	한글자씩 읽으며 숫자나 - 가 아닌경우 에러
 			j++;
 		}
 		temp = ft_dc_lstnew(ft_atolli(strs[i]));	//	문자열을 숫자로 바꿔 새로운 노드 생성
 		if (temp == NULL)	//	할당 실패시
-		{
-			ft_dc_lstclear(a);	//	노드를 모두 지우고
-			return ft_error();	// 에러 출력
-		}
+			return (-1);
 		ft_dc_lstadd_front(a, temp);	// 스택에 저장
 	}
 	return (0);
@@ -85,15 +83,18 @@ static void	argv_to_stack(t_dc_list **a, int argc, char *argv[])
 	{
 		// 첫번째 인자를 isspace기준으로 나눈다.
 		strs = ft_split_isspace(argv[1]);
-		make_a(a, strs, 0);
+		if (make_a(a, strs, 0) == -1)
+		{
+			ft_dc_lstclear(a);	//	노드를 모두 지우고
+			ft_error();	// 에러 출력
+			exit(1);
+		}
 		ft_free_strs(strs);
 	}
 	else // "" 가 없는 경우
 		make_a(a, argv, 1);
 	if (*a == NULL)
-		exit(-1);
-	ft_printf("good\n");	//	test
-	ft_dc_lst_print(*a);	//	test
+		exit(1);
 }
 ```
 
