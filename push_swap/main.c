@@ -32,6 +32,69 @@ int main()
 	t_dc_list *b;
  	a = NULL;
  	b = NULL;
+ 	
+ 	ft_dc_lstadd_front(&a, ft_dc_lstnew(-1123));
+ 	printf("%lld\n", a->data);
+	printf("%p\n", a);
+ 	printf("left %p\n", a->left);
+ 	printf("right %p\n", a->right);
+	ft_dc_lst_print(a);
+ 	
+ 	ft_dc_lstadd_front(&a, ft_dc_lstnew(123452351));
+ 	printf("%lld\n", a->data);
+	printf("%p\n", a);
+ 	printf("left %p\n", a->left);
+ 	printf("right %p\n", a->right);
+	ft_dc_lst_print(a);
+ 	
+ 	ft_dc_lstadd_front(&a, ft_dc_lstnew(999991));
+ 	printf("%lld\n", a->data);
+	printf("%p\n", a);
+ 	printf("left %p\n", a->left);
+ 	printf("right %p\n", a->right);
+	ft_dc_lst_print(a);
+ 	
+ 	ft_dc_lstadd_front(&a, ft_dc_lstnew(34234));
+ 	printf("%lld\n", a->data);
+	printf("%p\n", a);
+ 	printf("left %p\n", a->left);
+ 	printf("right %p\n", a->right);
+	ft_dc_lst_print(a);
+ 	
+ 	ft_dc_lstadd_front(&a, ft_dc_lstnew(31234));
+ 	printf("%lld\n", a->data);
+	printf("%p\n", a);
+ 	printf("left %p\n", a->left);
+ 	printf("right %p\n", a->right);
+	ft_dc_lst_print(a);
+ 	
+ 	ft_dc_lstadd_front(&a, ft_dc_lstnew(33321));
+ 	printf("%lld\n", a->data);
+	printf("%p\n", a);
+ 	printf("left %p\n", a->left);
+ 	printf("right %p\n", a->right);
+	ft_dc_lst_print(a);
+ 	
+ 	ft_dc_lstadd_front(&a, ft_dc_lstnew(33));
+ 	printf("%lld\n", a->data);
+	printf("%p\n", a);
+ 	printf("left %p\n", a->left);
+ 	printf("right %p\n", a->right);
+	ft_dc_lst_print(a);
+ 	
+ 	ft_dc_lstadd_front(&a, ft_dc_lstnew(30));
+ 	printf("%lld\n", a->data);
+	printf("%p\n", a);
+ 	printf("left %p\n", a->left);
+ 	printf("right %p\n", a->right);
+	ft_dc_lst_print(a);
+ 	
+ 	ft_dc_lstadd_front(&a, ft_dc_lstnew(90));
+ 	printf("%lld\n", a->data);
+	printf("%p\n", a);
+ 	printf("left %p\n", a->left);
+ 	printf("right %p\n", a->right);
+	ft_dc_lst_print(a);
 
  	t_dc_list *new = ft_dc_lstnew(3);
  	ft_dc_lstadd_front(&a, new);
@@ -73,9 +136,15 @@ int main()
 	printf("\n\n\ncopy test !!!!\n");
 	t_dc_list *copy = copy_a(a);
 	ft_dc_lst_print(copy);
-	ft_dc_lstclear(&copy);
-	 
 	printf("\n");
+
+	// bubble test
+	printf("\n\n\nbubble test !!!!\n");
+	bubble_sort(copy);
+	ft_dc_lst_print(copy);
+	ft_dc_lstclear(&copy);
+	printf("\n");
+
 
 	// rotate
 	ra(&a);
