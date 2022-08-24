@@ -150,6 +150,7 @@ int		get_min_case(t_dc_list **a, t_dc_list **b)
 			min_sum = sums[i];
 			min_idx = i;			
 		}
+		i++;
 	}
 	return (min_idx);
 }

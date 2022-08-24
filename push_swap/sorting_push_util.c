@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 16:35:39 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/24 19:40:29 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/24 19:45:47 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,6 +137,7 @@ int		get_min_case(t_dc_list **a, t_dc_list **b)
 			min_sum = sums[i];
 			min_idx = i;			
 		}
+		i++;
 	}
-	return (min_idx);
+	return (min_idx + 1);
 }

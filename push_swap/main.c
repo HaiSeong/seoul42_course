@@ -220,7 +220,7 @@ int main()
 	printf("case3 = %zd\n", c3);
 	printf("case4 = %zd\n", c4);
 
-	
+	printf("get_min_case = %d\n", get_min_case(&a, &b));
 	
 	for(i = 0; i<197; i++)
 	{
