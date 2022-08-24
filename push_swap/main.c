@@ -197,10 +197,14 @@ int main()
 
 	// case test
 	size_t c1 = case1(&a, &b);
-	size_t c2 = ft_dc_lstsize(a) - c1;
+	size_t c2 = case2(&a, &b);
+	size_t c3 = case3(&a, &b);
+	size_t c4 = case4(&a, &b);
 	printf("\n\n\n\ncase1 = %zd\n", c1);
 	printf("case2 = %zd\n", c2);
-
+	printf("case2 = %zd\n", c3);
+	printf("case2 = %zd\n", c4);
+	
 
 	// // rotate
 	// ra(&a);
