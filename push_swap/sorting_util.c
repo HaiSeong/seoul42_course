@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 16:35:39 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/24 18:53:08 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/24 19:10:16 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,12 @@ size_t	case1(t_dc_list **a, t_dc_list **b)
 	while (temp != (*a)->left)
 	{
 		if (temp->left->data > temp->data)
-			if (data < temp->data || temp->left->data < data)
+		{
+			if (data < temp->data)
 				return (sum);
+			if (temp->left->data < data)
+				return (sum + 1);
+		}
 		if (temp->left->data < data && data < temp->data)
 			return (sum);
 		temp = temp->right;
@@ -46,8 +50,12 @@ size_t	case2(t_dc_list **a, t_dc_list **b)
 	while (temp != (*a)->left)
 	{
 		if (temp->left->data > temp->data)
-			if (data < temp->data || temp->left->data < data)
+		{
+			if (data < temp->data)
 				return (sum);
+			if (temp->left->data < data)
+				return (sum + 1);
+		}
 		if (temp->left->data < data && data < temp->data)
 			return (sum);
 		temp = temp->left;
@@ -68,8 +76,12 @@ size_t	case3(t_dc_list **a, t_dc_list **b)
 	while (temp != (*a)->left)
 	{
 		if (temp->left->data > temp->data)
-			if (data < temp->data || temp->left->data < data)
+		{
+			if (data < temp->data)
 				return (sum);
+			if (temp->left->data < data)
+				return (sum + 1);
+		}
 		if (temp->left->data < data && data < temp->data)
 			return (sum);
 		temp = temp->right;
@@ -90,8 +102,12 @@ size_t	case4(t_dc_list **a, t_dc_list **b)
 	while (temp != (*a)->left)
 	{
 		if (temp->left->data > temp->data)
-			if (data < temp->data || temp->left->data < data)
+		{
+			if (data < temp->data)
 				return (sum);
+			if (temp->left->data < data)
+				return (sum + 1);
+		}
 		if (temp->left->data < data && data < temp->data)
 			return (sum);
 		temp = temp->left;
