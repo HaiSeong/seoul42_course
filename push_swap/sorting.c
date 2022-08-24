@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 16:35:39 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/24 18:41:54 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/24 21:06:07 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,24 @@ void	move_all_b(t_dc_list **a, t_dc_list **b, t_dc_list **copy, size_t n)
 	}
 }
 
-// void push_a(t_dc_list **a, t_dc_list **b)
-// {
-// 	t_dc_list	*temp;
-// 	t_dc_data	*data;
-// 	size_t		min;
+void push_a(t_dc_list **a, t_dc_list **b)
+{
+	t_dc_list	*temp;
+	int			min_case;
 
-// 	temp = *a;
-// 	data = (*b)->data;
-	
-// }
+	min_case = get_min_case(a, b);
+	if (min_case == 1)
+		do_push1(a, b);
+	else if (min_case == 2)
+		do_push2(a, b);
+	else if (min_case == 3)
+		do_push3(a, b);
+	else
+		do_push4(a, b);
+}
+
+void	organize_stack(t_dc_list **a)
+{
+	while ((*a)->left->data < (*a)->data)
+		rra(a);
+}
