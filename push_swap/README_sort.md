@@ -50,13 +50,14 @@ void	sort2(t_dc_list *a)
 
 <br>
 
->sort3 : 3개의 원소일때 정렬하는 함수
-1) | 1 | 2 | 3| : 그대로
-2) | 1 | 3 | 2| : rra -> sa
-3) | 2 | 1 | 3| : sa
-4) | 2 | 3 | 1| : rra
-5) | 3 | 1 | 2| : ra
-6) | 3 | 2 | 1| : ra -> sa
+>sort3 : 3개의 원소일때 정렬하는 함수 (s | m | b 로 만들어야함)
+   | 1 | 2 | 3 | data
+1) | s | m | b | : 그대로
+2) | s | b | m | : rra -> sa
+3) | m | s | b | : sa
+4) | m | b | s | : rra
+5) | b | s | m | : ra
+6) | b | m | s | : ra -> sa
 
 ``` c
 void	sort2(t_dc_list *a)
@@ -108,9 +109,10 @@ void	move_all_b(t_dc_list **a, t_dc_list **b, t_dc_list **copy, size_t n)
 ```
 
 <br>
- 
+
 >push_a : a스택으로 하나씩 옮기는 함수
 - temp : (temp->left->data) < (삽입 할 위치) < (temp->data)
+[sorting_push_util.c](./README_sort_push_util.md)
 1) b의 가장 위의 원소가 들어갈 곳을 right방향으로 탐색
 2) b의 가장 위의 원소가 들어갈 곳을 left방향으로 탐색
 3) b의 두번째 원소가 들어갈 곳을 right방향으로 탐색

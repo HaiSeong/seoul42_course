@@ -32,138 +32,153 @@ int main()
 	t_dc_list *b;
  	a = NULL;
  	b = NULL;
- 	
- 	ft_dc_lstadd_front(&a, ft_dc_lstnew(23));
- 	printf("%lld\n", a->data);
-	printf("%p\n", a);
- 	printf("left %p\n", a->left);
- 	printf("right %p\n", a->right);
-	ft_dc_lst_print(a);
- 	
- 	ft_dc_lstadd_front(&a, ft_dc_lstnew(331123));
- 	printf("%lld\n", a->data);
-	printf("%p\n", a);
- 	printf("left %p\n", a->left);
- 	printf("right %p\n", a->right);
-	ft_dc_lst_print(a);
- 	
- 	ft_dc_lstadd_front(&a, ft_dc_lstnew(1223));
- 	printf("%lld\n", a->data);
-	printf("%p\n", a);
- 	printf("left %p\n", a->left);
- 	printf("right %p\n", a->right);
-	ft_dc_lst_print(a);
- 	
- 	ft_dc_lstadd_front(&a, ft_dc_lstnew(-11231123));
- 	printf("%lld\n", a->data);
-	printf("%p\n", a);
- 	printf("left %p\n", a->left);
- 	printf("right %p\n", a->right);
-	ft_dc_lst_print(a);
- 	
- 	ft_dc_lstadd_front(&a, ft_dc_lstnew(-113));
- 	printf("%lld\n", a->data);
-	printf("%p\n", a);
- 	printf("left %p\n", a->left);
- 	printf("right %p\n", a->right);
-	ft_dc_lst_print(a);
- 	
- 	ft_dc_lstadd_front(&a, ft_dc_lstnew(-1123));
- 	printf("%lld\n", a->data);
-	printf("%p\n", a);
- 	printf("left %p\n", a->left);
- 	printf("right %p\n", a->right);
-	ft_dc_lst_print(a);
- 	
- 	ft_dc_lstadd_front(&a, ft_dc_lstnew(123452351));
- 	printf("%lld\n", a->data);
-	printf("%p\n", a);
- 	printf("left %p\n", a->left);
- 	printf("right %p\n", a->right);
-	ft_dc_lst_print(a);
- 	
- 	ft_dc_lstadd_front(&a, ft_dc_lstnew(999991));
- 	printf("%lld\n", a->data);
-	printf("%p\n", a);
- 	printf("left %p\n", a->left);
- 	printf("right %p\n", a->right);
-	ft_dc_lst_print(a);
- 	
- 	ft_dc_lstadd_front(&a, ft_dc_lstnew(34234));
- 	printf("%lld\n", a->data);
-	printf("%p\n", a);
- 	printf("left %p\n", a->left);
- 	printf("right %p\n", a->right);
-	ft_dc_lst_print(a);
- 	
- 	ft_dc_lstadd_front(&a, ft_dc_lstnew(31234));
- 	printf("%lld\n", a->data);
-	printf("%p\n", a);
- 	printf("left %p\n", a->left);
- 	printf("right %p\n", a->right);
-	ft_dc_lst_print(a);
- 	
- 	ft_dc_lstadd_front(&a, ft_dc_lstnew(33321));
- 	printf("%lld\n", a->data);
-	printf("%p\n", a);
- 	printf("left %p\n", a->left);
- 	printf("right %p\n", a->right);
-	ft_dc_lst_print(a);
- 	
- 	ft_dc_lstadd_front(&a, ft_dc_lstnew(33));
- 	printf("%lld\n", a->data);
-	printf("%p\n", a);
- 	printf("left %p\n", a->left);
- 	printf("right %p\n", a->right);
-	ft_dc_lst_print(a);
- 	
- 	ft_dc_lstadd_front(&a, ft_dc_lstnew(30));
- 	printf("%lld\n", a->data);
-	printf("%p\n", a);
- 	printf("left %p\n", a->left);
- 	printf("right %p\n", a->right);
-	ft_dc_lst_print(a);
- 	
- 	ft_dc_lstadd_front(&a, ft_dc_lstnew(90));
- 	printf("%lld\n", a->data);
-	printf("%p\n", a);
- 	printf("left %p\n", a->left);
- 	printf("right %p\n", a->right);
+ 	int i = 0;
+
+	for(i = 150; i>100; i--)
+	{
+		ft_dc_lstadd_front(&a, ft_dc_lstnew(i));
+	}
+	for(i = 50; i>0; i--)
+	{
+		ft_dc_lstadd_front(&a, ft_dc_lstnew(i));
+	}
+	
+	for(i = 100; i>50; i--)
+	{
+		ft_dc_lstadd_front(&a, ft_dc_lstnew(i));
+	}
+	for(i = 200; i>150; i--)
+	{
+		ft_dc_lstadd_front(&a, ft_dc_lstnew(i));
+	}
+	
 	ft_dc_lst_print(a);
 
- 	t_dc_list *new = ft_dc_lstnew(3);
- 	ft_dc_lstadd_front(&a, new);
- 	printf("%lld\n", a->data);
-	printf("%p\n", a);
- 	printf("left %p\n", a->left);
- 	printf("right %p\n", a->right);
-	ft_dc_lst_print(a);
 
- 	t_dc_list *new1 = ft_dc_lstnew(4);
- 	ft_dc_lstadd_front(&a, new1);
- 	printf("%lld\n", a->data);
- 	printf("%p\n", a);
- 	printf("left %p\n", a->left);
- 	printf("right %p\n", a->right);
-	ft_dc_lst_print(a);
+ 	// ft_dc_lstadd_front(&a, ft_dc_lstnew(331123));
+ 	// printf("%lld\n", a->data);
+	// printf("%p\n", a);
+ 	// printf("left %p\n", a->left);
+ 	// printf("right %p\n", a->right);
+	// ft_dc_lst_print(a);
+ 	
+ 	// ft_dc_lstadd_front(&a, ft_dc_lstnew(1223));
+ 	// printf("%lld\n", a->data);
+	// printf("%p\n", a);
+ 	// printf("left %p\n", a->left);
+ 	// printf("right %p\n", a->right);
+	// ft_dc_lst_print(a);
+ 	
+ 	// ft_dc_lstadd_front(&a, ft_dc_lstnew(-11231123));
+ 	// printf("%lld\n", a->data);
+	// printf("%p\n", a);
+ 	// printf("left %p\n", a->left);
+ 	// printf("right %p\n", a->right);
+	// ft_dc_lst_print(a);
+ 	
+ 	// ft_dc_lstadd_front(&a, ft_dc_lstnew(-113));
+ 	// printf("%lld\n", a->data);
+	// printf("%p\n", a);
+ 	// printf("left %p\n", a->left);
+ 	// printf("right %p\n", a->right);
+	// ft_dc_lst_print(a);
+ 	
+ 	// ft_dc_lstadd_front(&a, ft_dc_lstnew(-1123));
+ 	// printf("%lld\n", a->data);
+	// printf("%p\n", a);
+ 	// printf("left %p\n", a->left);
+ 	// printf("right %p\n", a->right);
+	// ft_dc_lst_print(a);
+ 	
+ 	// ft_dc_lstadd_front(&a, ft_dc_lstnew(123452351));
+ 	// printf("%lld\n", a->data);
+	// printf("%p\n", a);
+ 	// printf("left %p\n", a->left);
+ 	// printf("right %p\n", a->right);
+	// ft_dc_lst_print(a);
+ 	
+ 	// ft_dc_lstadd_front(&a, ft_dc_lstnew(999991));
+ 	// printf("%lld\n", a->data);
+	// printf("%p\n", a);
+ 	// printf("left %p\n", a->left);
+ 	// printf("right %p\n", a->right);
+	// ft_dc_lst_print(a);
+ 	
+ 	// ft_dc_lstadd_front(&a, ft_dc_lstnew(34234));
+ 	// printf("%lld\n", a->data);
+	// printf("%p\n", a);
+ 	// printf("left %p\n", a->left);
+ 	// printf("right %p\n", a->right);
+	// ft_dc_lst_print(a);
+ 	
+ 	// ft_dc_lstadd_front(&a, ft_dc_lstnew(31234));
+ 	// printf("%lld\n", a->data);
+	// printf("%p\n", a);
+ 	// printf("left %p\n", a->left);
+ 	// printf("right %p\n", a->right);
+	// ft_dc_lst_print(a);
+ 	
+ 	// ft_dc_lstadd_front(&a, ft_dc_lstnew(33321));
+ 	// printf("%lld\n", a->data);
+	// printf("%p\n", a);
+ 	// printf("left %p\n", a->left);
+ 	// printf("right %p\n", a->right);
+	// ft_dc_lst_print(a);
+ 	
+ 	// ft_dc_lstadd_front(&a, ft_dc_lstnew(33));
+ 	// printf("%lld\n", a->data);
+	// printf("%p\n", a);
+ 	// printf("left %p\n", a->left);
+ 	// printf("right %p\n", a->right);
+	// ft_dc_lst_print(a);
+ 	
+ 	// ft_dc_lstadd_front(&a, ft_dc_lstnew(30));
+ 	// printf("%lld\n", a->data);
+	// printf("%p\n", a);
+ 	// printf("left %p\n", a->left);
+ 	// printf("right %p\n", a->right);
+	// ft_dc_lst_print(a);
+ 	
+ 	// ft_dc_lstadd_front(&a, ft_dc_lstnew(90));
+ 	// printf("%lld\n", a->data);
+	// printf("%p\n", a);
+ 	// printf("left %p\n", a->left);
+ 	// printf("right %p\n", a->right);
+	// ft_dc_lst_print(a);
 
-	t_dc_list *new2 = ft_dc_lstnew(5);
- 	ft_dc_lstadd_front(&a, new2);
- 	printf("%lld\n", a->data);
- 	printf("%p\n", a);
- 	printf("left %p\n", a->left);
- 	printf("right %p\n", a->right);
- 	printf("length = %zu\n", ft_dc_lstsize(a));
-	ft_dc_lst_print(a);
+ 	// t_dc_list *new = ft_dc_lstnew(3);
+ 	// ft_dc_lstadd_front(&a, new);
+ 	// printf("%lld\n", a->data);
+	// printf("%p\n", a);
+ 	// printf("left %p\n", a->left);
+ 	// printf("right %p\n", a->right);
+	// ft_dc_lst_print(a);
 
- 	t_dc_list *new3 = ft_dc_lstnew(6);
- 	ft_dc_lstadd_front(&a, new3);
- 	printf("%lld\n", a->data);
- 	printf("%p\n", a);
- 	printf("left %p\n", a->left);
- 	printf("right %p\n", a->right);
- 	printf("length = %zu\n", ft_dc_lstsize(a));
-	ft_dc_lst_print(a);
+ 	// t_dc_list *new1 = ft_dc_lstnew(4);
+ 	// ft_dc_lstadd_front(&a, new1);
+ 	// printf("%lld\n", a->data);
+ 	// printf("%p\n", a);
+ 	// printf("left %p\n", a->left);
+ 	// printf("right %p\n", a->right);
+	// ft_dc_lst_print(a);
+
+	// t_dc_list *new2 = ft_dc_lstnew(5);
+ 	// ft_dc_lstadd_front(&a, new2);
+ 	// printf("%lld\n", a->data);
+ 	// printf("%p\n", a);
+ 	// printf("left %p\n", a->left);
+ 	// printf("right %p\n", a->right);
+ 	// printf("length = %zu\n", ft_dc_lstsize(a));
+	// ft_dc_lst_print(a);
+
+ 	// t_dc_list *new3 = ft_dc_lstnew(6);
+ 	// ft_dc_lstadd_front(&a, new3);
+ 	// printf("%lld\n", a->data);
+ 	// printf("%p\n", a);
+ 	// printf("left %p\n", a->left);
+ 	// printf("right %p\n", a->right);
+ 	// printf("length = %zu\n", ft_dc_lstsize(a));
+	// ft_dc_lst_print(a);
 
 
 	//	copy test
@@ -202,9 +217,19 @@ int main()
 	size_t c4 = case4(&a, &b);
 	printf("\n\n\n\ncase1 = %zd\n", c1);
 	printf("case2 = %zd\n", c2);
-	printf("case2 = %zd\n", c3);
-	printf("case2 = %zd\n", c4);
+	printf("case3 = %zd\n", c3);
+	printf("case4 = %zd\n", c4);
+
 	
+	
+	for(i = 0; i<197; i++)
+	{
+		ft_dc_lstdel_front(&b);
+	}
+	for(i = 0; i<3; i++)
+	{
+		ft_dc_lstdel_front(&a);
+	}
 
 	// // rotate
 	// ra(&a);
