@@ -5,7 +5,7 @@
 
 >ft_error : error case일때 에러를 출력하고 -1 리턴
 ``` c
-static int ft_error()
+int ft_error()
 {
 	ft_printf("Error\n");
 	return (-1);
@@ -16,7 +16,7 @@ static int ft_error()
 
 >ft_free_strs : 문자열을 free하는 함수
 ``` c
-void	ft_free_strs(char **strs)
+static void	ft_free_strs(char **strs)
 {
 	int	i;
 
@@ -33,7 +33,7 @@ void	ft_free_strs(char **strs)
 - ft_dc_lstnew가 할당 실패시 스택에 모든 노드를 지우고 -1을 리턴 (a == NULL인 상태)
 - 정상적으로 종료되면 0을 리턴
 ``` c
-int	make_a(t_dc_list **a, char **strs, int end)
+static int	make_a(t_dc_list **a, char **strs, int end)
 {
 	int i;
 	int j;
