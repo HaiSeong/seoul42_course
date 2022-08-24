@@ -99,3 +99,40 @@ static void	argv_to_stack(t_dc_list **a, int argc, char *argv[])
 ```
 
 <br>
+
+>main : 
+``` c
+int main(int argc, char *argv[])
+{
+	t_dc_list	*a;
+	t_dc_list	*b;
+	t_dc_list	*copy;
+
+	argv_to_stack(&a, argc, argv);
+	// 정렬 전 정보 구하기
+	copy = copy_a(a);
+	bubble_sort(copy);
+	// 정렬 시작
+	if (ft_dc_lstsize(a) > 3)
+	{
+		move_all_b(&a, &b, &copy, ft_dc_lstsize(copy) / 3 * 2);
+		sort3(&a);
+		// 하나씩 a로 옮기기
+		while (b != NULL)
+			push_a(&a, &b);
+		organize_stack(&a);
+		// ft_printf("a "); // fot test
+		// ft_dc_lst_print(a);
+		// ft_printf("b ");
+		// ft_dc_lst_print(b);
+	}
+	else if (ft_dc_lstsize(a) == 3)
+		sort3(&a);
+	else if (ft_dc_lstsize(a) == 2)
+		sort2(&a);
+	ft_dc_lstclear(&copy);
+	ft_dc_lstclear(&a);
+}
+```
+
+<br>
