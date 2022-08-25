@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 17:30:07 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/24 21:33:24 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/25 21:18:10 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ int main(int argc, char *argv[])
 	t_dc_list	*a;
 	t_dc_list	*b;
 	t_dc_list	*copy;
+	t_cost_info	cost_info;
 
 	argv_to_stack(&a, argc, argv);
 	// 정렬 전 정보 구하기
@@ -117,13 +118,57 @@ int main(int argc, char *argv[])
 	{
 		move_all_b(&a, &b, &copy, ft_dc_lstsize(copy) / 3 * 2);
 		sort3(&a);
-		// 하나씩 a로 옮기기
-		while (b != NULL)
-			push_a(&a, &b);
-		organize_stack(&a);
-		// ft_printf("a "); // fot test
 		// ft_dc_lst_print(a);
-		// ft_printf("b ");
+		// ft_dc_lst_print(b);
+		// cost_info = get_best_cost(&a, &b);
+		// ft_printf("cost : %d\n", cost_info.cost_sum);
+		// ft_printf("ra : %d\nrb : %d\nrra : %d\nrrb : %d\n best way : %d\n", cost_info.ra_cost, cost_info.rb_cost, cost_info.rra_cost, cost_info.rrb_cost, cost_info.best_way);
+		// ra(&a);
+		// pa(&a,&b);
+		// ft_dc_lst_print(a);
+		// ft_dc_lst_print(b);
+		// cost_info = get_best_cost(&a, &b);
+		// ft_printf("cost : %d\n", cost_info.cost_sum);
+		// ft_printf("ra : %d\nrb : %d\nrra : %d\nrrb : %d\n best way : %d\n", cost_info.ra_cost, cost_info.rb_cost, cost_info.rra_cost, cost_info.rrb_cost, cost_info.best_way);
+		// rra(&a);
+		// pa(&a,&b);
+		// ft_dc_lst_print(a);
+		// ft_dc_lst_print(b);
+		// cost_info = get_best_cost(&a, &b);
+		// ft_printf("cost : %d\n", cost_info.cost_sum);
+		// ft_printf("ra : %d\nrb : %d\nrra : %d\nrrb : %d\n best way : %d\n", cost_info.ra_cost, cost_info.rb_cost, cost_info.rra_cost, cost_info.rrb_cost, cost_info.best_way);
+		
+		// ra(&a);pa(&a,&b);
+		// pa(&a,&b);
+		// ra(&a);pa(&a,&b);
+		// ra(&b);pa(&a,&b);
+		// rra(&a);pa(&a,&b);
+		// rr(&a,&b);rr(&a,&b);rb(&b);pa(&a,&b);
+		// rr(&a,&b);rb(&b);pa(&a,&b);
+		// rra(&a);pa(&a,&b);pa(&a,&b);
+		// cost_info = get_best_cost(&a, &b);
+
+		// ft_printf("cost : %d\n", cost_info.cost_sum);
+		// ft_printf("ra : %d\nrb : %d\nrra : %d\nrrb : %d\n best way : %d\n", cost_info.ra_cost, cost_info.rb_cost, cost_info.rra_cost, cost_info.rrb_cost, cost_info.best_way);
+		
+
+		// exit(0); // for test
+		while (b != NULL)
+		{
+			cost_info = get_best_cost(&a, &b);
+			// ft_printf("0");
+			rotate_best_cost(&a, &b, &cost_info);
+			// ft_printf("1");
+			pa(&a, &b);
+			// if (ft_dc_lstsize(b) == 1)
+			// 	break; 
+			// ft_dc_lst_print(a);
+			// ft_dc_lst_print(b);
+		}
+
+		// exit(0);
+		organize_stack(&a);
+		// ft_dc_lst_print(a);
 		// ft_dc_lst_print(b);
 	}
 	else if (ft_dc_lstsize(a) == 3)
