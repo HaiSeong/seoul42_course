@@ -100,38 +100,37 @@ static void	argv_to_stack(t_dc_list **a, int argc, char *argv[])
 
 <br>
 
->main : 
+>main : 메인함수
+- 인자 2개 : sort2함수만 실행
+- 인자 3개 : 조건문에 들어가지만 move_all_b함수 안에서 while문에 들어가지 못하고 종료
+- 3개 이상 : 리스트 복사
 ``` c
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	t_dc_list	*a;
 	t_dc_list	*b;
 	t_dc_list	*copy;
+	t_cost_info	cost_info;
 
-	argv_to_stack(&a, argc, argv);
-	// 정렬 전 정보 구하기
-	copy = copy_a(a);
-	bubble_sort(copy);
-	// 정렬 시작
-	if (ft_dc_lstsize(a) > 3)
+	argv_to_stack(&a, argc, argv);	// argv배열을 a스택으로 변환한다.
+	if (ft_dc_lstsize(a) >= 3)
 	{
-		move_all_b(&a, &b, &copy, ft_dc_lstsize(copy) / 3 * 2);
-		sort3(&a);
-		// 하나씩 a로 옮기기
-		while (b != NULL)
-			push_a(&a, &b);
-		organize_stack(&a);
-		// ft_printf("a "); // fot test
-		// ft_dc_lst_print(a);
-		// ft_printf("b ");
-		// ft_dc_lst_print(b);
+		copy = copy_a(a);	// a 를 copy에 복사한다.
+		bubble_sort(&copy);	// copy를 버블정렬로 정렬한다.
+		move_all_b(&a, &b, &copy, ft_dc_lstsize(copy) / 3 * 2);	// 3개를 제외하고 b스택으로 모두 옮긴다.
+		sort3(&a);	// 남은 3데이터를 정리한다.
+		while (b != NULL)	// b가 빌때까지
+		{
+			cost_info = get_best_cost(&a, &b);		// 최적의 방법과 비용을 구한다.
+			rotate_best_cost(&a, &b, &cost_info);	// 그 방법으로 스택을 돌린다.
+			pa(&a, &b);	//	b의 원소를 a로 넘긴다.
+		}
+		organize_stack(&a);	//	a를 돌려 정렬한다.
+		ft_dc_lstclear(&copy);	//	복사한 리스트를 free한다.
 	}
-	else if (ft_dc_lstsize(a) == 3)
-		sort3(&a);
 	else if (ft_dc_lstsize(a) == 2)
 		sort2(&a);
-	ft_dc_lstclear(&copy);
-	ft_dc_lstclear(&a);
+	ft_dc_lstclear(&a);	//	a도 free한다.
 }
 ```
 

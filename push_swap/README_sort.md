@@ -60,11 +60,30 @@ void	sort2(t_dc_list *a)
 6) | b | m | s | : ra -> sa
 
 ``` c
-void	sort2(t_dc_list *a)
+void	sort3(t_dc_list **a)
 {
-	if (a->data > a->right->data)
+	t_dc_data	data1;
+	t_dc_data	data2;
+	t_dc_data	data3;
+	
+	data1 = (*a)->data;
+	data2 = (*a)->right->data;
+	data3 = (*a)->right->right->data;
+	if (data1 < data3 && data3 < data2) // 2) | 1 | 3 | 2| : rra -> sa
 	{
-		sa(a);
+		rra(a);
+		sa(*a);
+	}
+	else if (data2 < data1 && data1 < data3) // 3) | 2 | 1 | 3| : sa
+		sa(*a);
+	else if (data3 < data1 && data1 < data2) // 4) | 2 | 3 | 1| : rra
+		rra(a);
+	else if (data2 < data3 && data3 < data1) // 5) | 3 | 1 | 2| : ra
+		ra(a);
+	else if (data3 < data2 && data2 < data1) // 6) | 3 | 2 | 1| : ra -> sa
+	{
+		ra(a);
+		sa(*a);
 	}
 }
 ```
@@ -88,15 +107,15 @@ void	move_all_b(t_dc_list **a, t_dc_list **b, t_dc_list **copy, size_t n)
 	big_pivot = get_big_pivot(*copy);
 	while (ft_dc_lstsize(*a) > 3)
 	{
-		if ((*a)->data < small_pivot)
+		if ((*a)->data < small_pivot)	// 작은 값들 : b 아래에 저장
 		{
 			pb(a, b);
 			rb(b);
 			n--;
 		}
-		else if (big_pivot <= (*a)->data)
+		else if (big_pivot <= (*a)->data)	// 큰값들 : 남기기
 			ra(a);
-		else
+		else							// 중간값들 : b위에 저장
 		{
 			pb(a, b);
 			n--;
@@ -110,37 +129,33 @@ void	move_all_b(t_dc_list **a, t_dc_list **b, t_dc_list **copy, size_t n)
 
 <br>
 
->push_a : a스택으로 하나씩 옮기는 함수
-- get_min_case의 결과를 받아서 최적의 do_push함수를 실행
-
-``` c
-void push_a(t_dc_list **a, t_dc_list **b)
-{
-	t_dc_list	*temp;
-	int			min_case;
-
-	min_case = get_min_case(a, b);
-	if (min_case == 1)
-		do_push1(a, b);
-	else if (min_case == 2)
-		do_push2(a, b);
-	else if (min_case == 3)
-		do_push3(a, b);
-	else
-		do_push4(a, b);
-}
-```
-
-<br>
-
 >organize_stack : a스택을 돌려서 정렬 마무리
-- rra로 돌린다.
+- 빠른 방향으로 돌리기
 
 ``` c
 void	organize_stack(t_dc_list **a)
 {
-	while ((*a)->left->data < (*a)->data)
-		rra(a);
+	t_dc_list	*temp;
+	int			ra_cost;
+
+	temp = *a;
+	ra_cost = 0;
+	while (temp->left->data < temp->data)
+	{
+		ra_cost++;
+		temp = temp->right;
+	}
+	if (ra_cost < ft_dc_lstsize(*a) / 2)
+	{
+		while ((*a)->left->data < (*a)->data)
+			ra(a);
+	}
+	else
+	{
+		while ((*a)->left->data < (*a)->data)
+			rra(a);
+	}
+}ra(a);
 }
 ```
 
