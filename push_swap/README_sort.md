@@ -136,7 +136,7 @@ void	move_all_b(t_dc_list **a, t_dc_list **b, t_dc_list **copy, size_t n)
 void	organize_stack(t_dc_list **a)
 {
 	t_dc_list	*temp;
-	int			ra_cost;
+	size_t		ra_cost;
 
 	temp = *a;
 	ra_cost = 0;

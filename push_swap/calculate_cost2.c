@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	cal_sum_cost1(t_cost_info *cost_info, t_dc_list *a, t_dc_list *b)
+void	cal_sum_cost1(t_cost_info *cost_info)
 {
 	size_t	min_sum;
 
@@ -40,7 +40,7 @@ void	cal_sum_cost1(t_cost_info *cost_info, t_dc_list *a, t_dc_list *b)
 	cost_info->cost_sum = min_sum;
 }
 
-void	cal_sum_cost2(t_cost_info *cost_info, t_dc_list *a, t_dc_list *b)
+void	cal_sum_cost2(t_cost_info *cost_info)
 {
 	size_t	min_sum;
 
@@ -72,8 +72,8 @@ t_cost_info	get_best_cost(t_dc_list **a, t_dc_list **b)
 	{
 		set_cost_info_a(&temp_info, get_ra_cost(a, temp->data), *a);
 		set_cost_info_b(&temp_info, rb_cost, *b);
-		cal_sum_cost1(&temp_info, *a, *b);
-		cal_sum_cost2(&temp_info, *a, *b);
+		cal_sum_cost1(&temp_info);
+		cal_sum_cost2(&temp_info);
 		if (best_info.cost_sum > temp_info.cost_sum)
 		{
 			set_cost_info_a(&best_info, temp_info.ra_cost, *a);

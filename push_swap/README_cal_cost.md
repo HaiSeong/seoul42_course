@@ -66,7 +66,7 @@ void	set_cost_info_b(t_cost_info *cost_info, size_t rb_cost, t_dc_list *b)
 - 예를 들어 ra연산과 rb연산 중에 ra연산이 더 크다면 rr연산을 rb번 하고 ra연산을 (ra-rb)번 한다. <br>결국 연산의 합은 ra번 이다. 따라서 ra와 rb중 큰값을 고르면 된다.
 - min_sum과 best_way는 각각 최적의 연산 횟수와 최고의 방법이다. min_sum이 변경되면 best_way도 갱신해준다.
 ``` c
-void	cal_sum_cost1(t_cost_info *cost_info, t_dc_list *a, t_dc_list *b)
+void	cal_sum_cost1(t_cost_info *cost_info)
 {
 	size_t	min_sum;
 
@@ -103,7 +103,7 @@ void	cal_sum_cost1(t_cost_info *cost_info, t_dc_list *a, t_dc_list *b)
 - 두 스택의 돌리는 방향이 다르므로 단순 합을 구해서 계산해준다.
 - min_sum과 best_way는 각각 최적의 연산 횟수와 최고의 방법이다. min_sum이 변경되면 best_way도 갱신해준다.
 ``` c
-void	cal_sum_cost2(t_cost_info *cost_info, t_dc_list *a, t_dc_list *b)
+void	cal_sum_cost2(t_cost_info *cost_info)
 {
 	size_t	min_sum;
 

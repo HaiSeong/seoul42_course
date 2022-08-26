@@ -78,8 +78,8 @@ void		set_cost_info_a(t_cost_info *cost_info,
 				size_t ra_cost, t_dc_list *a);
 void		set_cost_info_b(t_cost_info *cost_info,
 				size_t rb_cost, t_dc_list *b);
-void		cal_sum_cost1(t_cost_info *cost_info, t_dc_list *a, t_dc_list *b);
-void		cal_sum_cost2(t_cost_info *cost_info, t_dc_list *a, t_dc_list *b);
+void		cal_sum_cost1(t_cost_info *cost_info);
+void		cal_sum_cost2(t_cost_info *cost_info);
 t_cost_info	get_best_cost(t_dc_list **a, t_dc_list **b);
 
 void		rotate_best_cost(t_dc_list **a, t_dc_list **b,
