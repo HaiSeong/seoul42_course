@@ -62,8 +62,6 @@ void 		sa_no_print(t_dc_list *lst_a);
 void 		sb_no_print(t_dc_list *lst_b);
 void 		ss(t_dc_list *lst_a, t_dc_list *lst_b);
 
-int			ft_error();
-
 t_dc_list	*copy_a(t_dc_list *a);
 void		bubble_sort(t_dc_list *copy);
 t_dc_data	get_small_pivot(t_dc_list *copy);
