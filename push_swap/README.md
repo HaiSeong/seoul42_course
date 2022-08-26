@@ -13,4 +13,6 @@
 | [libft](./README_libft.md) | ft_printf,<br>ft_strchr,<br>ft_split_isspace,<br>... | 출력과 입력을 받기위한 기본 함수들 |
 | [push_swap.c](./README_push_swap.md) | ft_error,<br>ft_free_strs,<br>make_a,<br>main | main함수가 있는 파일 |
 | [sorting_before.c](./README_sort_before.md) | copy_a,<br>bubble_sort,<br>get_small_pivot,<br>get_big_pivot | 정렬 전 필요한 함수들 |
-| [sorting.c](./README_sort.md) |  | 정렬 관련 함수들 |
+| [sorting.c](./README_sort.md) | sort2,<br>sort3,<br>move_all_b,<br>organize_stack | 정렬 관련 함수들 |
+| [calculate_cost1.c<br>calculate_cost2.c](./README_cal_cost.md) | get_ra_cost,<br>set_cost_info_a,<br>set_cost_info_b,<br>cal_sum_cost1,<br>cal_sum_cost2,<br>get_best_cost | b에서 a로 넘기는 최저 비용고 정보를 구하는 함수 |
+| [rotate_best_cost.c](./README_rotate_best.md) | rotate_best_cost,<br>rotate1,<br>rotate2,<br>rotate3,<br>rotate4<br> | 최적의 상태로 돌리는 함수 |
