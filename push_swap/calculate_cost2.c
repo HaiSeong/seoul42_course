@@ -14,7 +14,7 @@
 
 void	cal_sum_cost1(t_cost_info *cost_info, t_dc_list *a, t_dc_list *b)
 {
-	size_t min_sum;
+	size_t	min_sum;
 
 	cost_info->best_way = 1;
 	if (cost_info->ra_cost > cost_info->rb_cost)
@@ -42,7 +42,7 @@ void	cal_sum_cost1(t_cost_info *cost_info, t_dc_list *a, t_dc_list *b)
 
 void	cal_sum_cost2(t_cost_info *cost_info, t_dc_list *a, t_dc_list *b)
 {
-	size_t min_sum;
+	size_t	min_sum;
 
 	min_sum = cost_info->cost_sum;
 	if (min_sum > cost_info->ra_cost + cost_info->rrb_cost)

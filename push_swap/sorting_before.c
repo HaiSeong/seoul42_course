@@ -12,26 +12,26 @@
 
 #include "push_swap.h"
 
-t_dc_list	*copy_a(t_dc_list *a)
+t_dc_list	*copy_a(t_dc_list **a)
 {
-	t_dc_list	*copy;	// 복사본
+	t_dc_list	*copy;
 	t_dc_list	*temp;
 	t_dc_list	*new;
 
 	copy = NULL;
-	temp = a->left;
-	while (temp != a)
+	temp = (*a)->left;
+	while (ft_dc_lstsize(copy) < ft_dc_lstsize(*a))
 	{
 		new = ft_dc_lstnew(temp->data);
 		if (new == NULL)
-			return (NULL);
+		{
+			ft_dc_lstclear(a);
+			ft_dc_lstclear(&copy);
+			exit(1);
+		}
 		ft_dc_lstadd_front(&copy, new);
 		temp = temp->left;
 	}
-	new = ft_dc_lstnew(temp->data);
-	if (new == NULL)
-		return (NULL);
-	ft_dc_lstadd_front(&copy, new);
 	return (copy);
 }
 
@@ -88,4 +88,3 @@ t_dc_data	get_big_pivot(t_dc_list *copy)
 		temp = temp->right;
 	return (temp->data);
 }
- 

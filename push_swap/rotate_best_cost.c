@@ -46,7 +46,7 @@ void	rotate1(t_dc_list **a, t_dc_list **b, t_cost_info *cost_info)
 
 void	rotate2(t_dc_list **a, t_dc_list **b, t_cost_info *cost_info)
 {
-	while (cost_info->rra_cost > 0 &&  cost_info->rrb_cost > 0)
+	while (cost_info->rra_cost > 0 && cost_info->rrb_cost > 0)
 	{
 		rrr(a, b);
 		cost_info->rra_cost--;
@@ -54,7 +54,7 @@ void	rotate2(t_dc_list **a, t_dc_list **b, t_cost_info *cost_info)
 	}
 	while (cost_info->rra_cost > 0)
 	{
-		rra(a);		
+		rra(a);
 		cost_info->rra_cost--;
 	}
 	while (cost_info->rrb_cost > 0)

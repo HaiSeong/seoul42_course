@@ -95,7 +95,7 @@ int	main(int argc, char *argv[])
 	argv_to_stack(&a, argc, argv);
 	if (ft_dc_lstsize(a) >= 3)
 	{
-		copy = copy_a(a);
+		copy = copy_a(&a);
 		bubble_sort(copy);
 		move_all_b(&a, &b, &copy, ft_dc_lstsize(copy) / 3 * 2);
 		sort3(&a);

@@ -13,7 +13,7 @@
 #include "push_swap.h"
 #include "libft/libft.h"
 
-void sa(t_dc_list *lst_a)
+void	sa(t_dc_list *lst_a)
 {
 	t_dc_list	*top;
 	t_dc_list	*under;
@@ -29,7 +29,7 @@ void sa(t_dc_list *lst_a)
 	ft_printf("sa\n");
 }
 
-void sb(t_dc_list *lst_b)
+void	sb(t_dc_list *lst_b)
 {
 	t_dc_list	*top;
 	t_dc_list	*under;
@@ -45,7 +45,7 @@ void sb(t_dc_list *lst_b)
 	ft_printf("sb\n");
 }
 
-void sa_no_print(t_dc_list *lst_a)
+void	sa_no_print(t_dc_list *lst_a)
 {
 	t_dc_list	*top;
 	t_dc_list	*under;
@@ -60,7 +60,7 @@ void sa_no_print(t_dc_list *lst_a)
 	under->data = temp;
 }
 
-void sb_no_print(t_dc_list *lst_b)
+void	sb_no_print(t_dc_list *lst_b)
 {
 	t_dc_list	*top;
 	t_dc_list	*under;
@@ -75,10 +75,9 @@ void sb_no_print(t_dc_list *lst_b)
 	under->data = temp;
 }
 
-void ss(t_dc_list *lst_a, t_dc_list *lst_b)
+void	ss(t_dc_list *lst_a, t_dc_list *lst_b)
 {
 	sa_no_print(lst_a);
 	sb_no_print(lst_b);
 	ft_printf("ss\n");
 }
-
