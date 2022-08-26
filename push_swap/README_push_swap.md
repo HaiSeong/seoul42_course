@@ -78,20 +78,20 @@ static void	argv_to_stack(t_dc_list **a, int argc, char *argv[])
 		exit(1);
 	}
 	*a = NULL;
-	if (ft_strchr(argv[1], ' ') || ft_strchr(argv[1], '\t') || ft_strchr(argv[1], '\n')
-		|| ft_strchr(argv[1], '\v') || ft_strchr(argv[1], '\f') || ft_strchr(argv[1], '\r')) // "1 2 3 4 5" 인 경우
+	if (ft_strchr(argv[1], ' ') || ft_strchr(argv[1], '\t')
+		|| ft_strchr(argv[1], '\n') || ft_strchr(argv[1], '\v')
+		|| ft_strchr(argv[1], '\f') || ft_strchr(argv[1], '\r'))
 	{
-		// 첫번째 인자를 isspace기준으로 나눈다.
 		strs = ft_split_isspace(argv[1]);
-		if (make_a(a, strs, 0) == -1)
+		if (make_a(a, strs, 0) == -1 || argc != 2)	// "" 인경우 인자가 두개이상 들어오면 오류
 		{
-			ft_dc_lstclear(a);	//	노드를 모두 지우고
-			ft_error();	// 에러 출력
+			ft_dc_lstclear(a);
+			ft_error();
 			exit(1);
 		}
 		ft_free_strs(strs);
 	}
-	else // "" 가 없는 경우
+	else
 		make_a(a, argv, 1);
 	if (*a == NULL)
 		exit(1);

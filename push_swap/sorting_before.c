@@ -61,6 +61,27 @@ void	bubble_sort(t_dc_list *copy)
 	}
 }
 
+void	check_double(t_dc_list **a, t_dc_list **copy)
+{
+	t_dc_list	*temp;
+	size_t		i;
+
+	temp = *copy;
+	i = 0;
+	while (i < ft_dc_lstsize(*copy) - 1)
+	{
+		if (temp->data == temp->right->data)
+		{
+			ft_error();
+			ft_dc_lstclear(a);
+			ft_dc_lstclear(copy);
+			exit(1);
+		}
+		temp = temp->right;
+		i++;
+	}
+}
+
 t_dc_data	get_small_pivot(t_dc_list *copy)
 {
 	t_dc_list	*temp;

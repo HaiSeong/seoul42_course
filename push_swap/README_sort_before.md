@@ -69,6 +69,32 @@ void	bubble_sort(t_dc_list *copy)
 
 <br>
 
+>check_double : 스택을 중복된 원소가 있나 확인
+``` c
+void	check_double(t_dc_list **a, t_dc_list **copy)
+{
+	t_dc_list	*temp;
+	size_t		i;
+
+	temp = *copy;
+	i = 0;
+	while (i < ft_dc_lstsize(*copy) - 1)
+	{
+		if (temp->data == temp->right->data)
+		{
+			ft_error();
+			ft_dc_lstclear(a);
+			ft_dc_lstclear(copy);
+			exit(1);
+		}
+		temp = temp->right;
+		i++;
+	}
+}
+```
+
+<br>
+
 >get_small_pivot : 스택을 3등분 했을때 작은 피봇의 값을 구한다.
 ``` c
 t_dc_data	get_small_pivot(t_dc_list *copy)

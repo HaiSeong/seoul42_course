@@ -35,6 +35,8 @@ typedef struct s_cost_info
 	size_t	rrb_cost;
 }	t_cost_info;
 
+int			ft_error(void);
+
 t_dc_list	*ft_dc_lstnew(t_dc_data data);
 void		ft_dc_lstadd_front(t_dc_list **lst, t_dc_list *new);
 t_dc_data	ft_dc_lstdel_front(t_dc_list **lst);
@@ -64,6 +66,7 @@ void		ss(t_dc_list *lst_a, t_dc_list *lst_b);
 
 t_dc_list	*copy_a(t_dc_list **a);
 void		bubble_sort(t_dc_list *copy);
+void		check_double(t_dc_list **a, t_dc_list **copy);
 t_dc_data	get_small_pivot(t_dc_list *copy);
 t_dc_data	get_big_pivot(t_dc_list *copy);
 

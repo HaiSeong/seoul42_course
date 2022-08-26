@@ -13,9 +13,9 @@
 #include "push_swap.h"
 #include "libft/libft.h"
 
-static int	ft_error(void)
+int	ft_error(void)
 {
-	ft_printf("Error\n");
+	write(2, "Error\n", 6);
 	return (-1);
 }
 
@@ -71,7 +71,7 @@ static void	argv_to_stack(t_dc_list **a, int argc, char *argv[])
 		|| ft_strchr(argv[1], '\f') || ft_strchr(argv[1], '\r'))
 	{
 		strs = ft_split_isspace(argv[1]);
-		if (make_a(a, strs, 0) == -1)
+		if (make_a(a, strs, 0) == -1 || argc != 2)
 		{
 			ft_dc_lstclear(a);
 			ft_error();
@@ -97,6 +97,7 @@ int	main(int argc, char *argv[])
 	{
 		copy = copy_a(&a);
 		bubble_sort(copy);
+		check_double(&a, &copy);
 		move_all_b(&a, &b, &copy, ft_dc_lstsize(copy) / 3 * 2);
 		sort3(&a);
 		while (b != NULL)
