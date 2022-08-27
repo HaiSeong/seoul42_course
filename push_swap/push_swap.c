@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 17:30:07 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/27 18:59:16 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/27 20:25:19 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,11 +84,11 @@ int	main(int argc, char *argv[])
 	t_cost_info	cost_info;
 
 	argv_to_stack(&a, argc, argv);
+	copy = copy_a(&a);
+	bubble_sort(copy);
+	check(&a, &copy);
 	if (ft_dc_lstsize(a) >= 3)
 	{
-		copy = copy_a(&a);
-		bubble_sort(copy);
-		check(&a, &copy);
 		move_all_b(&a, &b, &copy, ft_dc_lstsize(copy) / 3 * 2);
 		sort3(&a);
 		while (b != NULL)
@@ -98,9 +98,9 @@ int	main(int argc, char *argv[])
 			pa(&a, &b);
 		}
 		organize_stack(&a);
-		ft_dc_lstclear(&copy);
 	}
 	else if (ft_dc_lstsize(a) == 2)
 		sort2(&a);
+	ft_dc_lstclear(&copy);
 	ft_dc_lstclear(&a);
 }
