@@ -16,6 +16,7 @@ LIBFT		= libft
 SRCS =	ft_doubly_circular_list.c \
 		push_swap.c \
 		push_swap_util.c \
+		ft_error.c \
 		push.c \
 		swap.c \
 		reverse_rotate.c \
