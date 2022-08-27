@@ -1,6 +1,17 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/08/27 13:12:26 by hajeong           #+#    #+#              #
+#    Updated: 2022/08/27 13:12:26 by hajeong          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME		= push_swap
 LIBFT		= libft
-LIBFT_LIB	= libft.a
 
 SRCS =	ft_doubly_circular_list.c \
 		push_swap.c \
@@ -17,18 +28,16 @@ SRCS =	ft_doubly_circular_list.c \
 
 OBJS		= $(SRCS:%.c=%.o)
 
-LIBC		= ar rc
-
 FLAGS		= -Wall -Wextra -Werror
 
 all			:	$(NAME)
 
 $(NAME)		:	$(OBJS)
 		make all -C $(LIBFT)/
-		cc -o $(NAME) $(OBJS) -Llibft -lft
+		cc -o $(NAME) $(OBJS) -L ./libft -l ft
 
 %.o			:	%.c
-		cc $(FLAGS) -c $^ -I./ -o $@
+		cc $(FLAGS) -c $^ -o $@
 
 
 clean		:
