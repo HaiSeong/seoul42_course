@@ -2,8 +2,9 @@
 [한글 서브젝트](./ko_sub.md)<br>
 [영어 서브젝트](https://cdn.intra.42.fr/pdf/pdf/49387/en.subject.pdf)<br>
 [그리디 알고리즘 설명](https://techdebt.tistory.com/27) (케이크)
-[소스코드](https://github.com/JeonYoungHo-youjeon/push_swap/blob/master/push_swap.h)
-
+[소스코드](https://github.com/JeonYoungHo-youjeon/push_swap/blob/master/push_swap.h)<br>
+[libft사용하기(cc -L -l](https://velog.io/@hidaehyunlee/외부-라이브러리-GCC로-컴파일-하기)
+[libft사용하기(make -C 옵션)](https://wiki.kldp.org/KoreanDoc/html/GNU-Make/GNU-Make-5.html)
 ### 파일 목록
 
 | file name | functions | explanation |
