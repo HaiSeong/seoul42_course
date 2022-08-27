@@ -1,12 +1,19 @@
 
-### libft
+### push_swap_util
 
 <br>
 
 >ft_atolli : 문자열을 long long int형으로 바꾼다.
 - ft_atoi 함수를 변형
 ``` c
-long long int	ft_atolli(const char *str)
+static void	ft_atolli_error(t_dc_list **a)
+{
+	ft_dc_lstclear(a);
+	ft_error();
+	exit(1);
+}
+
+long long int	ft_atolli(const char *str, t_dc_list **a)
 {
 	int				i;
 	int				sign;
@@ -15,14 +22,13 @@ long long int	ft_atolli(const char *str)
 	sum = 0;
 	sign = 1;
 	i = 0;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'
-		|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
-		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
 			sign = -1;
 		i++;
+		if (str[i] == '\0')
+			ft_atolli_error(a);
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
@@ -30,29 +36,9 @@ long long int	ft_atolli(const char *str)
 		sum += str[i] - '0';
 		i++;
 	}
+	if (str[i] != '\0')
+		ft_atolli_error(a);
 	return (sum * sign);
-}
-```
-
-<br>
-
->ft_isspace : 공백문자를 검사한다.
-``` c
-int	ft_isspace(char c)
-{
-	if (c == ' ')
-		return (1);
-	else if (c == '\t')
-		return (1);
-	else if (c == '\n')
-		return (1);
-	else if (c == '\v')
-		return (1);
-	else if (c == '\f')
-		return (1);
-	else if (c == '\r')
-		return (1);
-	return (0);
 }
 ```
 
@@ -130,6 +116,30 @@ char	**ft_split_isspace(char const *s)
 	}
 	result[wc] = 0;
 	return (result);
+}
+```
+
+### libft
+
+<br>
+
+>ft_isspace : 공백문자를 검사한다.
+``` c
+int	ft_isspace(char c)
+{
+	if (c == ' ')
+		return (1);
+	else if (c == '\t')
+		return (1);
+	else if (c == '\n')
+		return (1);
+	else if (c == '\v')
+		return (1);
+	else if (c == '\f')
+		return (1);
+	else if (c == '\r')
+		return (1);
+	return (0);
 }
 ```
 

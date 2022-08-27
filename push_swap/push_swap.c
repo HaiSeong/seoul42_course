@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 17:30:07 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/25 21:18:10 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/27 13:56:17 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ static int	make_a(t_dc_list **a, char **strs, int end)
 		while (strs[i][j] != '\0')
 		{
 			if (!(ft_isdigit(strs[i][j])
-				|| (strs[i][j] == '-' && ft_strlen(strs[i]) != 1)))
+				|| strs[i][j] == '-' || strs[i][j] == '+'))
 				return (-1);
 			j++;
 		}
-		temp = ft_dc_lstnew(ft_atolli(strs[i]));
+		temp = ft_dc_lstnew(ft_atolli(strs[i], a));
 		if (temp == NULL)
 			return (-1);
 		ft_dc_lstadd_front(a, temp);

@@ -1,16 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split_isspace.c                                 :+:      :+:    :+:   */
+/*   push_swap_util.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 15:08:08 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/22 14:35:03 by hajeong          ###   ########.fr       */
+/*   Created: 2022/08/27 14:36:34 by hajeong           #+#    #+#             */
+/*   Updated: 2022/08/27 14:39:59 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft/libft.h"
+#include "push_swap.h"
+
+static void	ft_atolli_error(t_dc_list **a)
+{
+	ft_dc_lstclear(a);
+	ft_error();
+	exit(1);
+}
+
+long long int	ft_atolli(const char *str, t_dc_list **a)
+{
+	int				i;
+	int				sign;
+	long long int	sum;
+
+	sum = 0;
+	sign = 1;
+	i = 0;
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			sign = -1;
+		i++;
+		if (str[i] == '\0')
+			ft_atolli_error(a);
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		sum *= 10;
+		sum += str[i] - '0';
+		i++;
+	}
+	if (str[i] != '\0')
+		ft_atolli_error(a);
+	return (sum * sign);
+}
 
 static size_t	word_count(char const *s)
 {
