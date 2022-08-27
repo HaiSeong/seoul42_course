@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 16:35:39 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/24 13:17:36 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/27 19:01:45 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,10 @@ void	bubble_sort(t_dc_list *copy)
 	}
 }
 
-void	check_double(t_dc_list **a, t_dc_list **copy)
+void	check(t_dc_list **a, t_dc_list **copy)
 {
 	t_dc_list	*temp;
+	t_dc_list	*temp2;
 	size_t		i;
 
 	temp = *copy;
@@ -71,15 +72,22 @@ void	check_double(t_dc_list **a, t_dc_list **copy)
 	while (i < ft_dc_lstsize(*copy) - 1)
 	{
 		if (temp->data == temp->right->data)
-		{
-			ft_error();
-			ft_dc_lstclear(a);
-			ft_dc_lstclear(copy);
-			exit(1);
-		}
+			ft_error_free_a_copy_exit(a, copy);
 		temp = temp->right;
 		i++;
 	}
+	temp = *copy;
+	temp2 = *a;
+	while (i-- > 0)
+	{
+		if (temp->data != temp2->data)
+			return ;
+		temp = temp->right;
+		temp2 = temp2->right;
+	}
+	ft_dc_lstclear(a);
+	ft_dc_lstclear(copy);
+	exit(0);
 }
 
 t_dc_data	get_small_pivot(t_dc_list *copy)

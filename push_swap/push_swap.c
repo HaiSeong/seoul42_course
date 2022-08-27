@@ -6,18 +6,12 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 17:30:07 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/27 13:56:17 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/27 18:59:16 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft/libft.h"
-
-int	ft_error(void)
-{
-	write(2, "Error\n", 6);
-	return (-1);
-}
 
 static void	ft_free_strs(char **strs)
 {
@@ -72,17 +66,14 @@ static void	argv_to_stack(t_dc_list **a, int argc, char *argv[])
 	{
 		strs = ft_split_isspace(argv[1]);
 		if (make_a(a, strs, 0) == -1 || argc != 2)
-		{
-			ft_dc_lstclear(a);
-			ft_error();
-			exit(1);
-		}
+			ft_error_free_a_exit(a);
 		ft_free_strs(strs);
 	}
 	else
-		make_a(a, argv, 1);
-	if (*a == NULL)
-		exit(1);
+	{
+		if (make_a(a, argv, 1) == -1)
+			ft_error_exit();
+	}
 }
 
 int	main(int argc, char *argv[])
@@ -97,7 +88,7 @@ int	main(int argc, char *argv[])
 	{
 		copy = copy_a(&a);
 		bubble_sort(copy);
-		check_double(&a, &copy);
+		check(&a, &copy);
 		move_all_b(&a, &b, &copy, ft_dc_lstsize(copy) / 3 * 2);
 		sort3(&a);
 		while (b != NULL)

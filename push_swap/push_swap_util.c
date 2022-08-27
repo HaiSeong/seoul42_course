@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 14:36:34 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/27 14:39:59 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/27 15:01:16 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,18 @@ long long int	ft_atolli(const char *str, t_dc_list **a)
 	sum = 0;
 	sign = 1;
 	i = 0;
+	if (str[i] == '-')
+		sign = -1;
 	if (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i] == '-')
-			sign = -1;
 		i++;
-		if (str[i] == '\0')
-			ft_atolli_error(a);
-	}
+	if (str[i] == '\0' || !ft_isdigit(str[i]))
+		ft_atolli_error(a);
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		sum *= 10;
-		sum += str[i] - '0';
-		i++;
+		sum += str[i++] - '0';
+		if (sum * sign > 2147483647 || sum * sign < -2147483648)
+			ft_atolli_error(a);
 	}
 	if (str[i] != '\0')
 		ft_atolli_error(a);

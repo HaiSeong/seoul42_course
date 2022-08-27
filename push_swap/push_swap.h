@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 17:10:20 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/27 14:39:28 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/27 19:01:01 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ typedef struct s_cost_info
 }	t_cost_info;
 
 int				ft_error(void);
+void			ft_error_exit(void);
+void			ft_error_free_a_exit(t_dc_list **a);
+void			ft_error_free_a_copy_exit(t_dc_list **a, t_dc_list **copy);
 
 long long int	ft_atolli(const char *str, t_dc_list **a);
 char			**ft_split_isspace(char const *s);
@@ -69,7 +72,7 @@ void			ss(t_dc_list *lst_a, t_dc_list *lst_b);
 
 t_dc_list		*copy_a(t_dc_list **a);
 void			bubble_sort(t_dc_list *copy);
-void			check_double(t_dc_list **a, t_dc_list **copy);
+void			check(t_dc_list **a, t_dc_list **copy);
 t_dc_data		get_small_pivot(t_dc_list *copy);
 t_dc_data		get_big_pivot(t_dc_list *copy);
 

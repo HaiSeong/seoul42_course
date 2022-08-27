@@ -3,17 +3,6 @@
 
 <br>
 
->ft_error : error case일때 에러를 출력하고 -1 리턴
-``` c
-int ft_error()
-{
-	ft_printf("Error\n");
-	return (-1);
-}
-```
-
-<br>
-
 >ft_free_strs : 문자열을 free하는 함수
 ``` c
 static void	ft_free_strs(char **strs)
@@ -35,27 +24,27 @@ static void	ft_free_strs(char **strs)
 ``` c
 static int	make_a(t_dc_list **a, char **strs, int end)
 {
-	int i;
-	int j;
+	int			i;
+	int			j;
 	t_dc_list	*temp;
 
 	i = 0;
 	while (strs[i] != NULL)
 		i++;
-	while (i-- > end)	//	반복문을 돌면서 하나씩 숫자로 만들어 스택에 추가 한다. (뒤부터 넣어야 방향이 맞음)
+	while (i-- > end)
 	{
 		j = 0;
 		while (strs[i][j] != '\0')
 		{
 			if (!(ft_isdigit(strs[i][j])
-				|| (strs[i][j] == '-' && ft_strlen(strs[i]) != 1)))
-				return (-1);	//	한글자씩 읽으며 숫자나 - 가 아닌경우 에러
+				|| strs[i][j] == '-' || strs[i][j] == '+'))
+				return (-1);
 			j++;
 		}
-		temp = ft_dc_lstnew(ft_atolli(strs[i]));	//	문자열을 숫자로 바꿔 새로운 노드 생성
-		if (temp == NULL)	//	할당 실패시
+		temp = ft_dc_lstnew(ft_atolli(strs[i], a));
+		if (temp == NULL)
 			return (-1);
-		ft_dc_lstadd_front(a, temp);	// 스택에 저장
+		ft_dc_lstadd_front(a, temp);
 	}
 	return (0);
 }
@@ -83,18 +72,15 @@ static void	argv_to_stack(t_dc_list **a, int argc, char *argv[])
 		|| ft_strchr(argv[1], '\f') || ft_strchr(argv[1], '\r'))
 	{
 		strs = ft_split_isspace(argv[1]);
-		if (make_a(a, strs, 0) == -1 || argc != 2)	// "" 인경우 인자가 두개이상 들어오면 오류
-		{
-			ft_dc_lstclear(a);
-			ft_error();
-			exit(1);
-		}
+		if (make_a(a, strs, 0) == -1 || argc != 2)
+			ft_error_free_a_exit(a);
 		ft_free_strs(strs);
 	}
 	else
-		make_a(a, argv, 1);
-	if (*a == NULL)
-		exit(1);
+	{
+		if (make_a(a, argv, 1) == -1)
+			ft_error_exit();
+	}
 }
 ```
 
@@ -112,25 +98,26 @@ int	main(int argc, char *argv[])
 	t_dc_list	*copy;
 	t_cost_info	cost_info;
 
-	argv_to_stack(&a, argc, argv);	// argv배열을 a스택으로 변환한다.
+	argv_to_stack(&a, argc, argv);
 	if (ft_dc_lstsize(a) >= 3)
 	{
-		copy = copy_a(a);	// a 를 copy에 복사한다.
-		bubble_sort(&copy);	// copy를 버블정렬로 정렬한다.
-		move_all_b(&a, &b, &copy, ft_dc_lstsize(copy) / 3 * 2);	// 3개를 제외하고 b스택으로 모두 옮긴다.
-		sort3(&a);	// 남은 3데이터를 정리한다.
-		while (b != NULL)	// b가 빌때까지
+		copy = copy_a(&a);
+		bubble_sort(copy);
+		check(&a, &copy);
+		move_all_b(&a, &b, &copy, ft_dc_lstsize(copy) / 3 * 2);
+		sort3(&a);
+		while (b != NULL)
 		{
-			cost_info = get_best_cost(&a, &b);		// 최적의 방법과 비용을 구한다.
-			rotate_best_cost(&a, &b, &cost_info);	// 그 방법으로 스택을 돌린다.
-			pa(&a, &b);	//	b의 원소를 a로 넘긴다.
+			cost_info = get_best_cost(&a, &b);
+			rotate_best_cost(&a, &b, &cost_info);
+			pa(&a, &b);
 		}
-		organize_stack(&a);	//	a를 돌려 정렬한다.
-		ft_dc_lstclear(&copy);	//	복사한 리스트를 free한다.
+		organize_stack(&a);
+		ft_dc_lstclear(&copy);
 	}
 	else if (ft_dc_lstsize(a) == 2)
 		sort2(&a);
-	ft_dc_lstclear(&a);	//	a도 free한다.
+	ft_dc_lstclear(&a);
 }
 ```
 
