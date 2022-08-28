@@ -34,6 +34,9 @@ typedef struct  s_game {
 	char	*map;
 	int		map_width;
 	int		map_height;
+	int		c_cnt;
+	int		e_cnt;
+	int		p_cnt;
 }               t_game;
 
 char	*join_and_free(char *str1, char *str2);
@@ -44,5 +47,6 @@ void	check_lines(t_game *game);
 void	del_newline(t_game *game);
 void	check_wall(t_game *game);
 void	check_object(t_game *game);
+void	check(t_game *game);
 
 #endif

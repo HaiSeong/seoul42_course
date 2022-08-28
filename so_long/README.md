@@ -12,6 +12,7 @@
 | 파일 | 함수 | 목적 |
 |:--:|:--:|:--:|
 | [read_file.c](./README_read_file.md) |  | 파일을 읽어와 일차원 배열로 만든다. |
+| [check.c](./README_check.md) |  | 읽어온 맵의 유효성을 검사한다. |
 
 <br><br>
 
