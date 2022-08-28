@@ -48,7 +48,6 @@ clean		:
 
 fclean		:	clean
 		rm -f $(NAME)
-		rm -f $(LIBFT_LIB)
 		make fclean -C $(LIBFT)
 
 re			:	fclean all
