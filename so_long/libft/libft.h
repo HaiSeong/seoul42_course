@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/06 13:56:39 by jwon              #+#    #+#             */
-/*   Updated: 2022/08/21 20:18:57 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/28 19:54:11 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
+
+# define BUFFER_SIZE 42
 
 typedef struct s_list
 {

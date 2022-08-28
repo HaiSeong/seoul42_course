@@ -6,68 +6,69 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 21:29:09 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/28 14:28:12 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/28 20:39:47 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./mlx/mlx.h"
-#include <stdio.h>
-#include <stdlib.h>
+#include "so_long.h"
+// #include <stdio.h>
 
-# define X_EVENT_KEY_PRESS			2
-# define X_EVENT_KEY_RELEASE		3
+// # define X_EVENT_KEY_PRESS			2
+// # define X_EVENT_KEY_RELEASE		3
 
-# define KEY_ESC		53
-# define KEY_W			13
-# define KEY_A			0
-# define KEY_S			1
-# define KEY_D			2
+// # define KEY_ESC		53
+// # define KEY_W			13
+// # define KEY_A			0
+// # define KEY_S			1
+// # define KEY_D			2
 
-typedef struct s_param{
-	int		x;
-	int		y;
-}				t_param;
+// typedef struct s_param{
+// 	int		x;
+// 	int		y;
+// }				t_param;
 
-typedef struct  s_vars {
-    void        *mlx;
-    void        *win;
-}               t_vars;
+// typedef struct  s_vars {
+//     void        *mlx;
+//     void        *win;
+// }               t_vars;
 
-void			param_init(t_param *param)
-{
-	param->x = 3;
-	param->y = 4;
-}
 
-int				key_press(int keycode, t_param *param)
-{
-	static int a = 0;
 
-	if (keycode == KEY_W)
-		param->y++;
-	else if (keycode == KEY_S)
-		param->y--;
-	else if (keycode == KEY_A)
-		param->x--;
-	else if (keycode == KEY_D)
-		param->x++;
-	else if (keycode == KEY_ESC)
-		exit(0);
-	printf("x: %d, y: %d\n", param->x, param->y);
-	return (0);
-}
+// void			param_init(t_param *param)
+// {
+// 	param->x = 3;
+// 	param->y = 4;
+// }
 
-int close(int keycode, t_vars *vars)
-{
-	if (keycode == KEY_ESC)
-		mlx_destroy_window(vars->mlx, vars->win);
-	return (0);
-}
-int close1(int keycode, t_vars *vars)
-{
-	mlx_destroy_window(vars->mlx, vars->win);
-	return (0);
-}
+// int				key_press(int keycode, t_param *param)
+// {
+// 	static int a = 0;
+
+// 	if (keycode == KEY_W)
+// 		param->y++;
+// 	else if (keycode == KEY_S)
+// 		param->y--;
+// 	else if (keycode == KEY_A)
+// 		param->x--;
+// 	else if (keycode == KEY_D)
+// 		param->x++;
+// 	else if (keycode == KEY_ESC)
+// 		exit(0);
+// 	printf("x: %d, y: %d\n", param->x, param->y);
+// 	return (0);
+// }
+
+// int close(int keycode, t_vars *vars)
+// {
+// 	if (keycode == KEY_ESC)
+// 		mlx_destroy_window(vars->mlx, vars->win);
+// 	return (0);
+// }
+// int close1(int keycode, t_vars *vars)
+// {
+// 	mlx_destroy_window(vars->mlx, vars->win);
+// 	return (0);
+// }
 
 int			main(void)
 {
@@ -88,11 +89,27 @@ int			main(void)
 	// mlx_hook(vars.win, 4, 1L<<0, close1, &vars);
 	// mlx_loop(vars.mlx);
 
+	t_game game;
+	game.file = "./map.ber";
+	game.map = ft_strdup("");
+	read_file(&game);
+	char **strs = ft_split(game.map, '\n');
+	int i=0;
+	while (strs[i] != NULL)
+	{
+		ft_printf("%s", strs[i++]);
+	}
+	ft_printf("\n\n");
+	
+	check_lines(&game);
+	ft_printf("width : %d\n", game.map_width);
+	ft_printf("height : %d\n", game.map_height);
+
 	
 	void *mlx;
 	void *win;
 	void *img;
-	void *img2;
+	// void *img2;
 	void *img3;
 	void *img4;
 	void *img5;
@@ -122,5 +139,7 @@ int			main(void)
 	mlx_put_image_to_window(mlx, win, img7, 128, 128);
 	mlx_put_image_to_window(mlx, win, img7, 128, 144);
 	mlx_loop(mlx);
+
+
 	return (0);
 }

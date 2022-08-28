@@ -8,6 +8,13 @@
 
 <br>
 
+## 파일 목록
+| 파일 | 함수 | 목적 |
+|:--:|:--:|:--:|
+| [read_file.c](./README_read_file.md) |  | 파일을 읽어와 일차원 배열로 만든다. |
+
+<br><br>
+
 ## mlx 함수 정리
 
 ### mlx_init
@@ -34,3 +41,14 @@
 
 ### xpm file 사용
 - 이유 : mlx 라이브러리에서 png 파일을 image로 변환하는 함수인 mlx_png_file_to_image 함수 자체의 구현에서 메모리 누수 및 여러 문제들이 발생해서 xpm file 변환 함수를 사용하는 것이 좋다.
+<br><br>
+
+### mlx_xpm_file_to_image
+- void * mlx_xpm_file_to_image(void *mlx_ptr, char *filename, int *width, int *height)
+- mlx포인터, 파일 주소, 가로 세로 크기를 가져와서 메모리에 올리고 해당 메모리의 주소를 반환한다
+<br><br>
+
+### mlx_put_image_to_window
+- int mlx_put_image_to_window(void *mlx_ptr, void *win_ptr, void *img_ptr, int x, int y)
+- 이미지를 받아서 띄울 포인터들을 인자로 받고 윈도우 안에서의 좌표를 지정해서 해당 윈도우에 띄워준다
+<br><br>

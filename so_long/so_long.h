@@ -6,10 +6,11 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 15:11:38 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/28 17:24:58 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/28 20:38:54 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SO_LONG_H
 # define SO_LONG_H
 # include "./mlx/mlx.h"
 # include "libft/libft.h"
@@ -27,8 +28,15 @@
 # define KEY_D			2
 
 typedef struct  s_game {
-    void        *mlx;
-    void        *win;
+    void	*mlx;
+    void	*win;
+	char	*file;
+	char	*map;
+	size_t	map_width;
+	size_t	map_height;
 }               t_game;
+
+char	*read_file(t_game *game);
+void	check_lines(t_game *game);
 
 #endif

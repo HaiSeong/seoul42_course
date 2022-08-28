@@ -2,7 +2,8 @@
 NAME		= so_long
 LIBFT		= libft
 
-SRCS =	main.c
+SRCS =	main.c\
+		file_check.c
 
 OBJS		= $(SRCS:%.c=%.o)
 
