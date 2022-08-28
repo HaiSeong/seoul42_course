@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 21:29:09 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/28 12:23:13 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/28 12:50:54 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ typedef struct s_param{
 	int		x;
 	int		y;
 }				t_param;
+
+typedef struct  s_vars {
+    void        *mlx;
+    void        *win;
+}               t_vars;
 
 void			param_init(t_param *param)
 {
@@ -52,15 +57,29 @@ int				key_press(int keycode, t_param *param)
 	return (0);
 }
 
+int close(int keycode, t_vars *vars)
+{
+	if (keycode == KEY_ESC)
+		mlx_destroy_window(vars->mlx, vars->win);
+	return (0);
+}
+
 int			main(void)
 {
-	void		*mlx;
-	void		*win;
-	t_param		param;
+	// void		*mlx;
+	// void		*win;
+	// t_param		param;
 
-	param_init(&param);
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, 500, 500, "mlx_project");
-	mlx_hook(win, X_EVENT_KEY_RELEASE, 0, &key_press, &param);
-	mlx_loop(mlx);
+	// param_init(&param);
+	// mlx = mlx_init();
+	// win = mlx_new_window(mlx, 500, 500, "mlx_project");
+	// mlx_hook(win, X_EVENT_KEY_RELEASE, 0, &key_press, &param);
+	// mlx_loop(mlx);
+
+	t_vars	vars;
+
+	vars.mlx = mlx_init();
+	vars.win = mlx_new_window(vars.mlx, 1920, 1080, "hello world!");
+	mlx_hook(vars.win, X_EVENT_KEY_RELEASE, 0, close, &vars);
+	mlx_loop(vars.mlx);
 }
