@@ -81,7 +81,7 @@ $(NAME): $(OBJS)
 	ar rc $@ $^
 
 %.o : %.c
-	gcc $(FLAGS) -c $<
+	cc $(FLAGS) -c $<
 
 bonus:
 	make BONUS=1 $(NAME)
