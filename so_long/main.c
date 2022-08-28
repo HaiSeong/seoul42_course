@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 21:29:09 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/28 14:19:23 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/28 14:28:12 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,11 +114,11 @@ int			main(void)
 	img8 = mlx_xpm_file_to_image(mlx, "./asset/mario3.xpm", &img_width, &img_height);
 	img9 = mlx_xpm_file_to_image(mlx, "./asset/mario4.xpm", &img_width, &img_height);
 	mlx_put_image_to_window(mlx, win, img, 0, 0);
-	mlx_put_image_to_window(mlx, win, img3, 128, 0);
-	mlx_put_image_to_window(mlx, win, img4, 192, 64);
-	mlx_put_image_to_window(mlx, win, img5, 0, 64);
-	mlx_put_image_to_window(mlx, win, img6, 64, 64);
-	mlx_put_image_to_window(mlx, win, img7, 128, 64);
+	mlx_put_image_to_window(mlx, win, img3, 16, 0);
+	mlx_put_image_to_window(mlx, win, img4, 32, 0);
+	mlx_put_image_to_window(mlx, win, img5, 0, 16);
+	mlx_put_image_to_window(mlx, win, img6, 16, 16);
+	mlx_put_image_to_window(mlx, win, img7, 32, 16);
 	mlx_put_image_to_window(mlx, win, img7, 128, 128);
 	mlx_put_image_to_window(mlx, win, img7, 128, 144);
 	mlx_loop(mlx);
