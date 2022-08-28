@@ -93,17 +93,21 @@ int			main(void)
 	game.file = "./map.ber";
 	game.map = ft_strdup("");
 	read_file(&game);
-	char **strs = ft_split(game.map, '\n');
-	int i=0;
-	while (strs[i] != NULL)
-	{
-		ft_printf("%s", strs[i++]);
-	}
+
 	ft_printf("\n\n");
-	
 	check_lines(&game);
+	del_newline(&game);
+	ft_printf("3\n");
+	check_wall(&game);
+	ft_printf("4!\n");
+	ft_printf("%s|\n\n", game.map);
+	check_object(&game);
+	
+	
 	ft_printf("width : %d\n", game.map_width);
 	ft_printf("height : %d\n", game.map_height);
+
+	
 
 	
 	void *mlx;

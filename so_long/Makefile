@@ -1,9 +1,12 @@
 
 NAME		= so_long
 LIBFT		= libft
+MLX			= mlx
 
 SRCS =	main.c\
-		file_check.c
+		so_long_util.c\
+		read_file.c\
+		check.c
 
 OBJS		= $(SRCS:%.c=%.o)
 
@@ -13,6 +16,7 @@ all			:	$(NAME)
 
 $(NAME)		:	$(OBJS)
 		make all -C $(LIBFT)/
+		make all -C $(MLX)/
 		cc -o $(NAME) $(OBJS) -L ./libft -l ft -L ./mlx -l mlx -framework OpenGL -framework AppKit
 
 %.o			:	%.c

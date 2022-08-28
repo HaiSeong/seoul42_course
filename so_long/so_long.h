@@ -32,11 +32,17 @@ typedef struct  s_game {
     void	*win;
 	char	*file;
 	char	*map;
-	size_t	map_width;
-	size_t	map_height;
+	int		map_width;
+	int		map_height;
 }               t_game;
 
-char	*read_file(t_game *game);
+char	*join_and_free(char *str1, char *str2);
+
+void	read_file(t_game *game);
+
 void	check_lines(t_game *game);
+void	del_newline(t_game *game);
+void	check_wall(t_game *game);
+void	check_object(t_game *game);
 
 #endif
