@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 15:11:38 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/31 20:00:49 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/31 21:46:21 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct  s_game {
 	int		c_cnt;
 	int		e_cnt;
 	int		p_cnt;
+	int		move_cnt;
 	void	*img_grass;
 	void	*img_person;
 	void	*img_wall;
@@ -57,5 +58,9 @@ void	check_object(t_game *game);
 void	check(t_game *game);
 
 void	draw_map(t_game game);
+
+int		get_p_position(t_game game);
+void	move_w(t_game *game);
+void	move_s(t_game *game);
 
 #endif

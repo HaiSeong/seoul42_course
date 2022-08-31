@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 21:29:09 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/31 20:06:36 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/31 21:44:04 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int			main(void)
 	init_game(&game, "./map.ber");
 	read_file(&game);
 	check(&game);
+	move_s(&game);
 	draw_map(game);
 	mlx_loop(game.mlx);
 

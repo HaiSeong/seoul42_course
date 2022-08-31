@@ -8,7 +8,8 @@ SRCS =	main.c\
 		read_file.c\
 		check.c\
 		draw_map.c\
-		init_game.c
+		init_game.c\
+		move.c
 
 OBJS		= $(SRCS:%.c=%.o)
 
