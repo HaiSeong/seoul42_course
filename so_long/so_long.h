@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 15:11:38 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/28 20:38:54 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/31 20:00:49 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,16 @@ typedef struct  s_game {
 	int		c_cnt;
 	int		e_cnt;
 	int		p_cnt;
-}               t_game;
+	void	*img_grass;
+	void	*img_person;
+	void	*img_wall;
+	void	*img_exit;
+	void	*img_coin;
+}	t_game;
 
 char	*join_and_free(char *str1, char *str2);
+
+void	init_game(t_game *game, char *file);
 
 void	read_file(t_game *game);
 
@@ -48,5 +55,7 @@ void	del_newline(t_game *game);
 void	check_wall(t_game *game);
 void	check_object(t_game *game);
 void	check(t_game *game);
+
+void	draw_map(t_game game);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 21:29:09 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/31 14:35:17 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/08/31 20:06:36 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,78 +72,13 @@
 
 int			main(void)
 {
-	// void		*mlx;
-	// void		*win;
-	// t_param		param;
-
-	// param_init(&param);
-	// mlx = mlx_init();
-	// win = mlx_new_window(mlx, 500, 500, "mlx_project");
-	// mlx_hook(win, X_EVENT_KEY_RELEASE, 0, &key_press, &param);
-	// mlx_loop(mlx);
-
-	// t_vars	vars;		// ESC를 누르면 창이 닫아지는 예제
-	// vars.mlx = mlx_init();
-	// vars.win = mlx_new_window(vars.mlx, 1920, 1080, "hello world!");
-	// mlx_hook(vars.win, X_EVENT_KEY_RELEASE, 0, close, &vars);
-	// mlx_hook(vars.win, 4, 1L<<0, close1, &vars);
-	// mlx_loop(vars.mlx);
-
 	t_game game;
-	game.file = "./map.ber";
-	game.map = ft_strdup("");
+
+	init_game(&game, "./map.ber");
 	read_file(&game);
-
-	// ft_printf("\n\n");
-	// check_lines(&game);
-	// del_newline(&game);
-	// ft_printf("3\n");
-	// check_wall(&game);
-	// ft_printf("4!\n");
-	// ft_printf("%s|\n\n", game.map);
-	// check_object(&game);
 	check(&game);
-	
-	
-	ft_printf("width : %d\n", game.map_width);
-	ft_printf("height : %d\n", game.map_height);
-
-	
-
-	
-	void *mlx;
-	void *win;
-	void *img;
-	// void *img2;
-	void *img3;
-	void *img4;
-	void *img5;
-	void *img6;
-	void *img7;
-	void *img8;
-	void *img9;
-	int img_width;
-	int img_height;
-
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, 500, 500, "my_mlx");
-	img = mlx_xpm_file_to_image(mlx, "./asset/blocks.xpm", &img_width, &img_height);
-	img3 = mlx_xpm_file_to_image(mlx, "./asset/coin.xpm", &img_width, &img_height);
-	img4 = mlx_xpm_file_to_image(mlx, "./asset/exit.xpm", &img_width, &img_height);
-	img5 = mlx_xpm_file_to_image(mlx, "./asset/mario0.xpm", &img_width, &img_height);
-	img6 = mlx_xpm_file_to_image(mlx, "./asset/mario1.xpm", &img_width, &img_height);
-	img7 = mlx_xpm_file_to_image(mlx, "./asset/mario2.xpm", &img_width, &img_height);
-	img8 = mlx_xpm_file_to_image(mlx, "./asset/mario3.xpm", &img_width, &img_height);
-	img9 = mlx_xpm_file_to_image(mlx, "./asset/mario4.xpm", &img_width, &img_height);
-	mlx_put_image_to_window(mlx, win, img, 0, 0);
-	mlx_put_image_to_window(mlx, win, img3, 32, 0);
-	mlx_put_image_to_window(mlx, win, img4, 64, 0);
-	mlx_put_image_to_window(mlx, win, img5, 0, 32);
-	mlx_put_image_to_window(mlx, win, img6, 128, 32);
-	mlx_put_image_to_window(mlx, win, img7, 32, 32);
-	mlx_put_image_to_window(mlx, win, img7, 64, 64);
-	mlx_put_image_to_window(mlx, win, img7, 128, 64);
-	mlx_loop(mlx);
+	draw_map(game);
+	mlx_loop(game.mlx);
 
 
 	return (0);

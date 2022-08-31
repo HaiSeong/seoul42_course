@@ -6,7 +6,9 @@ MLX			= mlx
 SRCS =	main.c\
 		so_long_util.c\
 		read_file.c\
-		check.c
+		check.c\
+		draw_map.c\
+		init_game.c
 
 OBJS		= $(SRCS:%.c=%.o)
 
