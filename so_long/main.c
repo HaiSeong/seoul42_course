@@ -12,12 +12,17 @@
 
 #include "so_long.h"
 
-static void	press_key(int key, t_game *game)
+static int	exit_game(t_game *game)
 {
-	static	int	move_cnt;
+	ft_printf("Exit game\n");
+	free(game->map);
+	exit(0);
+}
 
+static int	key_release(int key, t_game *game)
+{
 	if (key == KEY_ESC)
-		exit(0);
+		exit_game(game);
 	if (key == KEY_W)
 		move_w(game);
 	if (key == KEY_A)
@@ -27,24 +32,31 @@ static void	press_key(int key, t_game *game)
 	if (key == KEY_D)
 		move_d(game);
 	draw_map(*game);
-	if (move_cnt != game->move_cnt)
-	{
-		ft_printf("you moved %d steps!\n", game->move_cnt);
-		move_cnt++;
-	}
+	return (0);
 }
 
-int			main(void)
+int			main(int argc, char *argv[])
 {
-	t_game game;
+	t_game	game;
+	int		i;
 
-	init_game(&game, "./map.ber");
+	if (argc < 2)
+		print_error("We need argument");
+	else if (argc > 2)
+		print_error("Too many arguments");
+	i = 0;
+	while (argv[1][i] != '\0')
+		i++;
+	if (ft_strncmp(&argv[1][i-4], ".ber", 4) != 0)
+		print_error("The file must be *.ber");
+	if (open(argv[1],O_RDONLY) < 0)
+		print_error("Check the file name again");
+	init_game(&game, argv[1]);
 	read_file(&game);
 	check(&game);
 	game.win = mlx_new_window(game.mlx, 32 * game.map_width, 32 * game.map_height, "so_long");
 	draw_map(game);
-	mlx_hook(game.win, X_EVENT_KEY_RELEASE, 0, &press_key, &game);
+	mlx_hook(game.win, KEY_RELEASE, 0, &key_release, &game);
+	mlx_hook(game.win, KEY_EXIT, 0, &exit_game, &game);
 	mlx_loop(game.mlx);
-
-	return (0);
 }

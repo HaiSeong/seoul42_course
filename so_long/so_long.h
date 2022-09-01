@@ -18,8 +18,8 @@
 # include <stdlib.h>
 # include <fcntl.h>
 
-# define X_EVENT_KEY_PRESS			2
-# define X_EVENT_KEY_RELEASE		3
+# define KEY_RELEASE 	3
+# define KEY_EXIT 		17
 
 # define KEY_ESC		53
 # define KEY_W			13
@@ -46,6 +46,7 @@ typedef struct  s_game {
 }	t_game;
 
 char	*join_and_free(char *str1, char *str2);
+void	free_strs(char **strs);
 
 void	init_game(t_game *game, char *file);
 
@@ -59,10 +60,13 @@ void	check(t_game *game);
 
 void	draw_map(t_game game);
 
-int		get_p_position(t_game game);
 void	move_w(t_game *game);
 void	move_s(t_game *game);
 void	move_d(t_game *game);
-void move_a(t_game *game);
+void	move_a(t_game *game);
 
+void	print_error(char *error_msg);
+void	free_buffer_print_error(char *buffer, char *error_msg);
+void	free_map_print_error(t_game *game, char *error_msg);
+void	free_map_strs_print_error(t_game *game, char **strs, char *error_msg);
 #endif

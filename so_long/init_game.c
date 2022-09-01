@@ -21,7 +21,7 @@ void	init_game(t_game *game, char *file)
 	game->file = file;
 	game->map = ft_strdup("");
 	if (game->map == NULL)
-		exit(1); //error
+		print_error("System error, reboot game");
 	game->mlx = mlx_init();
 	game->c_cnt = 0;
 	game->e_cnt = 0;

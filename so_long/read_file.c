@@ -20,21 +20,18 @@ void	read_file(t_game *game)
 
 	fd = open(game->file, O_RDONLY);
 	if (fd < 0)
-		;//error
+		print_error("System error, reboot game");
 	buffer = (char *)malloc(BUFFER_SIZE + 1);
 	byte_read = 1;
 	while (byte_read > 0)
 	{
 		byte_read = read(fd, buffer, BUFFER_SIZE);
 		if (byte_read == -1)
-		{	//	error
-			free(buffer);
-			exit(1);
-		}
+			free_buffer_print_error(buffer, "System error, reboot game");
 		buffer[byte_read] = '\0';
 		game->map = join_and_free(game->map, buffer);
 		if (game->map == NULL)
-			;// error
+			free_buffer_print_error(buffer, "System error, reboot game");
 	}
 	free(buffer);
 }

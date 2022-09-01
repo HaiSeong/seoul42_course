@@ -19,19 +19,16 @@ void	check_lines(t_game *game)
 
 	lines = ft_split(game->map, '\n');
 	if (lines == NULL)
-		;// error
+		free_map_print_error(game, "System error, reboot game");
 	game->map_width = ft_strlen(lines[0]);
 	i = 1;
 	while (lines[i] != NULL)
 	{
 		if ((int)ft_strlen(lines[i++]) != game->map_width)
-			exit(1);// error
+			free_map_strs_print_error(game, lines, "Map is not rectangular");
 	}
 	game->map_height = i;
-	i = 0;
-	while (lines[i] != NULL)
-		free(lines[i++]);
-	free(lines);
+	free_strs(lines);
 }
 
 void	del_newline(t_game *game)
@@ -47,7 +44,7 @@ void	del_newline(t_game *game)
 		{
 			i++;
 			if ((game->map)[i] == '\n')
-				exit(1);// error
+				free_map_print_error(game, "Too much new lines");
 		}
 		else
 			(game->map)[j++] = (game->map)[i++];
@@ -70,7 +67,7 @@ void	check_wall(t_game *game)
 			|| y == 0 || y == game->map_height - 1)
 		{
 			if ((game->map)[i] != '1')
-				exit(1);// error
+				free_map_print_error(game, "Map should be walled in");
 		}
 		i++;
 	}
@@ -89,7 +86,7 @@ void	check_object(t_game *game)
 		if (!((game->map)[i] == '0' || (game->map)[i] == '1'
 			|| (game->map)[i] == 'C' || (game->map)[i] == 'E'
 			|| (game->map)[i] == 'P'))
-			exit(1);// error
+			free_map_print_error(game, "There are strange characters on the map");
 		if ((game->map)[i] == 'C')
 			(game->c_cnt)++;
 		else if ((game->map)[i] == 'E')
@@ -99,7 +96,7 @@ void	check_object(t_game *game)
 		i++;
 	}
 	if (!(game->c_cnt > 0 && game->e_cnt > 0 && game->p_cnt == 1))
-		exit(1);//error
+		free_map_print_error(game, "Map is not valid\nP sould be 1, And E and C must be one or more");
 }
 
 void	check(t_game *game)
