@@ -18,16 +18,11 @@ void	init_game(t_game *game, char *file)
 	int	img_width;
 	int	img_height;
 
-	if (file == NULL)
-		ft_printf("1");
 	game->file = file;
-	// game->file = "./map.ber";
-	// file이름 검사 필요 할듯
 	game->map = ft_strdup("");
 	if (game->map == NULL)
 		exit(1); //error
 	game->mlx = mlx_init();
-	game->win = mlx_new_window(game->mlx, 500, 500, "so_long");
 	game->c_cnt = 0;
 	game->e_cnt = 0;
 	game->p_cnt = 0;

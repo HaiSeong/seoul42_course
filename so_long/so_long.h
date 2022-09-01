@@ -62,5 +62,7 @@ void	draw_map(t_game game);
 int		get_p_position(t_game game);
 void	move_w(t_game *game);
 void	move_s(t_game *game);
+void	move_d(t_game *game);
+void move_a(t_game *game);
 
 #endif

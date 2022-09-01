@@ -11,8 +11,12 @@
 ## 파일 목록
 | 파일 | 함수 | 목적 |
 |:--:|:--:|:--:|
+| [main.c](./README_main.md) |  | main 함수 |
+| [so_long_util.c](./README_so_long_util.md) |  | util 함수 |
+| [init_game.c](./README_init_game.md) |  | 게임 구조체를 초기화 한다. |
 | [read_file.c](./README_read_file.md) |  | 파일을 읽어와 일차원 배열로 만든다. |
 | [check.c](./README_check.md) |  | 읽어온 맵의 유효성을 검사한다. |
+| [draw_map.c](./README_draw_map.md) |  | 맵을 화면에 출력한다. |
 
 <br><br>
 

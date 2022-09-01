@@ -11,64 +11,28 @@
 /* ************************************************************************** */
 
 #include "so_long.h"
-// #include <stdio.h>
 
-// # define X_EVENT_KEY_PRESS			2
-// # define X_EVENT_KEY_RELEASE		3
+static void	press_key(int key, t_game *game)
+{
+	static	int	move_cnt;
 
-// # define KEY_ESC		53
-// # define KEY_W			13
-// # define KEY_A			0
-// # define KEY_S			1
-// # define KEY_D			2
-
-// typedef struct s_param{
-// 	int		x;
-// 	int		y;
-// }				t_param;
-
-// typedef struct  s_vars {
-//     void        *mlx;
-//     void        *win;
-// }               t_vars;
-
-
-
-// void			param_init(t_param *param)
-// {
-// 	param->x = 3;
-// 	param->y = 4;
-// }
-
-// int				key_press(int keycode, t_param *param)
-// {
-// 	static int a = 0;
-
-// 	if (keycode == KEY_W)
-// 		param->y++;
-// 	else if (keycode == KEY_S)
-// 		param->y--;
-// 	else if (keycode == KEY_A)
-// 		param->x--;
-// 	else if (keycode == KEY_D)
-// 		param->x++;
-// 	else if (keycode == KEY_ESC)
-// 		exit(0);
-// 	printf("x: %d, y: %d\n", param->x, param->y);
-// 	return (0);
-// }
-
-// int close(int keycode, t_vars *vars)
-// {
-// 	if (keycode == KEY_ESC)
-// 		mlx_destroy_window(vars->mlx, vars->win);
-// 	return (0);
-// }
-// int close1(int keycode, t_vars *vars)
-// {
-// 	mlx_destroy_window(vars->mlx, vars->win);
-// 	return (0);
-// }
+	if (key == KEY_ESC)
+		exit(0);
+	if (key == KEY_W)
+		move_w(game);
+	if (key == KEY_A)
+		move_a(game);
+	if (key == KEY_S)
+		move_s(game);
+	if (key == KEY_D)
+		move_d(game);
+	draw_map(*game);
+	if (move_cnt != game->move_cnt)
+	{
+		ft_printf("you moved %d steps!\n", game->move_cnt);
+		move_cnt++;
+	}
+}
 
 int			main(void)
 {
@@ -77,10 +41,10 @@ int			main(void)
 	init_game(&game, "./map.ber");
 	read_file(&game);
 	check(&game);
-	move_s(&game);
+	game.win = mlx_new_window(game.mlx, 32 * game.map_width, 32 * game.map_height, "so_long");
 	draw_map(game);
+	mlx_hook(game.win, X_EVENT_KEY_RELEASE, 0, &press_key, &game);
 	mlx_loop(game.mlx);
-
 
 	return (0);
 }
