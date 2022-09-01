@@ -69,11 +69,12 @@ void	bubble_sort(t_dc_list *copy)
 
 <br>
 
->check_double : 스택을 중복된 원소가 있나 확인
+>check : 스택을 중복된 원소가 있나 확인, 이미 정렬되어 있는 스택인지 확인
 ``` c
-void	check_double(t_dc_list **a, t_dc_list **copy)
+void	check(t_dc_list **a, t_dc_list **copy)
 {
 	t_dc_list	*temp;
+	t_dc_list	*temp2;
 	size_t		i;
 
 	temp = *copy;
@@ -81,15 +82,22 @@ void	check_double(t_dc_list **a, t_dc_list **copy)
 	while (i < ft_dc_lstsize(*copy) - 1)
 	{
 		if (temp->data == temp->right->data)
-		{
-			ft_error();
-			ft_dc_lstclear(a);
-			ft_dc_lstclear(copy);
-			exit(1);
-		}
+			ft_error_free_a_copy_exit(a, copy);
 		temp = temp->right;
 		i++;
 	}
+	temp = *copy;
+	temp2 = *a;
+	while (i-- > 0)
+	{
+		if (temp->data != temp2->data)
+			return ;
+		temp = temp->right;
+		temp2 = temp2->right;
+	}
+	ft_dc_lstclear(a);
+	ft_dc_lstclear(copy);
+	exit(0);
 }
 ```
 

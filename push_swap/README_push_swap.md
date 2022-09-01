@@ -89,7 +89,7 @@ static void	argv_to_stack(t_dc_list **a, int argc, char *argv[])
 >main : 메인함수
 - 인자 2개 : sort2함수만 실행
 - 인자 3개 : 조건문에 들어가지만 move_all_b함수 안에서 while문에 들어가지 못하고 종료
-- 3개 이상 : 리스트 복사
+- 3개 이상 : 그리디 알고리즘 실행
 ``` c
 int	main(int argc, char *argv[])
 {
@@ -99,11 +99,11 @@ int	main(int argc, char *argv[])
 	t_cost_info	cost_info;
 
 	argv_to_stack(&a, argc, argv);
+	copy = copy_a(&a);
+	bubble_sort(copy);
+	check(&a, &copy);
 	if (ft_dc_lstsize(a) >= 3)
 	{
-		copy = copy_a(&a);
-		bubble_sort(copy);
-		check(&a, &copy);
 		move_all_b(&a, &b, &copy, ft_dc_lstsize(copy) / 3 * 2);
 		sort3(&a);
 		while (b != NULL)
@@ -113,10 +113,10 @@ int	main(int argc, char *argv[])
 			pa(&a, &b);
 		}
 		organize_stack(&a);
-		ft_dc_lstclear(&copy);
 	}
 	else if (ft_dc_lstsize(a) == 2)
 		sort2(&a);
+	ft_dc_lstclear(&copy);
 	ft_dc_lstclear(&a);
 }
 ```
