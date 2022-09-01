@@ -9,6 +9,48 @@
 
 <br>
 
+### 방법 설명
+
+<br>
+
+- 처음 상태 : 무작위 순서의 정수 배열이 스택 a에 저장되어있다.
+
+<img src="./img/0.png">
+
+<br>
+
+- copy 스택 생성 : a스택을 복사한 copy 스택을 만든다. copy스택을 버블정렬으로 정렬하고 피벗 2개를 찾는다.
+
+<img src="./img/1.png">
+
+<br>
+
+- 나누기 : 피벗을 기준으로 3개의 그룹으로 나눈다.
+
+<img src="./img/2.png">
+
+<br>
+
+- 3개 정렬 : 3개를 제외하고 모두 b로 넘겨서 나머지 3원소를 정렬한다.
+
+<img src="./img/3.png">
+
+<br>
+
+- 그리디 알고리즘 : 반복문을 이용해서 b가 빌때까지 그리디 알고리즘을 사용해 b의 원소를 a로 옮긴다.
+
+<img src="./img/4.png">
+<img src="./img/5.png">
+<img src="./img/6.png">
+
+<br>
+
+- 정리 : ra 또는 rra를 사용해서 a를 정리해 마무리 한다.
+
+<img src="./img/7.png">
+
+<br>
+
 ### 파일 목록
 
 | file name | functions | explanation |
