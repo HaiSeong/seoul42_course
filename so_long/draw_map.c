@@ -12,6 +12,24 @@
 
 #include "so_long.h"
 
+static void	put_img(t_game game, int j, int i)
+{
+	int	x;
+	int	y;
+
+	x = j * 32;
+	y = i * 32;
+	mlx_put_image_to_window(game.mlx, game.win, game.img_grass, x, y);
+	if (game.map[i * game.map_width + j] == '1')
+		mlx_put_image_to_window(game.mlx, game.win, game.img_wall, x, y);
+	else if (game.map[i * game.map_width + j] == 'C')
+		mlx_put_image_to_window(game.mlx, game.win, game.img_coin, x, y);
+	else if (game.map[i * game.map_width + j] == 'E')
+		mlx_put_image_to_window(game.mlx, game.win, game.img_exit, x, y);
+	else if (game.map[i * game.map_width + j] == 'P')
+		mlx_put_image_to_window(game.mlx, game.win, game.img_person, x, y);
+}
+
 void	draw_map(t_game game)
 {
 	int	i;
@@ -23,15 +41,7 @@ void	draw_map(t_game game)
 		j = 0;
 		while (j < game.map_width)
 		{
-			mlx_put_image_to_window(game.mlx, game.win, game.img_grass, j * 32, i * 32);
-			if (game.map[i * game.map_width + j] == '1')
-				mlx_put_image_to_window(game.mlx, game.win, game.img_wall, j * 32, i * 32);
-			else if (game.map[i * game.map_width + j] == 'C')
-				mlx_put_image_to_window(game.mlx, game.win, game.img_coin, j * 32, i * 32);
-			else if (game.map[i * game.map_width + j] == 'E')
-				mlx_put_image_to_window(game.mlx, game.win, game.img_exit, j * 32, i * 32);
-			else if (game.map[i * game.map_width + j] == 'P')
-				mlx_put_image_to_window(game.mlx, game.win, game.img_person, j * 32, i * 32);
+			put_img(game, j, i);
 			j++;
 		}
 		i++;
