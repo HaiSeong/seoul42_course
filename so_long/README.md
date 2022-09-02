@@ -20,6 +20,25 @@
 
 <br><br>
 
+## map 만들기
+
+<br>
+
+#### map.ber 파일 읽기
+- 반복문을 이용해 반복적으로 read해서 game.map에 저장
+<img src = "./readme_img/0.png">
+
+#### game.map 검사
+- split 함수를 이용해 이중배열로 만듬
+- 직사각형 모양인지 검사
+<img src = "./readme_img/1.png">
+
+#### \n 지우기
+- 기존 game.map에 있는 '\n'을 지워줌
+<img src = "./readme_img/2.png">
+
+<br><br>
+
 ## mlx 함수 정리
 
 ### mlx_init
