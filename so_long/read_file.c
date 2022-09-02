@@ -6,11 +6,11 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 19:37:40 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/28 20:11:24 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/09/02 11:34:40 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "so_long.h"
+#include "so_long.h"
 
 void	read_file(t_game *game)
 {

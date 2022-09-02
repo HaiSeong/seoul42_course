@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 21:29:09 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/31 21:44:04 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/09/02 11:32:45 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	key_release(int key, t_game *game)
 	return (0);
 }
 
-int			main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	t_game	game;
 	int		i;
@@ -47,14 +47,15 @@ int			main(int argc, char *argv[])
 	i = 0;
 	while (argv[1][i] != '\0')
 		i++;
-	if (ft_strncmp(&argv[1][i-4], ".ber", 4) != 0)
+	if (ft_strncmp(&argv[1][i - 4], ".ber", 4) != 0)
 		print_error("The file must be *.ber");
-	if (open(argv[1],O_RDONLY) < 0)
+	if (open(argv[1], O_RDONLY) < 0)
 		print_error("Check the file name again");
 	init_game(&game, argv[1]);
 	read_file(&game);
 	check(&game);
-	game.win = mlx_new_window(game.mlx, 32 * game.map_width, 32 * game.map_height, "so_long");
+	game.win = mlx_new_window(game.mlx,
+			32 * game.map_width, 32 * game.map_height, "so_long");
 	draw_map(game);
 	mlx_hook(game.win, KEY_RELEASE, 0, &key_release, &game);
 	mlx_hook(game.win, KEY_EXIT, 0, &exit_game, &game);

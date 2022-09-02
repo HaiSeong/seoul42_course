@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 15:11:38 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/31 21:46:21 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/09/02 11:36:14 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SO_LONG_H
 # include "./mlx/mlx.h"
 # include "libft/libft.h"
-#include <unistd.h>
+# include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
 
@@ -27,9 +27,9 @@
 # define KEY_S			1
 # define KEY_D			2
 
-typedef struct  s_game {
-    void	*mlx;
-    void	*win;
+typedef struct s_game {
+	void	*mlx;
+	void	*win;
 	char	*file;
 	char	*map;
 	int		map_width;

@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 20:57:16 by hajeong           #+#    #+#             */
-/*   Updated: 2022/08/31 21:43:53 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/09/02 11:34:12 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	move(t_game *game, int now, int next)
 	{
 		game->move_cnt++;
 		ft_printf("Success! Score : %d steps!\n", game->move_cnt);
-		exit(0); // exit
+		exit(0);
 	}
 	else if (game->map[next] == 'C')
 	{
@@ -37,7 +37,7 @@ static void	move(t_game *game, int now, int next)
 	}
 }
 
-void move_w(t_game *game)
+void	move_w(t_game *game)
 {
 	int	now;
 	int	next;
@@ -47,11 +47,11 @@ void move_w(t_game *game)
 		now++;
 	next = now - game->map_width;
 	if (next < 0)
-		return ; //do noting
+		return ;
 	move(game, now, next);
 }
 
-void move_s(t_game *game)
+void	move_s(t_game *game)
 {
 	int	now;
 	int	next;
@@ -61,11 +61,11 @@ void move_s(t_game *game)
 		now++;
 	next = now + game->map_width;
 	if (next > (int) ft_strlen(game->map) - 1)
-		return ; //do noting
+		return ;
 	move(game, now, next);
 }
 
-void move_d(t_game *game)
+void	move_d(t_game *game)
 {
 	int	now;
 	int	next;
@@ -75,11 +75,11 @@ void move_d(t_game *game)
 		now++;
 	next = now + 1;
 	if (now % game->map_width == game->map_width - 1)
-		return ; //do noting
+		return ;
 	move(game, now, next);
 }
 
-void move_a(t_game *game)
+void	move_a(t_game *game)
 {
 	int	now;
 	int	next;
@@ -89,6 +89,6 @@ void move_a(t_game *game)
 		now++;
 	next = now - 1;
 	if (now % game->map_width == 0)
-		return ; //do noting
+		return ;
 	move(game, now, next);
 }
