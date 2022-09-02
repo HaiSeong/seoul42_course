@@ -9,4 +9,4 @@
 | 1 | [born2beroot](https://github.com/HaiSeong/seoul42_course/tree/main/born2broot)| virtual machine | linux, sudo, ssh, ufw ... | 22.08.21 |
 | 2 | [push_swap](https://github.com/HaiSeong/seoul42_course/tree/main/push_swap)| c | algorithm | 22.08.31 |
 | 2 | [so_long](https://github.com/HaiSeong/seoul42_course/tree/main/so_long)| c | graphic | 22.09.02 |
-| 2 | [minitalk](https://github.com/HaiSeong/seoul42_course/tree/main/minitalk)| c | graphic |  |
+| 2 | [minitalk](https://github.com/HaiSeong/seoul42_course/tree/main/minitalk)| c |  |  |
