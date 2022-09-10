@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 20:26:22 by hajeong           #+#    #+#             */
-/*   Updated: 2022/09/09 20:35:52 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/09/10 12:22:35 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	main(int argc, char *argv[])
 	if (argc != 3)
 		print_error("Wrong Arguments!");
 	pid = ft_atoi(argv[1]);
-	if (pid < 100 || pid > 99998)
+	if (pid < 101 || pid > 99998)
 		print_error("Invalid PID check again!");
 	str = ft_strjoin(argv[2], "\n");
 	if (str == NULL)
