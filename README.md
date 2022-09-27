@@ -10,3 +10,4 @@
 | 2 | [push_swap](https://github.com/HaiSeong/seoul42_course/tree/main/push_swap)| c | algorithm | 22.08.31 |
 | 2 | [so_long](https://github.com/HaiSeong/seoul42_course/tree/main/so_long)| c | graphic | 22.09.02 |
 | 2 | [minitalk](https://github.com/HaiSeong/seoul42_course/tree/main/minitalk)| c | signal | 22.09.11 |
+| 3 | [minishell](https://github.com/Heosejin98/minishell)| c |  |  |
