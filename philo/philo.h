@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 21:45:17 by hajeong           #+#    #+#             */
-/*   Updated: 2022/11/11 21:47:37 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/11/11 22:07:51 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
+# include "libft/libft.h"
 
 
 #endif
