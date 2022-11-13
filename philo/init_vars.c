@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 16:03:53 by hajeong           #+#    #+#             */
-/*   Updated: 2022/11/13 16:39:56 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/11/13 18:57:06 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ void init_vars(t_vars *vars, int argc, char *argv[])
 	{
 		vars->must_eat = ft_atoi(argv[5]);
 		if (vars->must_eat < 0)
-			ft_error("Negative argument");
+			ft_error("must_eat have to be positive");
 	}
 	if (vars->philo_number <= 0 || vars->time_to_die <= 0
 		|| vars->time_to_eat <= 0 || vars->time_to_sleep <= 0)
-			ft_error("Negative argument");
+		ft_error("argument have to be positive");
 }

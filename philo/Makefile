@@ -13,7 +13,7 @@
 NAME		= philo
 LIBFT		= libft
 
-SRCS = philo.c philo_util.c init_vars.c
+SRCS = philo.c philo_util.c init_vars.c make_thread.c action.c
 		
 
 OBJS		= $(SRCS:%.c=%.o)
