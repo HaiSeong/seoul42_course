@@ -13,12 +13,12 @@
 NAME		= philo
 LIBFT		= libft
 
-SRCS = philo.c
+SRCS = philo.c philo_util.c init_vars.c
 		
 
 OBJS		= $(SRCS:%.c=%.o)
 
-FLAGS		= -Wall -Wextra -Werror
+FLAGS		= -Wall -Wextra -Werror -g
 
 all			:	$(NAME)
 

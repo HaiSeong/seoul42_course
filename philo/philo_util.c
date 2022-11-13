@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   philo_util.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hajeong <hajeong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/13 16:37:58 by hajeong           #+#    #+#             */
-/*   Updated: 2022/11/13 16:47:55 by hajeong          ###   ########.fr       */
+/*   Created: 2022/11/13 16:37:52 by hajeong           #+#    #+#             */
+/*   Updated: 2022/11/13 16:40:40 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-
-int main(int argc, char *argv[])
+int ft_error(char *msg)
 {
-	t_vars vars;
-
-	init_vars(&vars, argc, argv);
-	
-		
+	printf("Error : %s\n", msg);
+	exit(1);
 }
