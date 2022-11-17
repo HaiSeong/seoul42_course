@@ -65,9 +65,13 @@ int init_vars(t_vars *vars, int argc, char *argv[])
 	vars->time_to_sleep = ft_atoi(argv[4]);
 	vars->must_eat = -1;
 	if (argc == 6)
+	{
 		vars->must_eat = ft_atoi(argv[5]);
+		if (vars->must_eat <= 0)
+			return ft_error("argument have to be positive");
+	}
 	if (vars->num_of_philos <= 0 || vars->time_to_die <= 0
-		|| vars->time_to_eat <= 0 || vars->time_to_sleep <= 0 || vars->must_eat <= 0)
+		|| vars->time_to_eat <= 0 || vars->time_to_sleep <= 0)
 		return ft_error("argument have to be positive");
 	vars->time_of_start = get_time();
 	vars->philo_eat = 0;
