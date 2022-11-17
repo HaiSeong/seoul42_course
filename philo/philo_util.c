@@ -1,40 +1,27 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   philo_util.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hajeong <hajeong@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/13 16:37:52 by hajeong           #+#    #+#             */
-/*   Updated: 2022/11/13 19:58:52 by hajeong          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "philo.h"
 
-void ft_error(char *msg)
+int	ft_error(char *str)
 {
-	printf("Error : %s\n", msg);
-	exit(1);
+	printf("Error : %s\n", str);
+	return 1;
 }
 
-void ft_error_free(char *msg, t_vars *vars)
+long long	get_time(void)
 {
-	ft_error(msg);
-	free(vars->fork);
-	vars->fork = NULL;
-	exit(1);
+	struct timeval	time;
+	long long		ms;
+
+	if (gettimeofday(&time, NULL) != 0)
+		return (1);
+	ms = time.tv_sec * 1000 + time.tv_usec / 1000;
+	return (ms);
 }
 
-long long	milli_sec(struct timeval time)
+void	delay(long long time_to_sleep)
 {
-	return (time.tv_sec * 1000 + time.tv_usec / 1000);
-}
+	long long	target_time;
 
-int	get_time(t_vars *vars)
-{
-	struct timeval	now;
-
-	gettimeofday(&now, NULL);
-	return ((int)(milli_sec(now) - vars->start_time));
+	target_time = get_time() + time_to_sleep;
+	while (target_time > get_time())
+		usleep(100);
 }

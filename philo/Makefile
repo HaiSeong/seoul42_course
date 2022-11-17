@@ -1,43 +1,42 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: hajeong <hajeong@student.42.fr>            +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/11 21:45:41 by hajeong           #+#    #+#              #
-#    Updated: 2022/11/11 21:45:41 by hajeong          ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+NAME 		=	philo
 
-NAME		= philo
-LIBFT		= libft
+CC 			=	cc
+CFLAGS		=	-Wall -Wextra -Werror
+RM			=	rm -f
 
-SRCS = philo.c philo_util.c init_vars.c make_thread.c action.c
-		
-
-OBJS		= $(SRCS:%.c=%.o)
-
-FLAGS		= -Wall -Wextra -Werror -g
-
-all			:	$(NAME)
-
-$(NAME)		:	$(OBJS)
-		make all -C $(LIBFT)/
-		cc -o $(NAME) $(OBJS) -L ./libft -l ft
-
-%.o			:	%.c
-		cc $(FLAGS) -c $^ -o $@
+SRCS	 =	init_arg.c\
+			init_philo.c\
+			main.c \
+			philo_func.c\
+			philo_func2.c\
+			philo_util.c
 
 
-clean		:
-		rm -f $(OBJS)
-		make clean -C $(LIBFT)
+OBJS = $(SRCS:%.c=%.o)
 
-fclean		:	clean
-		rm -f $(NAME)
-		make fclean -C $(LIBFT)
+OBJS		=	$(SRCS:.c=.o)
+BONUS_OBJS	=	$(BONUS_SRCS:.c=.o)
+INCLUDES 	= 	-I./
 
-re			:	fclean all
+.PHONY: all clean fclean re bonus
 
-.PHONY		:	all clean fclean re
+%.o: %.c
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $(<:.c=.o)
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(INCLUDES) $(OBJS) -o $(NAME)
+
+$(NAME_BONUS): $(BONUS_OBJS)
+	$(CC) -o $@ $^
+
+clean:
+	$(RM) $(OBJS) 
+
+fclean: clean
+	$(RM) $(NAME)
+
+re :
+		make fclean
+		make all
