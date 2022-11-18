@@ -31,15 +31,15 @@ typedef struct s_philo{
 }	t_philo;
 
 typedef struct s_vars{
-	t_philo			*philo_args;
+	t_philo			*philo_arr;
 	int				num_of_philos;
 	int				time_to_die;
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				must_eat;
 	long long		time_of_start;
-	int				philo_dead;
 	int				philo_eat;
+	int				philo_dead;
 	pthread_mutex_t	print;
 	pthread_mutex_t	*deadcheck;
 	pthread_mutex_t	*forks;

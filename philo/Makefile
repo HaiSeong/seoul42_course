@@ -4,7 +4,7 @@ CC 			=	cc
 CFLAGS		=	-Wall -Wextra -Werror
 RM			=	rm -f
 
-SRCS	 =	init_arg.c\
+SRCS	 =	init_vars.c\
 			init_philo.c\
 			main.c \
 			philo_func.c\
@@ -15,21 +15,16 @@ SRCS	 =	init_arg.c\
 OBJS = $(SRCS:%.c=%.o)
 
 OBJS		=	$(SRCS:.c=.o)
-BONUS_OBJS	=	$(BONUS_SRCS:.c=.o)
-INCLUDES 	= 	-I./
 
 .PHONY: all clean fclean re bonus
 
 %.o: %.c
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $(<:.c=.o)
+	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(INCLUDES) $(OBJS) -o $(NAME)
-
-$(NAME_BONUS): $(BONUS_OBJS)
-	$(CC) -o $@ $^
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 	$(RM) $(OBJS) 

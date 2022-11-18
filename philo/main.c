@@ -6,7 +6,7 @@ int	check_eat(t_vars *vars)
 
 	i = 0;
 	while (i < vars->num_of_philos && vars->must_eat != -1 && \
-	vars->philo_args[i].eat_cnt >= vars->must_eat)
+	vars->philo_arr[i].eat_cnt >= vars->must_eat)
 		i++;
 	if (i == vars->num_of_philos)
 		vars->philo_eat = 1;
@@ -21,10 +21,10 @@ int	check_dead(t_vars *vars)
 	while (i < vars->num_of_philos && (vars->philo_dead == 0))
 	{
 		pthread_mutex_lock(&(vars->deadcheck[i]));
-		if (get_time() - vars->philo_args[i].last_eat_time \
+		if (get_time() - vars->philo_arr[i].last_eat_time \
 		> vars->time_to_die)
 		{
-			philo_print(&(vars->philo_args[i]), DEAD);
+			philo_print(&(vars->philo_arr[i]), DEAD);
 			vars->philo_dead = 1;
 		}
 		pthread_mutex_unlock(&(vars->deadcheck[i]));
@@ -56,7 +56,7 @@ int	main(int argc, char *argv[])
 	t_vars	vars;
 
 	if (argc < 5 || argc > 6)
-		return (ft_error("Error: argument\n"));
+		return (ft_error("argument\n"));
 	if (init_vars(&vars, argc, argv) != 0)
 		return (1);
 	if (init_philo(&vars) != 0)
