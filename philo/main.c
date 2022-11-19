@@ -24,7 +24,9 @@ int	check_dead(t_vars *vars)
 		if (get_time() - vars->philo_arr[i].last_eat_time \
 		> vars->time_to_die)
 		{
-			philo_print(&(vars->philo_arr[i]), DEAD);
+			pthread_mutex_lock(vars->philo_arr[i].print);
+			printf("%lld %d died\n", get_time() - vars->time_of_start, vars->philo_arr[i].id);
+			pthread_mutex_unlock(vars->philo_arr[i].print);
 			vars->philo_dead = 1;
 		}
 		pthread_mutex_unlock(&(vars->deadcheck[i]));

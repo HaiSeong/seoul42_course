@@ -18,7 +18,7 @@
 typedef struct s_vars	t_vars;
 
 typedef struct s_philo{
-	int				number;
+	int				id;
 	long long		last_eat_time;
 	int				eat_cnt;
 	pthread_t		thread;

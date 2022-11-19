@@ -42,7 +42,7 @@ int	make_philo(t_vars *vars)
 		return (ft_error("System Error"));
 	while (i < vars->num_of_philos)
 	{	
-		vars->philo_arr[i].number = i + 1;
+		vars->philo_arr[i].id = i + 1;
 		vars->philo_arr[i].last_eat_time = get_time();
 		vars->philo_arr[i].eat_cnt = 0;
 		vars->philo_arr[i].left_fork = &(vars->forks[i]);
