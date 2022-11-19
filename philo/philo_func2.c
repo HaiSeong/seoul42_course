@@ -6,19 +6,14 @@ void	philo_print(t_philo *philo, int state)
 	printf("%lld %d ", get_time() - philo->vars->time_of_start, philo->number);
 	if (state == EAT)
 	{
-		printf("is eating");
-		if (philo->vars->must_eat)
-			printf(" - have eaten %d times", philo->eat_cnt);
-		printf("\n");
+		printf("is eating\n");
 	}
 	else if (state == SLEEP)
 		printf("is sleeping\n");
 	else if (state == THINK)
 		printf("is thinking\n");
-	else if (state == FORK_L)
-		printf("has taken fork on the left\n");
-	else if (state == FORK_R)
-		printf("has taken fork on the right\n");
+	else if (state == FORK)
+		printf("has taken fork\n");
 	else if (state == DEAD)
 	{
 		printf("died\n");
@@ -32,15 +27,15 @@ void	philo_take_fork(t_philo *philo)
 	if (philo->number % 2 == 0)
 	{
 		pthread_mutex_lock(philo->left_fork);
-		philo_print(philo, FORK_L);
+		philo_print(philo, FORK);
 		pthread_mutex_lock(philo->right_fork);
-		philo_print(philo, FORK_R);
+		philo_print(philo, FORK);
 	}
 	else
 	{
 		pthread_mutex_lock(philo->right_fork);
-		philo_print(philo, FORK_R);
+		philo_print(philo, FORK);
 		pthread_mutex_lock(philo->left_fork);
-		philo_print(philo, FORK_L);
+		philo_print(philo, FORK);
 	}
 }

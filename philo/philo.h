@@ -5,8 +5,7 @@
 # define SLEEP 2
 # define THINK 3
 # define DEAD 4
-# define FORK_L 5
-# define FORK_R 6
+# define FORK 5
 
 # include <stdio.h>
 # include <pthread.h>
