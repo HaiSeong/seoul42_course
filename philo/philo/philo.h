@@ -68,8 +68,8 @@ void			take_left_fork(t_philo *philo);
 void			take_right_fork(t_philo *philo);
 void			put_fork(t_philo *philo);
 
-int				philo_init(t_info *info, t_philo **philo, pthread_mutex_t *fork, \
-				int *fork_value);
+int				philo_init(t_info *info, t_philo **philo, \
+				pthread_mutex_t *fork, int *fork_value);
 
 void			routine_start(t_philo **philo, t_info *info);
 int				is_all_alive(t_info *info);
