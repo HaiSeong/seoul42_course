@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 15:51:38 by hajeong           #+#    #+#             */
-/*   Updated: 2022/11/20 09:08:22 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/11/24 20:49:09 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ static void	check_someone_die(t_philo *philo, t_info *info)
 		if (get_time() - philo->eat_time >= philo->info->time_to_die)
 		{
 			pthread_mutex_lock(info->guard);
-			printf("%lld %d died\n", relative_time(philo->info), philo->num);
 			info->all_alive = 0;
+			pthread_mutex_lock(info->print);
+			printf("%lld %d died\n", relative_time(philo->info), philo->num);
 			pthread_mutex_unlock(info->guard);
 		}
 	}

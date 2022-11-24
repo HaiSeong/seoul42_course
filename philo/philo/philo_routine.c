@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 15:50:54 by hajeong           #+#    #+#             */
-/*   Updated: 2022/11/20 09:05:34 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/11/24 20:49:05 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ void	*routine(void *philo_data)
 			pthread_mutex_lock(philo->guard);
 			philo->life = 0;
 			pthread_mutex_unlock(philo->guard);
-			break ;
 		}
 		sleeping(philo);
 		if (is_all_alive(philo->info))
