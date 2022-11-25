@@ -6,7 +6,7 @@
 /*   By: hajeong <hajeong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 15:51:46 by hajeong           #+#    #+#             */
-/*   Updated: 2022/11/20 10:26:48 by hajeong          ###   ########.fr       */
+/*   Updated: 2022/11/25 19:31:55 by hajeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,23 @@ static int	argv_check(char *argv[])
 	return (0);
 }
 
+void	*exception_rootine(void *data)
+{
+	long long	*time;
+
+	time = (long long *)data;
+	printf("%d %d has taken a fork\n", 0, 1);
+	usleep(*time * 1000);
+	printf("%lld %d died\n", *time, 1);
+	return (0);
+}
+
 static int	exception_case(long long time)
 {
-	printf("%d %d has taken a fork\n", 0, 1);
-	usleep(time * 1000);
-	printf("%lld %d died\n", time, 1);
+	pthread_t	one;
+
+	pthread_create(&one, NULL, exception_rootine, &time);
+	pthread_join(one, NULL);
 	return (0);
 }
 
